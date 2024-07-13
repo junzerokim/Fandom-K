@@ -2,22 +2,21 @@
   display: inline-block;
 }
 
-.idol-list-item {
-  position: relative;
-}
-
 .idol-list-item.my-favorite-idol {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
   margin-right: 24px;
 }
 
-.deleteButton {
+.delete-button {
   position: absolute;
   top: 0;
   right: 0;
+  width: 32px;
+  height: 32px;
 }
 
 .idol-profile-wrapper.my-favorite-idol {

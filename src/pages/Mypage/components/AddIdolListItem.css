@@ -1,0 +1,78 @@
+.idol-list-item-wrapper {
+  display: inline-block;
+}
+
+.idol-list-item.add-favorite-idol {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.idol-profile-wrapper.add-favorite-idol {
+  position: relative;
+  width: 115px;
+  height: 115px;
+  margin-bottom: 8px;
+  padding: 1.31px;
+  border: solid 1.31px var(--brand-orange);
+  border-radius: 9999px;
+}
+
+.selected-idol-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
+.selected-idol-color {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 9999px;
+  background-image: var(--brand-gradation);
+  opacity: 0.5;
+  z-index: 1;
+}
+
+.selected-idol-check {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 9999px;
+  z-index: 2;
+}
+
+.idol-profile {
+  border: solid 1px #000;
+  border-radius: 9999px;
+  object-fit: cover;
+}
+
+.idol-profile.add-favorite-idol {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.idol-name {
+  margin-bottom: 2px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #f4efef;
+}
+
+.idol-group {
+  font-size: 14px;
+  font-weight: 500;
+  color: #9a999f;
+}

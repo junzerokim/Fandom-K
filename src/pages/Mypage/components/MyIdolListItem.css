@@ -1,0 +1,53 @@
+.idol-list-item-wrapper {
+  display: inline-block;
+}
+
+.idol-list-item {
+  position: relative;
+}
+
+.idol-list-item.my-favorite-idol {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 24px;
+}
+
+.deleteButton {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.idol-profile-wrapper.my-favorite-idol {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 8px;
+  border: solid 1.31px var(--brand-orange);
+  border-radius: 9999px;
+}
+
+.idol-profile {
+  border: solid 1px #000;
+  border-radius: 9999px;
+  object-fit: cover;
+}
+
+.idol-profile.my-favorite-idol {
+  width: 100%;
+  height: 100%;
+}
+
+.idol-name {
+  margin-bottom: 2px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #f4efef;
+}
+
+.idol-group {
+  font-size: 14px;
+  font-weight: 500;
+  color: #9a999f;
+}

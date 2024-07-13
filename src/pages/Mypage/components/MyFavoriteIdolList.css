@@ -1,0 +1,14 @@
+.my-favorite-idol-list {
+  width: 100%;
+  padding-bottom: 40px;
+  border-bottom: solid 1px #ffffff26;
+  white-space: nowrap;
+  overflow-x: auto;
+  /* 스크롤 바 숨기기 */
+  -ms-overflow-style: none; /*IE, Edge*/
+  scrollbar-width: none; /*Firefox*/
+  ::-webkit-scrollbar {
+    display: none; /*Chrome, Safari, Opera*/
+    width: 0px;
+  }
+}

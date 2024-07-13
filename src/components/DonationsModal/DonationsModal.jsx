@@ -38,8 +38,8 @@ function DonationsModal({ profilePicture, closeModal }) {
         <DeleteButton onClick={closeModal} />
       </div>
       <img className="profile-picture" src={profilePicture} alt="아이돌 이미지" />
-      <div className="subtitle">subtitle</div>
-      <div className="title">title</div>
+      <div className="subtitle">{subtitle}</div>
+      <div className="title">{title}</div>
       <div className="input-wrapper">
         <input name="credit" type="number" value={credit} placeholder="크레딧 입력" onChange={handleInputChange} />
         <img src={donationCredit} alt="크레딧 이미지" />

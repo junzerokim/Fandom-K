@@ -1,6 +1,10 @@
-
 .header-container {
   height: 80px;
+  background: var(--gray-900);
+  position: fixed;
+  right: 0px;
+  left: 0px;
+  z-index: 1000;
 }
 
 .header-wrapper {
@@ -12,15 +16,15 @@
   height: 100%;
   position: relative;
 }
+
 .header-logo-container {
-  
   background: none;
   border: none;
   padding: 0;
   display: flex;
   align-items: center;
-  justify-content: center; /* 가운데 정렬 */
-  flex: 1; /* 로고가 가운데로 오게 하기 위해 추가 */
+  justify-content: center;
+  flex: 1;
 }
 
 .header-profile-container {
@@ -29,7 +33,7 @@
   cursor: pointer;
   padding: 0;
   position: absolute;
-  right: 0px; /* 오른쪽 여백 설정 */
+  right: 0;
 }
 
 .header-logo {
@@ -41,4 +45,22 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
+}
+
+@media (max-width: 1199px) {
+  .header-container {
+    padding: 0 24px;
+  }
+  .header-logo {
+    width: 120px;
+  }
+}
+
+@media (max-width: 767px) {
+  .header-container {
+    height: 40px;
+  }
+  .header-logo {
+    width: 108px;
+  }
 }

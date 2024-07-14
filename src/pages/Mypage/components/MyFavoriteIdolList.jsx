@@ -1,19 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './MyFavoriteIdolList.css';
 import MyIdolListItem from './MyIdolListItem';
 
-function MyFavoriteIdolList() {
-  const [myFavoriteIdolList, setMyFavoriteIdolList] = useState([]);
-
-  useEffect(() => {
-    const localStorageData = JSON.parse(localStorage.getItem('my-favorite-idol')) || [];
-    setMyFavoriteIdolList(localStorageData);
-  }, []);
-
-  const handleDeleteIdolButtonClick = (id) => {
-    const updatedIdolList = myFavoriteIdolList.filter((idol) => idol.id !== id);
+function MyFavoriteIdolList({ myFavoriteIdolList, setMyFavoriteIdolList }) {
+  const handleDeleteIdolButtonClick = (deleteIdolId) => {
+    const updatedIdolList = myFavoriteIdolList.filter((idol) => idol.id !== deleteIdolId);
     setMyFavoriteIdolList(updatedIdolList);
-    localStorage.setItem('my-favorite-idol', JSON.stringify(updatedIdolList));
   };
 
   return myFavoriteIdolList.length === 0 ? (

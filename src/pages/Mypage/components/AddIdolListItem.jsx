@@ -3,7 +3,7 @@ import React from 'react';
 import './AddIdolListItem.css';
 import checkIcon from '../images/ic_check.svg';
 
-function AddIdolListItem({ isSelected = false, idolData }) {
+function AddIdolListItem({ isSelected, idolData }) {
   const { name, group, profilePicture } = idolData;
 
   return (

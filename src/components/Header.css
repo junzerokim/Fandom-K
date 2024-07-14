@@ -1,0 +1,44 @@
+
+.header-container {
+  height: 80px;
+}
+
+.header-wrapper {
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  height: 100%;
+  position: relative;
+}
+.header-logo-container {
+  
+  background: none;
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* 가운데 정렬 */
+  flex: 1; /* 로고가 가운데로 오게 하기 위해 추가 */
+}
+
+.header-profile-container {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  position: absolute;
+  right: 0px; /* 오른쪽 여백 설정 */
+}
+
+.header-logo {
+  width: 167.92px;
+  height: auto;
+}
+
+.header-profile {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}

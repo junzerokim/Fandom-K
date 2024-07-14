@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import plusIcon from '../images/ic_plus.svg';
+import plusIcon from '../assets/images/ic_plus.svg';
 import './AddFavoriteIdolList.css';
 
 import AddIdolListItem from './AddIdolListItem';

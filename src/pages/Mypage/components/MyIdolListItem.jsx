@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './MyIdolListItem.css';
-import deleteButton from '../images/btn_delete.svg';
+import deleteButton from '../assets/images/btn_delete.svg';
 
 function MyIdolListItem({ idolData, onClick }) {
   const { id, name, group, profilePicture } = idolData;

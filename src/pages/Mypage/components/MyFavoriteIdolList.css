@@ -1,6 +1,15 @@
-.my-favorite-idol-list {
+.my-favorite-idol-list-empty-message {
+  height: 155px;
+  margin: auto;
+  line-height: 155px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #9a999f;
+}
+
+.my-favorite-idol-list-wrapper {
   width: 100%;
-  margin-bottom: 83px;
+  margin-bottom: 40px;
   white-space: nowrap;
   overflow-x: auto;
   /* 스크롤 바 숨기기 */

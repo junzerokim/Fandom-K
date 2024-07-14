@@ -1,20 +1,31 @@
-.header {
+.header-container {
+  height: 80px;
+  background: var(--gray-900);
+  position: sticky;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  z-index: 1000;
+}
+
+.header-wrapper {
+  max-width: 1200px;
   display: flex;
-  justify-content: center; /* 수평 가운데 정렬 */
-  align-items: center; /* 수직 가운데 정렬 */
-  height: 80px; /* 높이 설정 */
-  padding: 0 20px; /* 좌우 패딩 추가 (필요시 조정) */
-  position: relative; /* 프로필 이미지의 절대 위치 지정을 위해 */
-  background-color: transparent; /* 배경색 없애기 */
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  height: 100%;
+  position: relative;
 }
 
 .header-logo-container {
   background: none;
   border: none;
-  cursor: pointer;
   padding: 0;
   display: flex;
   align-items: center;
+  justify-content: center;
+  flex: 1;
 }
 
 .header-profile-container {
@@ -22,17 +33,35 @@
   border: none;
   cursor: pointer;
   padding: 0;
-  position: absolute; /* 프로필 이미지를 오른쪽에 위치시키기 위해 */
-  right: 20px; /* 오른쪽 여백 조정 */
+  position: absolute;
+  right: 0;
 }
 
 .header-logo {
-  width: 167.92px; /* 로고 크기 조정 */
+  width: 167.92px;
   height: auto;
 }
 
 .header-profile {
-  width: 32px; /* 프로필 이미지 크기 조정 */
-  height: 32px; /* 프로필 이미지 크기 조정 */
-  border-radius: 50%; /* 원 형태로 만들기 */
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+@media (max-width: 1199px) {
+  .header-container {
+    padding: 0 24px;
+  }
+  .header-logo {
+    width: 120px;
+  }
+}
+
+@media (max-width: 767px) {
+  .header-container {
+    height: 40px;
+  }
+  .header-logo {
+    width: 108px;
+  }
 }

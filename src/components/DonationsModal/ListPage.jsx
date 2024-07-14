@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import DonationsList from './DonationsList';
 import DonationsModal from './DonationsModal';
 
-const ListPage = () => {
+function ListPage() {
   const [showDonationsModal, setShowDonationsModal] = useState(false);
   const [selectedIdol, setSelectedIdol] = useState(null);
 
@@ -24,6 +24,6 @@ const ListPage = () => {
       {showDonationsModal && <DonationsModal idol={selectedIdol} closeModal={closeModal} />}
     </div>
   );
-};
+}
 
 export default ListPage;

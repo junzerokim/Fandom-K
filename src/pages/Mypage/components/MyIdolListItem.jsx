@@ -1,30 +1,25 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import './MyIdolListItem.css';
-import deleteButton from '../images/btn_delete.svg';
+import deleteButton from '../assets/images/btn_delete.svg';
 
-function MyIdolListItem({ idolName, idolGroup, idolProfilePicture }) {
+function MyIdolListItem({ idolData, onClick }) {
+  const { id, name, group, profilePicture } = idolData;
+
   return (
     <div className="idol-list-item-wrapper">
       <div className="idol-list-item my-favorite-idol">
-        <button className="deleteButton" type="button" aria-label="Delete Idol Button">
+        <button className="delete-button" type="button" aria-label="Delete Idol Button" onClick={() => onClick(id)}>
           <img src={deleteButton} alt="delete button" width="32px" height="32px" />
         </button>
         <div className="idol-profile-wrapper my-favorite-idol">
-          <img className="idol-profile my-favorite-idol" src={idolProfilePicture} alt="Idol profile" />
+          <img className="idol-profile my-favorite-idol" src={profilePicture} alt="Idol profile" />
         </div>
-        <h1 className="idol-name">{idolName}</h1>
-        <h2 className="idol-group">{idolGroup}</h2>
+        <h1 className="idol-name">{name}</h1>
+        <h2 className="idol-group">{group}</h2>
       </div>
     </div>
   );
 }
-
-MyIdolListItem.propTypes = {
-  idolName: PropTypes.string.isRequired,
-  idolGroup: PropTypes.string.isRequired,
-  idolProfilePicture: PropTypes.string.isRequired,
-};
 
 export default MyIdolListItem;

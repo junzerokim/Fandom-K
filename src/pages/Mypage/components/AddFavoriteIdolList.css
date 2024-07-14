@@ -1,4 +1,4 @@
-.add-favorite-idol-list {
+.add-favorite-idol-list-wrapper {
   display: grid;
   grid-template-rows: repeat(2, 1fr);
   grid-template-columns: repeat(8, 1fr);
@@ -23,6 +23,6 @@
   color: var(--white);
 }
 
-.button-plus-icon{
+.button-plus-icon {
   margin-right: 8px;
 }

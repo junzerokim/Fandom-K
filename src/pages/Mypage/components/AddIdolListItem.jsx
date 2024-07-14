@@ -1,10 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import './AddIdolListItem.css';
-import checkIcon from '../images/ic_check.svg';
+import checkIcon from '../assets/images/ic_check.svg';
 
-function AddIdolListItem({ isSelected = false, idolData }) {
+function AddIdolListItem({ isSelected, idolData }) {
   const { name, group, profilePicture } = idolData;
 
   return (
@@ -27,15 +26,5 @@ function AddIdolListItem({ isSelected = false, idolData }) {
     </div>
   );
 }
-
-AddIdolListItem.propTypes = {
-  isSelected: PropTypes.bool.isRequired,
-  idolData: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    group: PropTypes.string.isRequired,
-    profilePicture: PropTypes.string.isRequired,
-  }).isRequired,
-};
 
 export default AddIdolListItem;

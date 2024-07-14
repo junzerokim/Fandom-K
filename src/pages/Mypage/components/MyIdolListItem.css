@@ -2,25 +2,26 @@
   display: inline-block;
 }
 
-.idol-list-item {
+.idol-list-item.my-favorite-idol {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
-}
-
-.idol-list-item.my-favorite-idol {
   margin-right: 24px;
 }
 
-.deleteButton {
+.delete-button {
   position: absolute;
   top: 0;
   right: 0;
+  width: 32px;
+  height: 32px;
 }
 
 .idol-profile-wrapper.my-favorite-idol {
+  width: 100px;
+  height: 100px;
   margin-bottom: 8px;
   border: solid 1.31px var(--brand-orange);
   border-radius: 9999px;
@@ -33,8 +34,8 @@
 }
 
 .idol-profile.my-favorite-idol {
-  width: 100px;
-  height: 100px;
+  width: 100%;
+  height: 100%;
 }
 
 .idol-name {

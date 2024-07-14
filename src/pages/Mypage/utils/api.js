@@ -1,7 +1,7 @@
 const BASE_URL = 'https://fandom-k-api.vercel.app/8-3';
 
 async function getIdolData() {
-  const LIMIT = 20;
+  const LIMIT = 10;
   const url = `${BASE_URL}/idols?pageSize=${LIMIT}`;
 
   try {
@@ -16,7 +16,7 @@ async function getIdolData() {
 
     return data;
   } catch (error) {
-    console.error('Error fetching data:', error); // 에러 메시지 확인
+    console.error('Error fetching data:', error);
     return [];
   }
 }

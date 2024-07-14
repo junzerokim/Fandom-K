@@ -17,7 +17,7 @@ function MyFavoriteIdolList() {
   };
 
   return myFavoriteIdolList.length === 0 ? (
-    <div className="empty-my-favorite-idol-list-message">앗! 아직 관심 있는 아이돌이 없어요</div>
+    <div className="my-favorite-idol-list-empty-message">앗! 아직 관심 있는 아이돌이 없어요</div>
   ) : (
     <div className="my-favorite-idol-list-wrapper">
       {myFavoriteIdolList.map((idol) => {

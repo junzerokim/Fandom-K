@@ -1,7 +1,10 @@
-.empty-my-favorite-idol-list-message {
+.my-favorite-idol-list-empty-message {
   height: 155px;
   margin: auto;
   line-height: 155px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #9a999f;
 }
 
 .my-favorite-idol-list-wrapper {

@@ -1,7 +1,7 @@
 @import 'slick-carousel/slick/slick.css';
 @import 'slick-carousel/slick/slick-theme.css';
 
-.my-page .slick-arrow {
+.add-favorite-idol-list-wrapper .slick-arrow {
   position: absolute;
   width: 29px;
   height: 135px;

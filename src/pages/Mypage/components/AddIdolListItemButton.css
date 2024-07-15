@@ -1,4 +1,4 @@
-.add-favorite-idol-list-wrapper {
+.my-page {
   display: grid;
   grid-template-rows: repeat(2, 1fr);
   grid-template-columns: repeat(8, 1fr);

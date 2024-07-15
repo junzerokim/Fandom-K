@@ -6,7 +6,6 @@ import plusIcon from '../assets/images/ic_plus.svg';
 import './AddFavoriteIdolList.css';
 
 import LoadingBar from '../../../components/Loadingbar';
-// import AddIdolListItem from './AddIdolListItem';
 import AddIdolListItemButton from './AddIdolListItemButton';
 
 function AddFavoriteIdolList({ myFavoriteIdolList, setMyFavoriteIdolList }) {
@@ -48,24 +47,8 @@ function AddFavoriteIdolList({ myFavoriteIdolList, setMyFavoriteIdolList }) {
     slidesToShow: 1,
     slidesToScroll: 1,
     infinite: false,
-    // responsive: [
-    //   {
-    //     breakpoint: 1024,
-    //     settings: {
-    //       slidesToShow: 8,
-    //       slidesToScroll: 8,
-    //     },
-    //   },
-    //   {
-    //     breakpoint: 768,
-    //     settings: {
-    //       slidesToShow: 6,
-    //       slidesToScroll: 6,
-    //     },
-    //   },
-    // ],
-    prevArrow: <button className="slick-prev" aria-label="Previous slide" />,
-    nextArrow: <button className="slick-next" aria-label="Next slide" />,
+    prevArrow: <button className="slick-prev" aria-label="이전 슬라이드로 가는 화살표" />,
+    nextArrow: <button className="slick-next" aria-label="이후 슬라이드로 가는 화살표" />,
   };
 
   if (isLoading) {
@@ -89,7 +72,7 @@ function AddFavoriteIdolList({ myFavoriteIdolList, setMyFavoriteIdolList }) {
 
   return (
     <>
-      <div className="my-page">
+      <div className="add-favorite-idol-list-wrapper">
         <Slider
           slidesToShow={sliderSettings.slidesToShow}
           slidesToScroll={sliderSettings.slidesToScroll}
@@ -111,7 +94,7 @@ function AddFavoriteIdolList({ myFavoriteIdolList, setMyFavoriteIdolList }) {
       <button
         className="add-favorite-idol-button"
         type="button"
-        aria-label="Add Favorite Idol Button"
+        aria-label="관심 있는 아이돌 추가 버튼"
         onClick={handleAddIdolButtonClick}
       >
         <img className="button-plus-icon" src={plusIcon} alt="plus icon" />

@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
+import Slider from 'react-slick';
+import useIdolData from '../hooks/useIdolData';
 
 import plusIcon from '../assets/images/ic_plus.svg';
 import './AddFavoriteIdolList.css';
 
-import AddIdolListItem from './AddIdolListItem';
 import LoadingBar from '../../../components/Loadingbar';
-import useIdolData from '../hooks/useIdolData';
+// import AddIdolListItem from './AddIdolListItem';
+import AddIdolListItemButton from './AddIdolListItemButton';
 
 function AddFavoriteIdolList({ myFavoriteIdolList, setMyFavoriteIdolList }) {
   const { idolData, isLoading = true } = useIdolData(); // 기본 아이돌 데이터
@@ -42,6 +44,30 @@ function AddFavoriteIdolList({ myFavoriteIdolList, setMyFavoriteIdolList }) {
     setIsSelected(new Array(idolData.length).fill(false));
   };
 
+  const sliderSettings = {
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    infinite: false,
+    // responsive: [
+    //   {
+    //     breakpoint: 1024,
+    //     settings: {
+    //       slidesToShow: 8,
+    //       slidesToScroll: 8,
+    //     },
+    //   },
+    //   {
+    //     breakpoint: 768,
+    //     settings: {
+    //       slidesToShow: 6,
+    //       slidesToScroll: 6,
+    //     },
+    //   },
+    // ],
+    prevArrow: <button className="slick-prev" aria-label="Previous slide" />,
+    nextArrow: <button className="slick-next" aria-label="Next slide" />,
+  };
+
   if (isLoading) {
     return (
       <div className="add-favorite-idol-list-wrapper">
@@ -50,21 +76,37 @@ function AddFavoriteIdolList({ myFavoriteIdolList, setMyFavoriteIdolList }) {
     );
   }
 
+  // 아이돌 데이터를 n개씩 그룹화하는 함수
+  const idolChunkArray = (array, chunkSize) => {
+    const chunks = [];
+    for (let i = 0; i < array.length; i += chunkSize) {
+      chunks.push(array.slice(i, i + chunkSize));
+    }
+    return chunks;
+  };
+
+  const idolChunks = idolChunkArray(idolData, 16);
+
   return (
     <>
-      <div className="add-favorite-idol-list-wrapper">
-        {idolData.map((idol, index) => {
-          return (
-            <button
-              key={idol.id}
-              type="button"
-              aria-label="Add Favorite Idol"
-              onClick={() => handleSelectIdolButtonClick(idol.id, index)}
-            >
-              <AddIdolListItem isSelected={isSelected[index]} idolData={idol} />
-            </button>
-          );
-        })}
+      <div className="my-page">
+        <Slider
+          slidesToShow={sliderSettings.slidesToShow}
+          slidesToScroll={sliderSettings.slidesToScroll}
+          infinite={sliderSettings.infinite}
+          responsive={sliderSettings.responsive}
+        >
+          {idolChunks.map((idolChunk, idolChunkIndex) => {
+            return (
+              <AddIdolListItemButton
+                key={idolChunkIndex}
+                idolChunk={idolChunk}
+                onClick={handleSelectIdolButtonClick}
+                isSelected={isSelected}
+              />
+            );
+          })}
+        </Slider>
       </div>
       <button
         className="add-favorite-idol-button"

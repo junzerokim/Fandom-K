@@ -1,0 +1,38 @@
+@import 'slick-carousel/slick/slick.css';
+@import 'slick-carousel/slick/slick-theme.css';
+
+.my-page .slick-arrow {
+  position: absolute;
+  width: 29px;
+  height: 135px;
+  color: #fff;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 4px;
+  cursor: pointer;
+  &.slick-prev {
+    left: -52px;
+    background: url(./images/ic_arrow_right.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    &.slick-disabled {
+      background: none;
+    }
+  }
+  &.slick-next {
+    right: -52px;
+    background: url(./images/ic_arrow_left.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    &.slick-disabled {
+      background: none;
+    }
+  }
+  &:hover {
+    opacity: 0.9;
+  }
+  &.slick-prev:before,
+  &.slick-next:before {
+    display: none;
+  }
+}

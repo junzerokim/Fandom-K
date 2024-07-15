@@ -9,11 +9,6 @@ function FavoriteIdolList() {
   const localStorageData = JSON.parse(localStorage.getItem('my-favorite-idol')) || [];
   const [myFavoriteIdolList, setMyFavoriteIdolList] = useState(localStorageData);
 
-  // 초기 로컬 스토리지에서 '내가 관심 있는 아이돌' 데이터 불러오기
-  // useEffect(() => {
-  //   setMyFavoriteIdolList(localStorageData);
-  // }, []);
-
   // myFavoriteIdolList 값이 변할 때마다 로컬 스토리지에 저장
   useEffect(() => {
     localStorage.setItem('my-favorite-idol', JSON.stringify(myFavoriteIdolList));

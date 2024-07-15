@@ -1,7 +1,7 @@
 const BASE_URL = 'https://fandom-k-api.vercel.app/8-3';
 
 async function getIdolData() {
-  const LIMIT = 50;
+  const LIMIT = 24;
   const url = `${BASE_URL}/idols?pageSize=${LIMIT}`;
 
   try {

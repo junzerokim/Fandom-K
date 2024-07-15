@@ -4,10 +4,11 @@ import plusIcon from '../assets/images/ic_plus.svg';
 import './AddFavoriteIdolList.css';
 
 import AddIdolListItem from './AddIdolListItem';
+import LoadingBar from '../../../components/Loadingbar';
 import useIdolData from '../hooks/useIdolData';
 
 function AddFavoriteIdolList({ myFavoriteIdolList, setMyFavoriteIdolList }) {
-  const idolData = useIdolData(); // 기본 아이돌 데이터
+  const { idolData, isLoading = true } = useIdolData(); // 기본 아이돌 데이터
 
   // 해당 인덱스의 아이돌이 선택되었는지 여부를 저장
   const [isSelected, setIsSelected] = useState(new Array(idolData.length).fill(false));
@@ -40,6 +41,14 @@ function AddFavoriteIdolList({ myFavoriteIdolList, setMyFavoriteIdolList }) {
     setSelectedIdolList([]);
     setIsSelected(new Array(idolData.length).fill(false));
   };
+
+  if (isLoading) {
+    return (
+      <div className="add-favorite-idol-list-wrapper">
+        <LoadingBar />
+      </div>
+    );
+  }
 
   return (
     <>

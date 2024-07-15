@@ -1,0 +1,206 @@
+.section {
+  width: 100%;
+  height: 100vh;
+  min-height: 900px;
+  @media (max-width: 767px) {
+    min-height: 100vh;
+  }
+  .section-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    gap: 5px;
+    text-align: center;
+    padding-top: 8rem;
+    padding-bottom: 7rem;
+    @media (max-width: 767px) {
+      padding-top: 5rem;
+      padding-bottom: 4rem;
+    }
+    h2 {
+      font-weight: 600;
+    }
+    .mobile-preview {
+      height: 65vh;
+    }
+  }
+  &.sec01 {
+    background:
+      url(../../assets/images/main_sec01_bg.png) no-repeat center center,
+      url(../../assets/images/img_bg_top.svg) no-repeat top left;
+    background-size: contain;
+    @media (max-width: 767px) {
+      background-size: 120%;
+    }
+    .logo {
+      max-width: 100%;
+      flex-grow: 1;
+      img {
+        width: 100%;
+      }
+    }
+  }
+  &.sec02 {
+    background: url(../../assets/images/main_sec02_bg.png) no-repeat center center;
+    background-size: contain;
+    @media (max-width: 1200px) {
+      background-size: contain;
+    }
+    @media (max-width: 767px) {
+      background-size: 200%;
+    }
+  }
+  &.sec03 {
+    background: url(../../assets/images/main_sec03_bg.png) no-repeat center center;
+    background-size: contain;
+    @media (max-width: 1200px) {
+      background-size: contain;
+    }
+    @media (max-width: 767px) {
+      background-size: 200%;
+    }
+  }
+  &.sec04 {
+    background: url(../../assets/images/main_sec04_bg.png) no-repeat center center;
+    background-size: contain;
+    @media (max-width: 1200px) {
+      background-size: contain;
+    }
+    @media (max-width: 767px) {
+      background-size: 200%;
+    }
+  }
+}
+.section {
+  width: 100%;
+  height: 100vh;
+  min-height: 900px;
+  @media (max-width: 767px) {
+    min-height: 100vh;
+  }
+  .section-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    max-width: 700px;
+    text-align: center;
+    margin: 0 auto;
+    padding: 8rem 1rem 7rem;
+    @media (max-width: 1199px) {
+      padding-top: 66px;
+      padding-bottom: 4rem;
+    }
+    @media (max-width: 767px) {
+      padding-top: 66px;
+      padding-bottom: 5rem;
+    }
+    .mobile-preview {
+      height: 65vh;
+      @media (max-width: 1199px) {
+        height: 55vh;
+      }
+      @media (max-width: 767px) {
+        height: 65vh;
+      }
+    }
+    .main-title {
+      font-size: 26px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      @media (max-width: 1199px) {
+        font-size: 20px;
+        margin-bottom: 32px;
+      }
+      @media (max-width: 767px) {
+        font-size: 20px;
+        margin-bottom: 20px;
+      }
+    }
+    .section-title {
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 1.3;
+      margin-bottom: 60px;
+    }
+    .section-sub-title {
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--point-yellow);
+      line-height: 2.5;
+    }
+    .text-brand-orange {
+      color: var(--brand-orange);
+    }
+    .btn-main {
+      width: 100%;
+      max-width: 477px;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 1em;
+      border-radius: 3px;
+      color: var(--white);
+      background: var(--brand-gradation);
+      @media (max-width: 1199px) {
+        max-width: 477px;
+      }
+      @media (max-width: 767px) {
+        max-width: 230px;
+      }
+    }
+  }
+  &.sec01 {
+    background:
+      url(../../assets/images/main_sec01_bg.png) no-repeat center center,
+      url(../../assets/images/img_bg_top.svg) no-repeat top left;
+    background-size: contain;
+    @media (max-width: 767px) {
+      background-size: 120%;
+    }
+    .logo {
+      max-width: 100%;
+      flex-grow: 1;
+      @media (max-width: 1199px) {
+        max-width: 320px;
+      }
+      @media (max-width: 767px) {
+        max-width: 236px;
+      }
+      img {
+        width: 100%;
+      }
+    }
+  }
+  &.sec02 {
+    background: url(../../assets/images/main_sec02_bg.png) no-repeat center center;
+    background-size: contain;
+    @media (max-width: 1200px) {
+      background-size: contain;
+    }
+    @media (max-width: 767px) {
+      background-size: 200%;
+    }
+  }
+  &.sec03 {
+    background: url(../../assets/images/main_sec03_bg.png) no-repeat center center;
+    background-size: contain;
+    @media (max-width: 1200px) {
+      background-size: contain;
+    }
+    @media (max-width: 767px) {
+      background-size: 200%;
+    }
+  }
+  &.sec04 {
+    background: url(../../assets/images/main_sec04_bg.png) no-repeat center center;
+    background-size: contain;
+    @media (max-width: 1200px) {
+      background-size: contain;
+    }
+    @media (max-width: 767px) {
+      background-size: 200%;
+    }
+  }
+}

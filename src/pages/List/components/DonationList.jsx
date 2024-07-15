@@ -73,7 +73,7 @@ function DonationsList() {
             <div className="donation-card" key={donation.id}>
               <div className="img-wrap">
                 <img src={donation.idol.profilePicture} alt={donation.title} />
-                <button type="button" onClick={() => openDonationsModal(donation)}>
+                <button type="button" onClick={() => openDonationsModal(donation)} aria-label="후원하기 버튼">
                   후원하기
                 </button>
               </div>
@@ -83,7 +83,7 @@ function DonationsList() {
                 <div className="progress">
                   <div className="progress-info">
                     <div className="credit">
-                      <i className="icon icon-credit" />
+                      <i className="icon-credit" />
                       {formatNumber(donation.targetDonation)}
                     </div>
                     <div className="deadline">{calculateTime(donation.deadline)}</div>

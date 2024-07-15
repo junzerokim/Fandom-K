@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Slider from 'react-slick';
+
 import useIdolData from '../hooks/useIdolData';
+import getIdolChunks from '../utils/getIdolChucks';
 
 import plusIcon from '../assets/images/ic_plus.svg';
 import './AddFavoriteIdolList.css';
@@ -59,16 +61,7 @@ function AddFavoriteIdolList({ myFavoriteIdolList, setMyFavoriteIdolList }) {
     );
   }
 
-  // 아이돌 데이터를 n개씩 그룹화하는 함수
-  const idolChunkArray = (array, chunkSize) => {
-    const chunks = [];
-    for (let i = 0; i < array.length; i += chunkSize) {
-      chunks.push(array.slice(i, i + chunkSize));
-    }
-    return chunks;
-  };
-
-  const idolChunks = idolChunkArray(idolData, 16);
+  const idolChunks = getIdolChunks(idolData, 16);
 
   return (
     <>

@@ -1,0 +1,74 @@
+.credit-container {
+  margin-top:50px;
+  width: 100%;
+}
+
+.credit-wrapper {
+  border: 1px solid rgba(241, 238, 249, 0.8);
+  border-radius: 8px;
+  color: var(--white);
+  max-width: 1200px;
+  height: 131px;
+  margin: auto;
+  display: flex;
+  padding: 0 78px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.credit-title {
+  font-size:16px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.credit-balance {
+  display: flex;
+  font-size: 24px;
+  font-weight: 700;
+  gap: 4px;
+}
+
+.credit-balance-wrapper {
+  gap: 14.13px;
+}
+
+.credit-recharge-btn-conainer button{
+  color: #F96D69;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+@media (max-width: 1199px) {
+  .credit-container {
+    padding: 0 24px;
+   }
+
+   .credit-wrapper {
+    padding: 0 64px;
+  }
+
+}
+
+@media (max-width: 767px) {
+  .credit-container {
+    margin-top:16px;
+  }
+
+  .credit-wrapper {
+    height: 87px;
+    padding: 0 20px;
+  }
+
+  .credit-title {
+    font-size:12px;
+  }
+
+  .credit-balance {
+    font-size: 20px;
+  }
+
+  .credit-recharge-btn-conainer button{
+    font-size: 13px;
+  }
+}

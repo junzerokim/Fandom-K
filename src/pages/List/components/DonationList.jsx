@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import Slider from 'react-slick';
 
 import calculateTime from '../../../utils/deadline';
@@ -29,11 +29,28 @@ function DonationsList() {
     localStorage.setItem('myCredit', newCredit.toString());
   };
 
+  const handleReceivedDonationsUpdate = (newReceivedDonations) => {
+    setLocalReceivedDonations(newReceivedDonations);
+    //객체의 속성 업데이트
+    setSelectedDonation((prevSelectedDonation) => ({
+      ...prevSelectedDonation,
+      receivedDonations: newReceivedDonations,
+    }));
+    console.log(localReceivedDonations);
+    console.log(selectedDonation);
+    localStorage.setItem('selectedDonation', JSON.stringify(selectedDonation));
+  };
+
   const openLackOfCreditModal = () => setShowLackOfCreditModal(true);
+
+  useEffect(() => {
+    if (selectedDonation) {
+      setLocalReceivedDonations(selectedDonation.receivedDonations);
+    }
+  }, [selectedDonation]); //selectedDonation이 있으면 바꿔줌 selectedDonation이 바뀔때마다
 
   const openDonationsModal = (donation) => {
     setSelectedDonation(donation);
-    setLocalReceivedDonations(donation.receivedDonations);
     setShowDonationsModal(true);
   };
 
@@ -47,16 +64,6 @@ function DonationsList() {
       console.log('receivedDonation 값:', localReceivedDonations);
       console.log('테스트');
     }
-  };
-
-  const handleReceivedDonationsUpdate = (newReceivedDonations) => {
-    setLocalReceivedDonations(newReceivedDonations);
-    //객체의 속성 업데이트
-    localStorage.setItem('receivedDonations', newReceivedDonations.toString());
-    setSelectedDonation((prevSelectedDonation) => ({
-      ...prevSelectedDonation,
-      receivedDonations: newReceivedDonations,
-    }));
   };
 
   const closeModal = () => {
@@ -148,7 +155,7 @@ function DonationsList() {
                           width:
                             selectedDonation && selectedDonation.id === donation.id
                               ? `${(localReceivedDonations / donation.targetDonation) * 100}%`
-                              : '0%',
+                              : undefined,
                         }}
                       />
                     </div>

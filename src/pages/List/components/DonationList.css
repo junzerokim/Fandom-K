@@ -109,7 +109,7 @@
           background-color: var(--white);
           .percent {
             height: inherit;
-            width: 30%;
+            width: 0%;
             background-color: var(--brand-orange);
           }
         }

@@ -1,47 +1,53 @@
-/* .container {
+.chart {
   display: flex;
   flex-direction: column;
   width: 1200px;
-  background-color: blue;
-  margin: auto;
+  margin: 80px auto;
 }
 
-.header {
+.chart-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
+  h3 {
+    font-size: 24px;
+  }
+  .btn-modal-open {
+    font-size: 13px;
+    font-weight: 600;
+    padding: 0.725em 1.3em;
+    border-radius: 3px;
+    color: var(--white);
+    background: var(--brand-gradation);
+  }
 }
 
-.header h2 {
-  font-size: 24px;
-}
-
-.header button {
-  background-image: linear-gradient(to right, #F86F65, #FE5493);
-  color: #ffffff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.chart-nav {
+.chart-tab {
   display: flex;
   width: 100%;
+  margin-bottom: 24px;
+  .chart-tab-button {
+    width: 50%;
+    padding: 1em;
+    font-size: 14px;
+    color: var(--gray-400);
+    &.active {
+      color: var(--white);
+      border-bottom: 1px solid var(--white);
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
 }
 
-.chart-nav button {
-  width: 50%;
-}
-
-.more-button {
-  display: flex;
-  justify-content: center;
+.btn-more {
+  text-align: center;
   width: 326px;
-  height: 42px;
-  border: 1px solid #ffffff;
+  padding: 0.725em 1.3em;
+  border: 1px solid rgba(241, 238, 249, 0.8);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--white);
   border-radius: 3px;
   font-size: 14px;
-  margin: auto;
-} */
+  margin: 51px auto 0;
+}

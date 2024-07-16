@@ -10,7 +10,7 @@ function MyIdolListItem({ idolData, onClick }) {
     <div className="idol-list-item-wrapper">
       <div className="idol-list-item my-favorite-idol">
         <button className="delete-button" type="button" aria-label="아이돌 삭제 버튼" onClick={() => onClick(id)}>
-          <img src={deleteButton} alt="delete button" width="32px" height="32px" />
+          <img className="delete-button-icon" src={deleteButton} alt="delete button" />
         </button>
         <div className="idol-profile-wrapper my-favorite-idol">
           <img className="idol-profile my-favorite-idol" src={profilePicture} alt="Idol profile" />

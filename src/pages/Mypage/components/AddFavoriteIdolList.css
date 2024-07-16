@@ -27,6 +27,8 @@
 
 @media (max-width: 1199px) {
   .add-favorite-idol-list-wrapper {
+    width: 584px;
+    margin: 0 auto;
     margin-bottom: 40px;
   }
 }

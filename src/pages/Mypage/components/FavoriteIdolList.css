@@ -16,16 +16,25 @@
     margin-top: 14px;
     margin-bottom: 32px;
   }
-
   .favorite-idol-list-title {
-    margin-bottom: 25px;
     font-size: 20px;
+  }
+  .favorite-idol-list-title.my-idol {
+    margin-bottom: 25px;
+  }
+  .favorite-idol-list-title.add-idol {
+    margin-bottom: 57px;
   }
 }
 
 @media (max-width: 767px) {
   .favorite-idol-list-title {
-    margin-bottom: 12px;
     font-size: 16px;
+  }
+  .favorite-idol-list-title.my-idol {
+    margin-bottom: 12px;
+  }
+  .favorite-idol-list-title.add-idol {
+    margin-bottom: 16px;
   }
 }

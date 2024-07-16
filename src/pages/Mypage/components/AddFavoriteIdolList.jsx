@@ -1,32 +1,30 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Slider from 'react-slick';
-
-import useIdolData from '../hooks/useIdolData';
-import getIdolChunks from '../utils/getIdolChucks';
 
 import plusIcon from '../assets/images/ic_plus.svg';
 import './AddFavoriteIdolList.css';
+
+import useIdolData from '../hooks/useIdolData';
+import useIdolChunks from '../hooks/useIdolChunks';
 
 import LoadingBar from '../../../components/Loadingbar';
 import AddIdolListItemButton from './AddIdolListItemButton';
 
 function AddFavoriteIdolList({ myFavoriteIdolList, setMyFavoriteIdolList }) {
-  const { idolData, isLoading = true } = useIdolData(); // 기본 아이돌 데이터
+  const { idolData, isLoading = true } = useIdolData();
+  const idolChunks = useIdolChunks(idolData);
 
-  // 해당 인덱스의 아이돌이 선택되었는지 여부를 아이디:선택 여부 쌍으로 이루어진 객체로 저장
+  const sliderSettings = {
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    infinite: false,
+    prevArrow: <button className="slick-prev" aria-label="이전 슬라이드로 가는 버튼" />,
+    nextArrow: <button className="slick-next" aria-label="이후 슬라이드로 가는 버튼" />,
+  };
+
+  // 해당 인덱스의 아이돌이 선택되었는지 여부를 { 아이디 : 선택 여부 }로 이루어진 객체로 저장
   const [isSelected, setIsSelected] = useState({});
-  // 선택된 아이돌 리스트 -> add 버튼이 눌리면 로컬 스토리지에 추가하고, 해당 리스트는 초기화
   const [selectedIdolList, setSelectedIdolList] = useState([]);
-
-  // 초기 로딩 시 idolData가 변경되면 isSelected 초기화
-  useEffect(() => {
-    if (idolData) {
-      const initialSelected = {};
-      idolData.forEach((idol) => {
-        initialSelected[idol.id] = false;
-      });
-    }
-  }, [idolData]);
 
   const handleSelectIdolButtonClick = (idolId) => {
     // 새로 선택된 아이돌의 선택 여부를 -> 이전 선택 여부의 반대로 만듦
@@ -54,33 +52,9 @@ function AddFavoriteIdolList({ myFavoriteIdolList, setMyFavoriteIdolList }) {
 
     setMyFavoriteIdolList(updatedLocalStorageData);
 
-    setSelectedIdolList([]);
     setIsSelected({});
+    setSelectedIdolList([]);
   };
-
-  const [idolChunks, setIdolChunks] = useState([]);
-  const [idolNumber, setIdolNumber] = useState(16);
-  useEffect(() => {
-    const updateNumOfIdol = () => {
-      const { innerWidth } = window;
-      if (innerWidth < 768) setIdolNumber(6);
-      else if (innerWidth < 1200) setIdolNumber(8);
-      else setIdolNumber(16);
-    };
-
-    updateNumOfIdol();
-    window.addEventListener('resize', updateNumOfIdol);
-
-    return () => {
-      window.removeEventListener('resize', updateNumOfIdol);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (idolData) {
-      setIdolChunks(getIdolChunks(idolData, idolNumber));
-    }
-  }, [idolData, idolNumber]);
 
   if (isLoading) {
     return (
@@ -89,14 +63,6 @@ function AddFavoriteIdolList({ myFavoriteIdolList, setMyFavoriteIdolList }) {
       </div>
     );
   }
-
-  const sliderSettings = {
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    infinite: false,
-    prevArrow: <button className="slick-prev" aria-label="이전 슬라이드로 가는 버튼" />,
-    nextArrow: <button className="slick-next" aria-label="이후 슬라이드로 가는 버튼" />,
-  };
 
   return (
     <>

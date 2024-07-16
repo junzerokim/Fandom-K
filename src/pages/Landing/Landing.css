@@ -110,6 +110,11 @@
       font-size: 26px;
       font-weight: 600;
       margin-bottom: 10px;
+      &.show {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0s;
+      }
       @media (max-width: 1199px) {
         font-size: 20px;
         margin-bottom: 32px;
@@ -143,6 +148,11 @@
       border-radius: 3px;
       color: var(--white);
       background: var(--brand-gradation);
+      &.show {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0.6s;
+      }
       @media (max-width: 1199px) {
         max-width: 477px;
       }
@@ -162,6 +172,11 @@
     .logo {
       max-width: 100%;
       flex-grow: 1;
+      &.show {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0.3s;
+      }
       @media (max-width: 1199px) {
         max-width: 320px;
       }
@@ -203,4 +218,50 @@
       background-size: 200%;
     }
   }
+}
+
+.animate.up {
+  opacity: 0;
+  transform: translateY(100px);
+  transition:
+    opacity 1s ease-out,
+    transform 1s ease-out;
+}
+
+.animate.up.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animate.left {
+  opacity: 0;
+  transform: translateX(-100px);
+  transition:
+    opacity 1s ease-out,
+    transform 1s ease-out;
+}
+.animate.right {
+  opacity: 0;
+  transform: translateX(100px);
+  transition:
+    opacity 1s ease-out,
+    transform 1s ease-out;
+}
+.animate.left.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+.animate.right.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.main-title,
+.logo,
+.btn-main {
+  opacity: 0;
+  transform: translateY(50px);
+  transition:
+    opacity 1s ease-out,
+    transform 1s ease-out;
 }

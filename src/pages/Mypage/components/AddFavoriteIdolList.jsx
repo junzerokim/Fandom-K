@@ -6,6 +6,7 @@ import './AddFavoriteIdolList.css';
 
 import useIdolData from '../hooks/useIdolData';
 import useIdolChunks from '../hooks/useIdolChunks';
+import useShowArrow from '../hooks/useShowArrow';
 
 import LoadingBar from '../../../components/Loadingbar';
 import AddIdolListItemButton from './AddIdolListItemButton';
@@ -13,19 +14,7 @@ import AddIdolListItemButton from './AddIdolListItemButton';
 function AddFavoriteIdolList({ myFavoriteIdolList, setMyFavoriteIdolList }) {
   const { idolData, isLoading = true } = useIdolData();
   const idolChunks = useIdolChunks(idolData);
-
-  const [showArrow, setShowArrow] = useState(true);
-  useEffect(() => {
-    const handleWindowResize = () => {
-      setShowArrow(window.innerWidth > 767);
-    };
-
-    window.addEventListener('resize', handleWindowResize);
-
-    return () => {
-      window.removeEventListener('resize', handleWindowResize);
-    };
-  }, []);
+  const showArrow = useShowArrow();
 
   const sliderSettings = {
     slidesToShow: 1,

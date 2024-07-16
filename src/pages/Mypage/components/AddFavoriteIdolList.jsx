@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 
 import useIdolData from '../hooks/useIdolData';
@@ -45,27 +45,29 @@ function AddFavoriteIdolList({ myFavoriteIdolList, setMyFavoriteIdolList }) {
     setIsSelected(new Array(idolData.length).fill(false));
   };
 
-  const sliderSettings = {
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    infinite: false,
-    prevArrow: <button className="slick-prev" aria-label="이전 슬라이드로 가는 화살표" />,
-    nextArrow: <button className="slick-next" aria-label="이후 슬라이드로 가는 화살표" />,
-  };
+  const [idolChunks, setIdolChunks] = useState([]);
+  const [idolNumber, setIdolNumber] = useState(16);
+  useEffect(() => {
+    const updateNumOfIdol = () => {
+      const { innerWidth } = window;
+      if (innerWidth < 768) setIdolNumber(6);
+      else if (innerWidth < 1200) setIdolNumber(8);
+      else setIdolNumber(16);
+    };
 
-  // const idolChunks = getIdolChunks(idolData, 16);
-  let idolChunks = [];
-  window.onresize = () => {
-    const { innerWidth } = window;
+    updateNumOfIdol();
+    window.addEventListener('resize', updateNumOfIdol);
 
-    idolChunks = getIdolChunks(idolData, 16);
-    if (innerWidth === 1199) {
-      idolChunks = getIdolChunks(idolData, 8);
+    return () => {
+      window.removeEventListener('resize', updateNumOfIdol);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (idolData) {
+      setIdolChunks(getIdolChunks(idolData, idolNumber));
     }
-    if (innerWidth === 767) {
-      idolChunks = getIdolChunks(idolData, 6);
-    }
-  };
+  }, [idolData, idolNumber]);
 
   if (isLoading) {
     return (
@@ -74,6 +76,14 @@ function AddFavoriteIdolList({ myFavoriteIdolList, setMyFavoriteIdolList }) {
       </div>
     );
   }
+
+  const sliderSettings = {
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    infinite: false,
+    prevArrow: <button className="slick-prev" aria-label="이전 슬라이드로 가는 버튼" />,
+    nextArrow: <button className="slick-next" aria-label="이후 슬라이드로 가는 버튼" />,
+  };
 
   return (
     <>

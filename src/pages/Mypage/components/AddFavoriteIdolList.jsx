@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 
 import plusIcon from '../assets/images/ic_plus.svg';
@@ -14,15 +14,27 @@ function AddFavoriteIdolList({ myFavoriteIdolList, setMyFavoriteIdolList }) {
   const { idolData, isLoading = true } = useIdolData();
   const idolChunks = useIdolChunks(idolData);
 
+  const [showArrow, setShowArrow] = useState(true);
+  useEffect(() => {
+    const handleWindowResize = () => {
+      setShowArrow(window.innerWidth > 767);
+    };
+
+    window.addEventListener('resize', handleWindowResize);
+
+    return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    };
+  }, []);
+
   const sliderSettings = {
     slidesToShow: 1,
     slidesToScroll: 1,
     infinite: false,
-    prevArrow: <button className="slick-prev" aria-label="이전 슬라이드로 가는 버튼" />,
-    nextArrow: <button className="slick-next" aria-label="이후 슬라이드로 가는 버튼" />,
+    arrows: showArrow,
   };
 
-  // 해당 인덱스의 아이돌이 선택되었는지 여부를 { 아이디 : 선택 여부 }로 이루어진 객체로 저장
+  // 특정 아이돌이 선택되었는지 여부를 { 아이디 : 선택 여부 }로 이루어진 객체로 저장
   const [isSelected, setIsSelected] = useState({});
   const [selectedIdolList, setSelectedIdolList] = useState([]);
 
@@ -71,7 +83,7 @@ function AddFavoriteIdolList({ myFavoriteIdolList, setMyFavoriteIdolList }) {
           slidesToShow={sliderSettings.slidesToShow}
           slidesToScroll={sliderSettings.slidesToScroll}
           infinite={sliderSettings.infinite}
-          responsive={sliderSettings.responsive}
+          arrows={sliderSettings.arrows}
         >
           {idolChunks.map((idolChunk, idolChunkIndex) => {
             return (

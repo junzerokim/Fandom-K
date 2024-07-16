@@ -5,7 +5,7 @@ import AddIdolListItem from './AddIdolListItem';
 
 function AddIdolListItemButton({ idolChunk, onClick, isSelected }) {
   return (
-    <div className="my-page">
+    <div className="add-favorite-idol-list">
       {idolChunk.map((idol) => {
         return (
           <button key={idol.id} type="button" aria-label="관심 있는 아이돌 선택 버튼" onClick={() => onClick(idol.id)}>

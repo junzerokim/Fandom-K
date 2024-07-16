@@ -28,19 +28,16 @@
   width: 100px;
   height: 100px;
   margin-bottom: 8px;
-  border: solid 1.31px var(--brand-orange);
+  padding: 5px;
+  border: solid 1px var(--brand-orange);
   border-radius: 9999px;
-}
-
-.idol-profile {
-  border: solid 6px #000;
-  border-radius: 9999px;
-  object-fit: cover;
 }
 
 .idol-profile.my-favorite-idol {
   width: 100%;
   height: 100%;
+  border-radius: 9999px;
+  object-fit: cover;
 }
 
 .idol-name {
@@ -57,6 +54,10 @@
 }
 
 @media (max-width: 767px) {
+  .idol-list-item.my-favorite-idol {
+    margin-left: 14px;
+    margin-right: 14px;
+  }
   .idol-list-item.my-favorite-idol .delete-button {
     width: 22px;
     height: 22px;
@@ -68,10 +69,14 @@
   .idol-profile-wrapper.my-favorite-idol {
     width: 70px;
     height: 70px;
+    margin-bottom: 8px;
+    padding: 4px;
     border: solid 1px var(--brand-orange);
+    border-radius: 9999px;
   }
-  .idol-profile {
-    border: solid 5px #000;
+  .idol-profile.my-favorite-idol {
+    width: 100%;
+    height: 100%;
     border-radius: 9999px;
     object-fit: cover;
   }

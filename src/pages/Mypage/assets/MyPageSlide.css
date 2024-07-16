@@ -36,3 +36,9 @@
     display: none;
   }
 }
+
+@media (max-width: 767px) {
+  .add-favorite-idol-list-wrapper .slick-arrow {
+    display: none;
+  }
+}

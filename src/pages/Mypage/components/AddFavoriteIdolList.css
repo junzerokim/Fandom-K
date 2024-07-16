@@ -1,7 +1,6 @@
 @import '../assets/MyPageSlide.css';
 
 .add-favorite-idol-list-wrapper {
-  height: 354px;
   margin-bottom: 48px;
 }
 
@@ -35,7 +34,7 @@
 
 @media (max-width: 767px) {
   .add-favorite-idol-list-wrapper {
-    height: 326px;
+    width: 100%;
     margin-bottom: 20px;
   }
 }

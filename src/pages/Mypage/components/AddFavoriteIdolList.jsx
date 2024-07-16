@@ -53,6 +53,20 @@ function AddFavoriteIdolList({ myFavoriteIdolList, setMyFavoriteIdolList }) {
     nextArrow: <button className="slick-next" aria-label="이후 슬라이드로 가는 화살표" />,
   };
 
+  // const idolChunks = getIdolChunks(idolData, 16);
+  let idolChunks = [];
+  window.onresize = () => {
+    const { innerWidth } = window;
+
+    idolChunks = getIdolChunks(idolData, 16);
+    if (innerWidth === 1199) {
+      idolChunks = getIdolChunks(idolData, 8);
+    }
+    if (innerWidth === 767) {
+      idolChunks = getIdolChunks(idolData, 6);
+    }
+  };
+
   if (isLoading) {
     return (
       <div className="add-favorite-idol-list-wrapper">
@@ -60,8 +74,6 @@ function AddFavoriteIdolList({ myFavoriteIdolList, setMyFavoriteIdolList }) {
       </div>
     );
   }
-
-  const idolChunks = getIdolChunks(idolData, 16);
 
   return (
     <>

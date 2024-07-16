@@ -1,6 +1,7 @@
 @import '../assets/MyPageSlide.css';
 
 .add-favorite-idol-list-wrapper {
+  height: 354px;
   margin-bottom: 48px;
 }
 

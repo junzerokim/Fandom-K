@@ -79,14 +79,14 @@ function DonationsList() {
         {
           breakpoint: 1024,
           settings: {
-            slidesToShow: 2.4,
+            slidesToShow: 2.5,
             slidesToScroll: 1,
           },
         },
         {
           breakpoint: 768,
           settings: {
-            slidesToShow: 2.1,
+            slidesToShow: 2.3,
             slidesToScroll: 1,
           },
         },

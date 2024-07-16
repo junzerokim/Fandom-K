@@ -6,28 +6,29 @@
   margin: 0 auto;
   padding: 1.5rem 0;
   @media (max-width: 1199px) {
-    padding: 1.5rem;
+    padding: 1.5rem 0;
   }
   @media (max-width: 767px) {
-    padding: 1.5rem;
+    padding: 1.5rem 0;
   }
   h3 {
     font-size: 24px;
     font-weight: 600;
     margin-bottom: 24px;
+    @media (max-width: 1199px) {
+      padding: 0 24px;
+      font-size: 20px;
+    }
+    @media (max-width: 767px) {
+      font-size: 16px;
+    }
   }
   .donation-wrap {
     position: relative;
-    height: 402px;
   }
   .donation-list {
     margin: 0 -12px;
-    /* display: flex;
-    gap: 24px;
-    overflow: hidden; */
     .donation-card {
-      /* flex: 1 1 auto;
-      min-width: 270px; */
       padding: 0 12px;
       .img-wrap {
         position: relative;
@@ -73,10 +74,19 @@
           font-size: 16px;
           color: var(--white);
           opacity: 0.4;
+          @media (max-width: 767px) {
+            font-size: 12px;
+          }
         }
         .title {
           font-size: 18px;
           color: var(--gray-100);
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          @media (max-width: 767px) {
+            font-size: 14px;
+          }
         }
         .credit {
           display: flex;

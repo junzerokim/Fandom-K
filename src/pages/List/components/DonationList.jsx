@@ -14,7 +14,7 @@ import LackOfCreditModal from './LackOfCreditModal/LackOfCreditModal';
 function DonationsList() {
   const initialCredit = () => {
     const storedCredit = JSON.parse(localStorage.getItem('myCredit'));
-    return storedCredit ? storedCredit : 36000;
+    return storedCredit ? storedCredit : 0;
   };
 
   const { donations, loading } = useDonationList();

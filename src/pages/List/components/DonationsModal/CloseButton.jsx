@@ -1,5 +1,4 @@
 import React from 'react';
-// import donationDelete from '../../assets/images/donationDelete.png';
 
 function CloseButton({ onClick }) {
   return (

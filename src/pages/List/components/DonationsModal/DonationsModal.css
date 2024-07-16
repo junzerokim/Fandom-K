@@ -10,7 +10,7 @@
   align-items: center;
 }
 
-.donation-wrapper {
+.donation-modal {
   width: 327px;
   height: 509px;
   padding: 24px 16px 32px;
@@ -37,14 +37,14 @@
   text-align: left;
 }
 
-.donation-wrapper .profile-picture {
+.donation-modal .profile-picture {
   width: 158px;
   height: 206px;
   border-radius: 8px;
   margin: 24px 70.5px 10px;
 }
 
-.donation-wrapper .subtitle {
+.donation-modal .subtitle {
   color: var(--white);
   font-size: 12px;
   font-weight: 400;
@@ -55,7 +55,7 @@
   margin-left: 70.5px;
 }
 
-.donation-wrapper .title {
+.donation-modal .title {
   color: #f7f7f8;
   font-size: 14px;
   font-weight: 500;
@@ -111,9 +111,10 @@ input[type='number']::-webkit-inner-spin-button {
   height: 24px;
   background: url(../../../../assets/images/btn_close.png) no-repeat center center;
   background-size: cover;
+  display: block;
 }
 
-.donation-wrapper .button {
+.donation-modal .button {
   width: 295px;
   height: 42px;
   padding: 8px;

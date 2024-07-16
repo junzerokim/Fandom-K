@@ -1,4 +1,4 @@
-.lackOfCredit-background {
+.lack-of-credit-modal-background {
   position: fixed;
   top: 0;
   left: 0;
@@ -10,7 +10,7 @@
   align-items: center;
 }
 
-.lackOfCredit-wrapper {
+.lack-of-credit-modal {
   width: 339px;
   height: 331px;
   padding: 24px 20px 32px;
@@ -22,16 +22,17 @@
   background-color: #181d26;
 }
 
-.lackOfCredit-wrapper .icon-btn-close {
+.lack-of-credit-modal .icon-btn-close {
   width: 24px;
   height: 24px;
   background: url(../../../../assets/images/btn_close.png) no-repeat center center;
   background-size: cover;
   position: relative;
   left: 271px;
+  display: block;
 }
 
-.lackOfCredit-wrapper .credit {
+.lack-of-credit-modal .credit {
   width: 80%;
   height: 80%;
   position: relative;
@@ -39,7 +40,7 @@
   left: 27px;
 }
 
-.lackOfCredit-title {
+.lack-of-credit-modal-title {
   font-size: 16px;
   font-weight: 500;
   line-height: 26px;
@@ -49,11 +50,11 @@
   bottom: 70px;
 }
 
-.lackOfCredit-title span {
+.lack-of-credit-modal-title span {
   color: #f96d69;
 }
 
-.lackOfCredit-wrapper .button {
+.lack-of-credit-modal .button {
   width: 295px;
   height: 42px;
   padding: 8px;

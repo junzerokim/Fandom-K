@@ -71,7 +71,7 @@ function DonationsModal({
 
   return (
     <div className="donation-background" onClick={handleBackgroundClick}>
-      <div className="donation-wrapper" style={{ height: errorMessage ? '529px' : '509px' }}>
+      <div className="donation-modal" style={{ height: errorMessage ? '529px' : '509px' }}>
         <div className="donation-header">
           <h2>후원하기</h2>
           <CloseButton onClick={closeModal} />

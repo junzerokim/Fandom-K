@@ -14,13 +14,13 @@ function LackOfCreditModal({ closeModal }) {
   };
 
   return (
-    <div className="lackOfCredit-background" onClick={handleBackgroundClick}>
-      <div className="lackOfCredit-wrapper">
+    <div className="lack-of-credit-modal-background" onClick={handleBackgroundClick}>
+      <div className="lack-of-credit-modal">
         <div>
           <CloseButton onClick={closeModal} />
         </div>
         <img className="credit" src={credit} alt="크레딧 이미지" />
-        <p className="lackOfCredit-title">
+        <p className="lack-of-credit-modal-title">
           앗! 투표하기 위한 <span>크레딧</span>이 부족해요
         </p>
         <button className="button button_active" onClick={closeModal}>

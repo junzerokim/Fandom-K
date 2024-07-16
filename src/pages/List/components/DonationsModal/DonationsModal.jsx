@@ -5,16 +5,31 @@ import CloseButton from './CloseButton';
 import './DonationsModal.css';
 import useEscapeModal from '../../../../hooks/useEscapeModal';
 
-function DonationsModal({ localCredit, onUpdate, profilePicture, subtitle, title, closeModal, isOpen }) {
+function DonationsModal({
+  localCredit,
+  localReceivedDonation,
+  onUpdateCredit,
+  onUpdateReceivedDonation,
+  profilePicture,
+  subtitle,
+  title,
+  closeModal,
+  isOpen,
+}) {
   const [value, setValue] = useState('');
   const [buttonType, setbuttonType] = useState('inactive');
   const [errorMessage, setErrorMessage] = useState('');
   const [myCredit, setMyCredit] = useState(localCredit);
+  const [receivedDonation, setReceivedDonation] = useState(localReceivedDonation);
   const [isDonationValid, setIsDonationValid] = useState(false);
 
   useEffect(() => {
     setMyCredit(localCredit);
   }, [localCredit]);
+
+  useEffect(() => {
+    setReceivedDonation(localReceivedDonation);
+  }, [localReceivedDonation]);
 
   useEscapeModal(closeModal);
 
@@ -44,13 +59,16 @@ function DonationsModal({ localCredit, onUpdate, profilePicture, subtitle, title
 
     console.log(myCredit);
     console.log(inputValue);
+    console.log(receivedDonation);
   };
 
   //클릭하면 조공완료, localstorage 크레딧 줄어든다.//receiveDonation 충전된다.
   const onClickDonations = () => {
     const newCredit = myCredit - value;
     setMyCredit(newCredit);
-    onUpdate(newCredit);
+    onUpdateCredit(newCredit);
+    // const newReceivedDonation = selectedDonation.receivedDonation + value;
+    // onUpdateReceivedDonation(newReceivedDonation);
     closeModal();
   };
 

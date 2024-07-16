@@ -17,15 +17,26 @@ function DonationsList() {
     return storedCredit ? storedCredit : 0;
   };
 
+  const initialReceivedDonation = () => {
+    const storedReceivedDonation = JSON.parse(localStorage.getItem('receivedDonation'));
+    return storedReceivedDonation ? storedReceivedDonation : 0;
+  };
+
   const { donations, loading } = useDonationList();
   const [showDonationsModal, setShowDonationsModal] = useState(false);
   const [showLackOfCreditModal, setShowLackOfCreditModal] = useState(false);
   const [selectedDonation, setSelectedDonation] = useState(null);
   const [localCredit, setLocalCredit] = useState(initialCredit());
+  const [localReceivedDonation, setLocalReceivedDonation] = useState(initialReceivedDonation());
 
   const handleCreditUpdate = (newCredit) => {
     setLocalCredit(newCredit);
     localStorage.setItem('myCredit', newCredit.toString());
+  };
+
+  const handleReceivedDonationUpdate = (newReceivedDonation) => {
+    setLocalReceivedDonation(newReceivedDonation);
+    localStorage.setItem('receivedDonation', newReceivedDonation.toString());
   };
 
   const openLackOfCreditModal = () => setShowLackOfCreditModal(true);
@@ -42,6 +53,12 @@ function DonationsList() {
       console.log('크레딧 없음');
     } else {
       openDonationsModal(donation);
+
+      // const clickedDonation = data.find((selectedDonation) => selectedDonation.id === id);
+      // if (clickedDonation) {
+      //   const { receivedDonation } = clickedDonation;
+      //   setLocalReceivedDonation(receivedDonation);
+      // }
     }
   };
 
@@ -137,8 +154,10 @@ function DonationsList() {
               subtitle={selectedDonation.subtitle}
               title={selectedDonation.title}
               closeModal={closeModal}
-              onUpdate={handleCreditUpdate}
+              onUpdateCredit={handleCreditUpdate}
+              onUpdateReceivedDonation={handleReceivedDonationUpdate}
               localCredit={localCredit}
+              localReceivedDonation={localReceivedDonation}
               isOpen={showDonationsModal}
             />
           )}

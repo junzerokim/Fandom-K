@@ -8,8 +8,8 @@ import Loadingbar from '../../../components/Loadingbar';
 import './DonationList.css';
 
 import useDonationList from '../../../hooks/useDonationList';
-import DonationsModal from '../../../components/DonationsModal/DonationsModal';
-import LackOfCreditModal from '../../../components/LackOfCreditModal/LackOfCreditModal';
+import DonationsModal from './DonationsModal/DonationsModal';
+import LackOfCreditModal from './LackOfCreditModal/LackOfCreditModal';
 
 function DonationsList() {
   const initialCredit = () => {

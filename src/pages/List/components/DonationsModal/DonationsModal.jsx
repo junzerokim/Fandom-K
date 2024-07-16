@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
-import donationCredit from '../../assets/images/donationCredit.png';
+import React from 'react';
+import { useState, useEffect } from 'react';
+import donationCredit from '../../../../assets/images/donationCredit.png';
 import CloseButton from './CloseButton';
 import './DonationsModal.css';
-import useEscapeModal from '../../hooks/useEscapeModal';
+import useEscapeModal from '../../../../hooks/useEscapeModal';
 
 function DonationsModal({ localCredit, onUpdate, profilePicture, subtitle, title, closeModal, isOpen }) {
   const [value, setValue] = useState('');
   const [buttonType, setbuttonType] = useState('inactive');
+  const [errorMessage, setErrorMessage] = useState('');
+  const [myCredit, setMyCredit] = useState(localCredit);
   const [isDonationValid, setIsDonationValid] = useState(false);
 
   useEffect(() => {
@@ -33,9 +36,10 @@ function DonationsModal({ localCredit, onUpdate, profilePicture, subtitle, title
     if (ValidDonation) {
       setbuttonType('active');
       setErrorMessage('');
+      setIsDonationValid(true);
     } else {
       setbuttonType('inactive');
-      setErrorMessage('갖고 있는 크레딧보다 더 많이 후원할 수 없어요.');
+      setErrorMessage('갖고 있는 크레딧보다 더 많이 후원할 수 없어요');
     }
 
     console.log(myCredit);
@@ -76,8 +80,6 @@ function DonationsModal({ localCredit, onUpdate, profilePicture, subtitle, title
           후원하기
         </button>
       </div>
-      {errorMessage && <p className="donation-error">{errorMessage}</p>}
-      <Button text="후원하기" type={buttonType} />
     </div>
   );
 }

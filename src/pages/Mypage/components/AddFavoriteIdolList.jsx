@@ -13,20 +13,33 @@ import AddIdolListItemButton from './AddIdolListItemButton';
 function AddFavoriteIdolList({ myFavoriteIdolList, setMyFavoriteIdolList }) {
   const { idolData, isLoading = true } = useIdolData(); // 기본 아이돌 데이터
 
-  // 해당 인덱스의 아이돌이 선택되었는지 여부를 저장
-  const [isSelected, setIsSelected] = useState(new Array(idolData.length).fill(false));
+  // 해당 인덱스의 아이돌이 선택되었는지 여부를 아이디:선택 여부 쌍으로 이루어진 객체로 저장
+  const [isSelected, setIsSelected] = useState({});
   // 선택된 아이돌 리스트 -> add 버튼이 눌리면 로컬 스토리지에 추가하고, 해당 리스트는 초기화
   const [selectedIdolList, setSelectedIdolList] = useState([]);
 
-  const handleSelectIdolButtonClick = (id, index) => {
-    const updatedSelection = [...isSelected];
-    updatedSelection[index] = !updatedSelection[index];
+  // 초기 로딩 시 idolData가 변경되면 isSelected 초기화
+  useEffect(() => {
+    if (idolData) {
+      const initialSelected = {};
+      idolData.forEach((idol) => {
+        initialSelected[idol.id] = false;
+      });
+    }
+  }, [idolData]);
 
-    setIsSelected(updatedSelection);
+  const handleSelectIdolButtonClick = (idolId) => {
+    // 새로 선택된 아이돌의 선택 여부를 -> 이전 선택 여부의 반대로 만듦
+    setIsSelected((prevSelected) => ({
+      ...prevSelected,
+      [idolId]: !prevSelected[idolId],
+    }));
 
-    const updatedIdolList = updatedSelection[index]
-      ? [...selectedIdolList, idolData.find((idol) => idol.id === id)]
-      : selectedIdolList.filter((idol) => idol.id !== id);
+    const selected = !isSelected[idolId];
+
+    const updatedIdolList = selected
+      ? [...selectedIdolList, idolData.find((idol) => idol.id === idolId)]
+      : selectedIdolList.filter((idol) => idol.id !== idolId);
 
     setSelectedIdolList(updatedIdolList);
   };
@@ -42,7 +55,7 @@ function AddFavoriteIdolList({ myFavoriteIdolList, setMyFavoriteIdolList }) {
     setMyFavoriteIdolList(updatedLocalStorageData);
 
     setSelectedIdolList([]);
-    setIsSelected(new Array(idolData.length).fill(false));
+    setIsSelected({});
   };
 
   const [idolChunks, setIdolChunks] = useState([]);

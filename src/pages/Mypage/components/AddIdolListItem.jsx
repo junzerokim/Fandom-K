@@ -20,8 +20,8 @@ function AddIdolListItem({ isSelected, idolData }) {
             <img className="idol-profile add-favorite-idol" src={profilePicture} alt="Idol profile" />
           )}
         </div>
-        <h1 className="idol-name">{name}</h1>
-        <h2 className="idol-group">{group}</h2>
+        <h4 className="idol-name">{name}</h4>
+        <h5 className="idol-group">{group}</h5>
       </div>
     </div>
   );

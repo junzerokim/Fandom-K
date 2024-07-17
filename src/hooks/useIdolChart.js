@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import getIdolChart from '../service/idolApi';
+import { useState, useEffect } from "react";
+import getIdolChart from "../service/idolApi";
 
 const useIdolChart = () => {
   const [idolLank, setIdolLank] = useState([]);

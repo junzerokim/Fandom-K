@@ -1,12 +1,12 @@
-import "./CreditModal.css";
-import { useState, useContext } from "react";
-import CreditIcon from "../assets/images/ico_credit.png";
-import CreditWhiteIcon from "../assets/images/ico_credit.svg";
-import { CreditContext } from "./CreditContextProvider";
+import React, { useState } from 'react';
+import './CreditModal.css';
+import CreditIcon from '../assets/images/ico_credit.png';
+import CreditWhiteIcon from '../assets/images/ico_credit.svg';
 
-function CreditModal({ onClose }) {
-  const { handleRecharge } = useContext(CreditContext);
+function CreditModal({ onClose, onRecharge }) {
   const [selectedCredit, setSelectedCredit] = useState(100);
+
+  const creditOptions = [100, 500, 1000];
 
   return (
     <div className="modal-overlay">
@@ -16,49 +16,31 @@ function CreditModal({ onClose }) {
           <button className="close-btn" onClick={onClose}>
             X
           </button>
+          <button className="close-btn" onClick={onClose}>
+            X
+          </button>
         </div>
         <div className="modal-content">
-          <label className="radio-label">
-            <div className="radio-credit-wrapper">
-              <img src={CreditIcon} alt="Credit Icon" />
-              100
-            </div>
-            <input
-              type="radio"
-              value={100}
-              checked={selectedCredit === 100}
-              onChange={(e) => setSelectedCredit(Number(e.target.value))}
-            />
-          </label>
-          <label className="radio-label">
-            <div className="radio-credit-wrapper">
-              <img src={CreditIcon} alt="Credit Icon" />
-              500
-            </div>
-            <input
-              type="radio"
-              value={500}
-              checked={selectedCredit === 500}
-              onChange={(e) => setSelectedCredit(Number(e.target.value))}
-            />
-          </label>
-          <label className="radio-label">
-            <div className="radio-credit-wrapper">
-              <img src={CreditIcon} alt="Credit Icon" />
-              1000
-            </div>
-            <input
-              type="radio"
-              value={1000}
-              checked={selectedCredit === 1000}
-              onChange={(e) => setSelectedCredit(Number(e.target.value))}
-            />
-          </label>
+          {creditOptions.map((credit) => (
+            <label key={credit} className="radio-label" htmlFor={`credit-${credit}`}>
+              <div className="radio-credit-wrapper">
+                <img src={CreditIcon} alt="Credit Icon" />
+                {credit}
+              </div>
+              <input
+                type="radio"
+                value={credit}
+                checked={selectedCredit === credit}
+                onChange={(e) => setSelectedCredit(Number(e.target.value))}
+              />
+            </label>
+          ))}
         </div>
         <div className="modal-footer">
-          <button onClick={() => handleRecharge(selectedCredit)}>
-            <img src={CreditWhiteIcon} />
+          <button onClick={() => onRecharge(selectedCredit)}>
+            <img src={CreditWhiteIcon} alt="Credit Icon" />
             충전하기
+          </button>
           </button>
         </div>
       </div>

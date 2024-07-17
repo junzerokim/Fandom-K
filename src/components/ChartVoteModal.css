@@ -1,0 +1,82 @@
+.chart-modal {
+  background-color: #181d26;
+  width: 525px;
+  border-radius: 8px;
+  position: relative;
+
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 20px 20px 0;
+  }
+
+  .modal-header h2 {
+    color: white;
+    margin: 0;
+    font-size: 18px;
+  }
+
+  .close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  .modal-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    color: white;
+    overflow-y: auto;
+    max-height: 500px;
+    padding: 0 20px;
+  }
+
+  .modal-content label {
+    display: flex;
+    align-items: center;
+  }
+
+  .modal-footer {
+    width: 100%;
+    padding: 0 20px 20px;
+    margin: 0;
+    p {
+      padding-top: 20px;
+      text-align: center;
+      font-size: 12px;
+      b {
+        color: var(--brand-orange);
+      }
+    }
+  }
+
+  .modal-content input[type="radio"]:checked::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #f96d69;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .modal-idol-info {
+    display: flex;
+    gap: 8px;
+  }
+  .idol-radio {
+    margin-left: auto;
+  }
+
+  .modal-idol-rank {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}

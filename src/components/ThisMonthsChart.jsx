@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
 import './ThisMonthsChart.css';
 import IdolDetail from './IdolDetail';
-// import ChartVoteModal from './ChartVoteModal';
+import ChartVoteModal from './ChartVoteModal';
 import useIdolChart from '../hooks/useIdolChart';
 
 function ThisMonthsChart() {
   const [activeTab, setActiveTab] = useState('female');
   const { idolRank, loading, fetchError } = useIdolChart(activeTab);
-  // const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openGenderVoteModal = () => {
-    // setIsModalOpen(true);
+    setIsModalOpen(true);
   };
 
-  // const closeModal = () => {
-  // setIsModalOpen(false);
-  // };
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
 
   const tab = (gender) => {
     setActiveTab(gender);
@@ -63,7 +63,7 @@ function ThisMonthsChart() {
       <button className="btn-more" type="button" aria-label="더보기 버튼">
         더 보기
       </button>
-      {/* {isModalOpen && <ChartVoteModal closeModal={closeModal} />} */}
+      {isModalOpen && <ChartVoteModal closeModal={closeModal} idolRank={idolRank} gender={activeTab} />}
     </div>
   );
 }

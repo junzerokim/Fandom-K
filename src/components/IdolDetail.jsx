@@ -1,7 +1,13 @@
-import React from 'react';
-import './IdolDetail.css';
+import React from "react";
+import "./IdolDetail.css";
 
-function IdolDetail({ profilePicture, rank, group, name, totalVotes }) {
+function IdolDetail({ idolData, isRadio = false, onRadioChange }) {
+  const { id, profilePicture, rank, group, name, totalVotes } = idolData;
+
+  const handleRadioChange = (event) => {
+    onRadioChange(event.target.value);
+  };
+
   return (
     <div className="idol-container">
       <div className="idol-info">
@@ -13,6 +19,15 @@ function IdolDetail({ profilePicture, rank, group, name, totalVotes }) {
         <h3 className="idol-name">{name}</h3>
       </div>
       <p className="idol-vote-rate">{totalVotes}표</p>
+      {isRadio && (
+        <input
+          className="idol-radio"
+          type="radio"
+          name="idol-radio"
+          value={id}
+          onChange={handleRadioChange}
+        />
+      )}
     </div>
   );
 }

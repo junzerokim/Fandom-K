@@ -34,6 +34,13 @@
     overflow-y: auto;
     max-height: 500px;
     padding: 0 20px;
+    /* 스크롤 바 숨기기 */
+    -ms-overflow-style: none; /*IE, Edge*/
+    scrollbar-width: none; /*Firefox*/
+    ::-webkit-scrollbar {
+      display: none; /*Chrome, Safari, Opera*/
+      width: 0px;
+    }
   }
 
   .modal-content label {

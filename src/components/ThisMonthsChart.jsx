@@ -91,16 +91,7 @@ function ThisMonthsChart() {
           !fetchError &&
           idolRank
             .slice(0, displayCount)
-            .map((idol) => (
-              <IdolDetail
-                key={idol.id}
-                profilePicture={idol.profilePicture}
-                rank={idol.rank}
-                group={idol.group}
-                name={idol.name}
-                totalVotes={idol.totalVotes}
-              />
-            ))}
+            .map((idol) => <IdolDetail key={idol.id} idolData={idol} />)}
       </ul>
       {displayCount < idolRank.length && (
         <button

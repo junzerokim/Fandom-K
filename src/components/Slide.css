@@ -2,7 +2,9 @@
 @import "slick-carousel/slick/slick-theme.css";
 .donation {
   .slick-list {
-    padding: 0 24px;
+    @media (max-width: 1199px) {
+      padding: 0 24px;
+    }
   }
 }
 .slick-arrow {

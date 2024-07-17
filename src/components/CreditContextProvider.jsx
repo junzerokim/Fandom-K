@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 
 export const CreditContext = React.createContext();
 
@@ -33,22 +33,24 @@ function CreditContextProvider({ children }) {
     setIsModalOpen(false);
   };
 
+  const contextValue = useMemo(() => {
+    return {
+      localCredit,
+      localReceivedDonations,
+      setLocalReceivedDonations,
+      handleCreditUpdate,
+      handleReceivedDonationsUpdate,
+      handleRecharge,
+      selectedDonation,
+      setSelectedDonation,
+      isModalOpen,
+      setIsModalOpen,
+    };
+  }, [localCredit, localReceivedDonations, selectedDonation, isModalOpen]);
+
   return (
     <>
-      <CreditContext.Provider
-        value={{
-          localCredit,
-          localReceivedDonations,
-          setLocalReceivedDonations,
-          handleCreditUpdate,
-          handleReceivedDonationsUpdate,
-          handleRecharge,
-          selectedDonation,
-          setSelectedDonation,
-          isModalOpen,
-          setIsModalOpen,
-        }}
-      >
+      <CreditContext.Provider value={contextValue}>
         {children}
       </CreditContext.Provider>
     </>

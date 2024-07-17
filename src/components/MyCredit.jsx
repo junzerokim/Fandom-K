@@ -6,8 +6,8 @@ import CreditModal from "./CreditModal";
 import { CreditContext } from "../pages/List/List";
 
 function MyCredit() {
-  const { localCredit } = useContext(CreditContext);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { localCredit, isModalOpen, setIsModalOpen } =
+    useContext(CreditContext);
 
   useEffect(() => {
     localStorage.setItem("myCredit", JSON.stringify(localCredit));

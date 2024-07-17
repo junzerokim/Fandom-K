@@ -1,5 +1,5 @@
 import "./CreditModal.css";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import CreditIcon from "../assets/images/ico_credit.png";
 import CreditWhiteIcon from "../assets/images/ico_credit.svg";
 import { CreditContext } from "../pages/List/List";

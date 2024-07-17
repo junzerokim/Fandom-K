@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import donationCredit from "../../assets/images/donationCredit.png";
-import DeleteButton from "./DeleteButton";
+import React, { useState, useEffect, useContext } from "react";
+import donationCredit from "../../../../assets/images/donationCredit.png";
+import CloseButton from "./CloseButton";
 import "./DonationsModal.css";
 import useEscapeModal from "../../../../hooks/useEscapeModal";
 
@@ -15,6 +15,12 @@ function DonationsModal({
   closeModal,
   isOpen,
 }) {
+  const {
+    handleCreditUpdate,
+    handleReceivedDonationsUpdate,
+    localReceivedDonations,
+    localCredit,
+  } = useContext(CreditContext);
   const [value, setValue] = useState("");
   const [buttonType, setbuttonType] = useState("inactive");
   const [errorMessage, setErrorMessage] = useState("");

@@ -3,7 +3,7 @@ import "./MyCredit.css";
 import CreditIcon from "../assets/images/donationCredit.png";
 import { useState, useEffect, useContext } from "react";
 import CreditModal from "./CreditModal";
-import { CreditContext } from "../pages/List/List";
+import { CreditContext } from "./CreditContextProvider";
 
 function MyCredit() {
   const { localCredit, isModalOpen, setIsModalOpen } =

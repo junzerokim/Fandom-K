@@ -3,6 +3,7 @@ import donationCredit from "../../../../assets/images/donationCredit.png";
 import CloseButton from "./CloseButton";
 import "./DonationsModal.css";
 import useEscapeModal from "../../../../hooks/useEscapeModal";
+import { CreditContext } from "../../../../components/CreditContextProvider";
 
 function DonationsModal({
   localCredit,

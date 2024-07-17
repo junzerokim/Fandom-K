@@ -10,7 +10,7 @@ import "./DonationList.css";
 import useDonationList from "../../../hooks/useDonationList";
 import DonationsModal from "./DonationsModal/DonationsModal";
 import LackOfCreditModal from "./LackOfCreditModal/LackOfCreditModal";
-import { CreditContext } from "../List";
+import { CreditContext } from "../../../components/CreditContextProvider";
 
 function DonationsList() {
   const {

@@ -2,7 +2,7 @@ import "./CreditModal.css";
 import { useState, useContext } from "react";
 import CreditIcon from "../assets/images/ico_credit.png";
 import CreditWhiteIcon from "../assets/images/ico_credit.svg";
-import { CreditContext } from "../pages/List/List";
+import { CreditContext } from "./CreditContextProvider";
 
 function CreditModal({ onClose }) {
   const { handleRecharge } = useContext(CreditContext);

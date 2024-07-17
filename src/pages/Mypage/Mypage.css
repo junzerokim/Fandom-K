@@ -13,6 +13,6 @@
 
 @media (max-width: 767px) {
   .favorite-idol-list {
-    width: 376px; /* figma에는 374px인데,  */
+    width: 376px;
   }
 }

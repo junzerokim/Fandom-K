@@ -20,7 +20,7 @@ function DonationsList() {
   const { donations, loading } = useDonationList();
   const [showDonationsModal, setShowDonationsModal] = useState(false);
   const [showLackOfCreditModal, setShowLackOfCreditModal] = useState(false);
-  const [selectedDonation, setSelectedDonation] = useState(null);
+  const [selectedDonation, setSelectedDonation] = useState({});
   const [localCredit, setLocalCredit] = useState(initialCredit());
   const [localReceivedDonations, setLocalReceivedDonations] = useState();
 
@@ -36,23 +36,26 @@ function DonationsList() {
       ...prevSelectedDonation,
       receivedDonations: newReceivedDonations,
     }));
+    localStorage.setItem('selectedDonation', JSON.stringify(selectedDonation));
+
     console.log(localReceivedDonations);
     console.log(selectedDonation);
-    localStorage.setItem('selectedDonation', JSON.stringify(selectedDonation));
   };
 
   const openLackOfCreditModal = () => setShowLackOfCreditModal(true);
 
-  useEffect(() => {
-    if (selectedDonation) {
-      setLocalReceivedDonations(selectedDonation.receivedDonations);
-    }
-  }, [selectedDonation]); //selectedDonation이 있으면 바꿔줌 selectedDonation이 바뀔때마다
-
   const openDonationsModal = (donation) => {
     setSelectedDonation(donation);
     setShowDonationsModal(true);
+    console.log(localReceivedDonations);
   };
+
+  useEffect(() => {
+    if (selectedDonation) {
+      setLocalReceivedDonations(selectedDonation.receivedDonations);
+      console.log(selectedDonation);
+    }
+  }, [selectedDonation.id]); //selectedDonation이 있으면 바꿔줌 selectedDonation이 바뀔때마다
 
   const openModal = (donation) => {
     if (localCredit <= 0) {
@@ -60,6 +63,7 @@ function DonationsList() {
       console.log('크레딧 없음');
     } else {
       openDonationsModal(donation);
+
       console.log('선택된 후원:', selectedDonation);
       console.log('receivedDonation 값:', localReceivedDonations);
       console.log('테스트');

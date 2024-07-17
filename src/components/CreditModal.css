@@ -69,7 +69,7 @@
 }
 
 .modal-footer {
-  /* display: flex; */
+
   
   margin-top: 20px;
 }
@@ -109,7 +109,7 @@
 }
 
 .modal-content input[type="radio"]:checked + .radio-label {
-  border: 1px solid black; /* 선택된 상태일 때 .radio-label의 보더 색상 변경 */
+  border: 1px solid black; 
 }
 
 .radio-label img {
@@ -122,11 +122,11 @@
 }
 
 .modal-content input[type="radio"]:checked::before {
-  content: ''; /* 선택된 상태를 나타내는 가상 요소 */
-  width: 8px; /* 가상 요소의 크기 */
+  content: ''; 
+  width: 8px; 
   height: 8px;
-  border-radius: 50%; /* 원형 모양으로 만듭니다 */
-  background-color: #F96D69; /* 배경색 - 선택된 상태 */
+  border-radius: 50%; 
+  background-color: #F96D69; 
   position: absolute;
   top: 50%;
   left: 50%;

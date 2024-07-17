@@ -1,5 +1,6 @@
+import React from 'react';
 import './MyCredit.css';
-import CreditIcon from '../assets/images/donations_credit.svg';
+import CreditIcon from '../assets/images/donationCredit.png';
 import { useState, useEffect } from 'react';
 import CreditModal from './CreditModal';
 
@@ -18,7 +19,7 @@ function MyCredit() {
 
   const handleRecharge = (amount) => {
     setCredit(credit + amount);
-    setIsModalOpen(false); // 충전 후 모달을 닫습니다.
+    setIsModalOpen(false);
   };
 
   return (

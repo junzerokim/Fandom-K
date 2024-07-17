@@ -1,6 +1,6 @@
 import './CreditModal.css';
 import { useState } from 'react';
-import CreditIcon from '../assets/images/donations_credit.svg';
+import CreditIcon from '../assets/images/ico_credit.png';
 import CreditWhiteIcon from '../assets/images/ico_credit.svg';
 function CreditModal({ onClose, onRecharge }) {
   const [selectedCredit, setSelectedCredit] = useState(100);
@@ -15,7 +15,7 @@ function CreditModal({ onClose, onRecharge }) {
         <div className="modal-content">
           <label className="radio-label">
             <div className="radio-credit-wrapper">
-              <img src={CreditIcon} alt="Credit Icon" /> {/* alt 속성 추가 */}
+              <img src={CreditIcon} alt="Credit Icon" />
               100
             </div>
             <input
@@ -27,7 +27,7 @@ function CreditModal({ onClose, onRecharge }) {
           </label>
           <label className="radio-label">
             <div className="radio-credit-wrapper">
-              <img src={CreditIcon} alt="Credit Icon" /> {/* alt 속성 추가 */}
+              <img src={CreditIcon} alt="Credit Icon" />
               500
             </div>
             <input
@@ -39,7 +39,7 @@ function CreditModal({ onClose, onRecharge }) {
           </label>
           <label className="radio-label">
             <div className="radio-credit-wrapper">
-              <img src={CreditIcon} alt="Credit Icon" /> {/* alt 속성 추가 */}
+              <img src={CreditIcon} alt="Credit Icon" /> 
               1000
             </div>
             <input

@@ -1,25 +1,44 @@
 import React from "react";
 import "./IdolDetail.css";
+import checkIcon from "../pages/Mypage/assets/images/ic_check.svg";
 
-function IdolDetail({ idolData, isRadio = false, onRadioChange }) {
+function IdolDetail({
+  idolData,
+  isNeedRadio = false,
+  isSelected,
+  onRadioChange,
+}) {
   const { id, profilePicture, rank, group, name, totalVotes } = idolData;
 
-  const handleRadioChange = (event) => {
-    onRadioChange(event.target.value);
+  const handleRadioChange = () => {
+    onRadioChange(id);
+    console.log(isSelected);
   };
 
   return (
     <div className="idol-container">
       <div className="idol-info">
         <div className="idol-image">
-          <img src={profilePicture} alt="아이돌 이미지" />
+          {isSelected ? (
+            <div className="selected-idol-wrapper">
+              <div className="selected-idol-color" />
+              <img
+                className="selected-idol-check"
+                src={checkIcon}
+                alt="Selected check icon"
+              />
+              <img src={profilePicture} alt="아이돌 이미지" />
+            </div>
+          ) : (
+            <img src={profilePicture} alt="아이돌 이미지" />
+          )}
         </div>
         <div className="idol-rate">{rank}</div>
         <h3 className="idol-group">{group}</h3>
         <h3 className="idol-name">{name}</h3>
       </div>
       <p className="idol-vote-rate">{totalVotes}표</p>
-      {isRadio && (
+      {isNeedRadio && (
         <input
           className="idol-radio"
           type="radio"

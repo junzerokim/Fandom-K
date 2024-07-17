@@ -1,8 +1,9 @@
-@import 'slick-carousel/slick/slick.css';
-@import 'slick-carousel/slick/slick-theme.css';
-
-.slick-list {
-  padding: 0 24px;
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+.donation {
+  .slick-list {
+    padding: 0 24px;
+  }
 }
 .slick-arrow {
   position: absolute;

@@ -22,7 +22,11 @@ function CreditModal({ onClose, onRecharge }) {
         </div>
         <div className="modal-content">
           {creditOptions.map((credit) => (
-            <label key={credit} className="radio-label" htmlFor={`credit-${credit}`}>
+            <label
+              key={credit}
+              className="radio-label"
+              htmlFor={`credit-${credit}`}
+            >
               <div className="radio-credit-wrapper">
                 <img src={CreditIcon} alt="Credit Icon" />
                 {credit}
@@ -37,7 +41,7 @@ function CreditModal({ onClose, onRecharge }) {
           ))}
         </div>
         <div className="modal-footer">
-          <button onClick={() => onRecharge(selectedCredit)}>
+          <button onClick={() => handleRecharge(selectedCredit)}>
             <img src={CreditWhiteIcon} alt="Credit Icon" />
             충전하기
           </button>

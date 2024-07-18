@@ -10,13 +10,8 @@ function IdolDetail({
 }) {
   const { id, profilePicture, rank, group, name, totalVotes } = idolData;
 
-  // const handleRadioChange = () => {
-  //   onRadioChange(id);
-  //   console.log(isSelected);
-  // };
-
   return (
-    <div className="idol-container">
+    <div className={`idol-container ${isSelected ? "selected" : ""}`}>
       <div className="idol-info">
         <div className="idol-image">
           {isSelected ? (
@@ -36,15 +31,15 @@ function IdolDetail({
         <div className="idol-rate">{rank}</div>
         <h3 className="idol-group">{group}</h3>
         <h3 className="idol-name">{name}</h3>
+        <p className="idol-vote-rate">{totalVotes}표</p>
       </div>
-      <p className="idol-vote-rate">{totalVotes}표</p>
       {isNeedRadio && (
         <input
           className="idol-radio"
           type="radio"
           name="idol-radio"
           value={id}
-          onInput={() => onRadioChange(id)}
+          onChange={() => onRadioChange(id)}
         />
       )}
     </div>

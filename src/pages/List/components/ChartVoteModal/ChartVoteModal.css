@@ -3,7 +3,10 @@
   width: 525px;
   border-radius: 8px;
   position: relative;
-
+  @media (max-width: 767px) {
+    width: 100%;
+    height: 100%;
+  }
   .modal-header {
     display: flex;
     justify-content: space-between;
@@ -12,10 +15,19 @@
     padding: 20px 20px 0;
   }
 
-  .modal-header h2 {
-    color: white;
-    margin: 0;
-    font-size: 18px;
+  .modal-header {
+    @media (max-width: 767px) {
+      justify-content: center;
+    }
+    h2 {
+      color: white;
+      margin: 0;
+      font-size: 18px;
+      @media (max-width: 767px) {
+        font-size: 14px;
+        text-align: center;
+      }
+    }
   }
 
   .close-btn {
@@ -24,6 +36,11 @@
     color: white;
     font-size: 20px;
     cursor: pointer;
+    @media (max-width: 767px) {
+      position: absolute;
+      left: 20px;
+      top: 18px;
+    }
   }
 
   .modal-content {
@@ -40,6 +57,10 @@
     ::-webkit-scrollbar {
       display: none; /*Chrome, Safari, Opera*/
       width: 0px;
+    }
+    @media (max-width: 767px) {
+      max-height: calc(100% - 150px);
+      padding: 0 24px;
     }
   }
 
@@ -81,9 +102,51 @@
   .idol-radio {
     margin-left: auto;
   }
-
-  .modal-idol-rank {
+  .idol-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 10px 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .idol-info {
+    display: grid;
+    gap: 0 12px;
+    grid-template-areas:
+      "img rate group name"
+      "img rate vote vote";
+    .idol-image {
+      grid-area: img;
+    }
+    .idol-rate {
+      grid-area: rate;
+    }
+    .idol-group {
+      padding-top: 12px;
+      grid-area: group;
+    }
+    .idol-name {
+      padding-top: 12px;
+      margin-left: -5px;
+      grid-area: name;
+    }
+    .idol-vote-rate {
+      padding-bottom: 12px;
+      grid-area: vote;
+      color: rgba(255, 255, 255, 0.6);
+    }
+  }
+}
+.idol-container.selected {
+  .idol-image::before {
+    content: "";
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 9999px;
+    background-image: var(--brand-gradation);
+    opacity: 0.5;
+    z-index: 1;
   }
 }

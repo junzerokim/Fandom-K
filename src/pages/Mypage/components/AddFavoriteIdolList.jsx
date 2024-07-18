@@ -47,9 +47,15 @@ function AddFavoriteIdolList({ myFavoriteIdolList, setMyFavoriteIdolList }) {
     const existingLocalStorageData = myFavoriteIdolList || [];
     // 리스트에 이미 존재하는 아이돌 제거하기 -> 선택한 아이돌 중에서, 이미 존재하는 아이돌의 아이디와 다른 아이돌만 반환
     const filteredSelectedIdolList = selectedIdolList.filter(
-      (idol) => !existingLocalStorageData.some((existingIdol) => existingIdol.id === idol.id),
+      (idol) =>
+        !existingLocalStorageData.some(
+          (existingIdol) => existingIdol.id === idol.id,
+        ),
     );
-    const updatedLocalStorageData = [...existingLocalStorageData, ...filteredSelectedIdolList];
+    const updatedLocalStorageData = [
+      ...existingLocalStorageData,
+      ...filteredSelectedIdolList,
+    ];
 
     setMyFavoriteIdolList(updatedLocalStorageData);
 
@@ -75,9 +81,10 @@ function AddFavoriteIdolList({ myFavoriteIdolList, setMyFavoriteIdolList }) {
           arrows={sliderSettings.arrows}
         >
           {idolChunks.map((idolChunk, idolChunkIndex) => {
+            const key = `${idolChunkIndex}-${new Date().getTime()}`;
             return (
               <AddIdolListItemButton
-                key={idolChunkIndex}
+                key={key}
                 idolChunk={idolChunk}
                 onClick={handleSelectIdolButtonClick}
                 isSelected={isSelected}

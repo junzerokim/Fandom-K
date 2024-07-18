@@ -3,15 +3,13 @@ import "./ThisMonthsChart.css";
 import IdolDetail from "../IdolDetail";
 import ChartVoteModal from "../ChartVoteModal/ChartVoteModal";
 import useIdolChart from "../../../../hooks/useIdolChart";
-import Loadingbar from "../../../../components/Loadingbar";
 
 const getPageSize = () => {
   const width = window.innerWidth;
   if (width < 1200) {
     return 5;
-  } else {
-    return 10;
   }
+  return 10;
 };
 
 function ThisMonthsChart() {

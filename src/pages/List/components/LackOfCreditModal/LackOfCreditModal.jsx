@@ -1,8 +1,8 @@
-import React from 'react';
-import credit from '../../../../assets/images/ico_credit_gradation.png';
-import CloseButton from '../DonationsModal/CloseButton';
-import './LackOfCreditModal.css';
-import useEscapeModal from '../../../../hooks/useEscapeModal';
+import React from "react";
+import credit from "../../../../assets/images/ico_credit_gradation.png";
+import CloseButton from "../DonationsModal/CloseButton";
+import "./LackOfCreditModal.css";
+import useEscapeModal from "../../../../hooks/useEscapeModal";
 
 function LackOfCreditModal({ closeModal }) {
   useEscapeModal(closeModal);
@@ -14,7 +14,10 @@ function LackOfCreditModal({ closeModal }) {
   };
 
   return (
-    <div className="lack-of-credit-modal-background" onClick={handleBackgroundClick}>
+    <div
+      className="lack-of-credit-modal-background"
+      onClick={handleBackgroundClick}
+    >
       <div className="lack-of-credit-modal">
         <div>
           <CloseButton onClick={closeModal} />

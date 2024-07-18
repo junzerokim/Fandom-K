@@ -17,16 +17,17 @@
 //   });
 // });
 
-const express = require("express");
-const cors = require("cors");
+const express = require('express');
+const cors = require('cors');
+
 const app = express();
 
 // // 모든 도메인에서의 요청을 허용
 // // app.use(cors());
 
 // 특정 도메인에서의 요청만 허용할 경우
-app.use(cors({ origin: "http://localhost:3000/list" }));
+app.use(cors({ origin: 'http://localhost:3000/list' }));
 
 app.listen(3000, () => {
-  console.log("서버가 3000 포트에서 실행 중입니다.");
+  console.log('서버가 3000 포트에서 실행 중입니다.');
 });

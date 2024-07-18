@@ -38,7 +38,9 @@ function Landing() {
   return (
     <>
       <Helmet>
-        <title>Fandom-k :: 내가 좋아하는 아이돌을 가장 쉽게 덕질 하는 방법</title>
+        <title>
+          Fandom-k :: 내가 좋아하는 아이돌을 가장 쉽게 덕질 하는 방법
+        </title>
       </Helmet>
       <main>
         <section className="section sec01">
@@ -53,7 +55,11 @@ function Landing() {
                 <img src={logo} alt="로고" />
               </Link>
             </h1>
-            <Link to="/list" className="btn-main animate" onClick={clearLocalStorage}>
+            <Link
+              to="/list"
+              className="btn-main animate"
+              onClick={clearLocalStorage}
+            >
               지금 시작하기
             </Link>
           </div>
@@ -66,7 +72,11 @@ function Landing() {
               <br />
               쉽게 조공해 보세요
             </h2>
-            <img src={mobile1} alt="이미지" className="mobile-preview animate left" />
+            <img
+              src={mobile1}
+              alt="이미지"
+              className="mobile-preview animate left"
+            />
           </div>
         </section>
         <section className="section sec03">
@@ -77,7 +87,11 @@ function Landing() {
               <br />
               영예를 선물하세요
             </h2>
-            <img src={mobile2} alt="이미지" className="mobile-preview animate right" />
+            <img
+              src={mobile2}
+              alt="이미지"
+              className="mobile-preview animate right"
+            />
           </div>
         </section>
         <section className="section sec04">
@@ -88,7 +102,11 @@ function Landing() {
               <br />
               소식을 모아보세요
             </h2>
-            <img src={mobile3} alt="이미지" className="mobile-preview animate left" />
+            <img
+              src={mobile3}
+              alt="이미지"
+              className="mobile-preview animate left"
+            />
           </div>
         </section>
       </main>

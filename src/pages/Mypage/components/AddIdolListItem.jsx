@@ -13,11 +13,23 @@ function AddIdolListItem({ isSelected, idolData }) {
           {isSelected ? (
             <div className="selected-idol-wrapper">
               <div className="selected-idol-color" />
-              <img className="selected-idol-check" src={checkIcon} alt="Selected check icon" />
-              <img className="idol-profile add-favorite-idol" src={profilePicture} alt="Idol profile" />
+              <img
+                className="selected-idol-check"
+                src={checkIcon}
+                alt="Selected check icon"
+              />
+              <img
+                className="idol-profile add-favorite-idol"
+                src={profilePicture}
+                alt="Idol profile"
+              />
             </div>
           ) : (
-            <img className="idol-profile add-favorite-idol" src={profilePicture} alt="Idol profile" />
+            <img
+              className="idol-profile add-favorite-idol"
+              src={profilePicture}
+              alt="Idol profile"
+            />
           )}
         </div>
         <h4 className="idol-name">{name}</h4>

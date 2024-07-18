@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./ChartVoteModal.css";
-import IdolDetail from "./IdolDetail";
+import IdolDetail from "../IdolDetail";
 
 function ChartVoteModal({ onClose, idolRank, gender }) {
   const initialSelectedState = idolRank.reduce((acc, idol) => {

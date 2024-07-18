@@ -1,6 +1,6 @@
 import React from "react";
 import "./IdolDetail.css";
-import checkIcon from "../pages/Mypage/assets/images/ic_check.svg";
+import checkIcon from "../../Mypage/assets/images/ic_check.svg";
 
 function IdolDetail({
   idolData,
@@ -10,10 +10,10 @@ function IdolDetail({
 }) {
   const { id, profilePicture, rank, group, name, totalVotes } = idolData;
 
-  const handleRadioChange = () => {
-    onRadioChange(id);
-    console.log(isSelected);
-  };
+  // const handleRadioChange = () => {
+  //   onRadioChange(id);
+  //   console.log(isSelected);
+  // };
 
   return (
     <div className="idol-container">
@@ -44,7 +44,7 @@ function IdolDetail({
           type="radio"
           name="idol-radio"
           value={id}
-          onChange={handleRadioChange}
+          onInput={() => onRadioChange(id)}
         />
       )}
     </div>

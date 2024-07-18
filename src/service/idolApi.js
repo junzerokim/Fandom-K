@@ -1,6 +1,6 @@
 const BASE_URL = "https://fandom-k-api.vercel.app/8-3";
 
-export default async function getIdolChart(gender = "female", pageSize = 10) {
+export default async function getIdolChart(gender = "female", pageSize = 20) {
   const url = `${BASE_URL}/charts/gender?gender=${gender}&pageSize=${pageSize}`;
   try {
     const response = await fetch(url);

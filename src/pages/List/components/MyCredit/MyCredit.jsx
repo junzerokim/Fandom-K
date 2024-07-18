@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
+
 import "./MyCredit.css";
-import CreditIcon from "../assets/images/donationCredit.png";
-import { useState, useEffect, useContext } from "react";
-import CreditModal from "./CreditModal";
-import { CreditContext } from "./CreditContextProvider";
+import CreditIcon from "../../../../assets/images/donationCredit.png";
+import { CreditContext } from "../../../../components/CreditContextProvider";
+import CreditModal from "../CreditModal/CreditModal";
 
 function MyCredit() {
   const { localCredit, isModalOpen, setIsModalOpen } =

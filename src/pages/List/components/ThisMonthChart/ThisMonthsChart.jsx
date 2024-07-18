@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./ThisMonthsChart.css";
-import IdolDetail from "./IdolDetail";
-import ChartVoteModal from "./ChartVoteModal";
-import useIdolChart from "../hooks/useIdolChart";
+import IdolDetail from "../IdolDetail";
+import ChartVoteModal from "../ChartVoteModal/ChartVoteModal";
+import useIdolChart from "../../../../hooks/useIdolChart";
 
 const getPageSize = () => {
   const width = window.innerWidth;

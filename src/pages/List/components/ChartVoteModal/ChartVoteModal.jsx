@@ -1,30 +1,33 @@
 import React, { useState, useEffect } from "react";
 import "./ChartVoteModal.css";
 import IdolDetail from "../IdolDetail";
+import handleVote from "../../../../service/voteApi";
 
 function ChartVoteModal({ closeModal, idolRank, gender }) {
-  // State to keep track of selected idol
   const [selectedIdolId, setSelectedIdolId] = useState(null);
 
-  // Effect to select the first idol when idolRank or gender changes
   useEffect(() => {
     if (idolRank.length > 0) {
-      setSelectedIdolId(idolRank[0].id); // Select the first idol initially
+      setSelectedIdolId(idolRank[0].id);
     }
   }, [idolRank, gender]);
 
-  // Handler to update selected idol
   const handleIdolRadioClick = (idolId) => {
     setSelectedIdolId(idolId);
   };
 
-  // Handler for vote button click
-  const handleVoteButtonClick = () => {
+  const handleVoteButtonClick = async () => {
     if (selectedIdolId) {
-      console.log(`Voted for idol with id: ${selectedIdolId}`);
-      // Handle vote logic here
+      try {
+        await handleVote(selectedIdolId); // Call handleVote with selected idolId
+        console.log(`Successfully voted for idol with id: ${selectedIdolId}`);
+      } catch (error) {
+        console.error("Failed to vote:", error);
+        // Handle error (e.g., show an error message to the user)
+      } finally {
+        closeModal();
+      }
     }
-    console.log("Voted!");
   };
 
   return (

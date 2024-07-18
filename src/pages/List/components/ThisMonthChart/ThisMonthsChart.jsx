@@ -3,6 +3,7 @@ import "./ThisMonthsChart.css";
 import IdolDetail from "../IdolDetail";
 import ChartVoteModal from "../ChartVoteModal/ChartVoteModal";
 import useIdolChart from "../../../../hooks/useIdolChart";
+import Loadingbar from "../../../../components/Loadingbar";
 
 const getPageSize = () => {
   const width = window.innerWidth;
@@ -85,7 +86,11 @@ function ThisMonthsChart() {
         </button>
       </div>
       <ul className="ranking-list">
-        {loading && <div>Loading...</div>}
+        {loading && (
+          <div>
+            <Loadingbar />
+          </div>
+        )}
         {fetchError && <div>Error loading data</div>}
         {!loading &&
           !fetchError &&

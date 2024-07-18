@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./ChartVoteModal.css";
 import IdolDetail from "../IdolDetail";
-import handleVote from "../../../../service/voteApi";
 
 function ChartVoteModal({ closeModal, idolRank, gender }) {
   const [selectedIdolId, setSelectedIdolId] = useState(null);
@@ -18,16 +17,10 @@ function ChartVoteModal({ closeModal, idolRank, gender }) {
 
   const handleVoteButtonClick = async () => {
     if (selectedIdolId) {
-      try {
-        await handleVote(selectedIdolId); // Call handleVote with selected idolId
-        console.log(`Successfully voted for idol with id: ${selectedIdolId}`);
-      } catch (error) {
-        console.error("Failed to vote:", error);
-        // Handle error (e.g., show an error message to the user)
-      } finally {
-        closeModal();
-      }
+      console.log(`Voted for idol with id: ${selectedIdolId}`);
+      // Handle vote logic here
     }
+    console.log("Voted!");
   };
 
   return (
@@ -40,7 +33,7 @@ function ChartVoteModal({ closeModal, idolRank, gender }) {
             onClick={closeModal}
             aria-label="모달 닫기 버튼"
           >
-            <i className="icon-btn-close"></i>
+            <i className="icon-btn-close" />
           </button>
         </div>
         <div className="modal-content">
@@ -48,7 +41,7 @@ function ChartVoteModal({ closeModal, idolRank, gender }) {
             <IdolDetail
               key={idol.id}
               idolData={idol}
-              isNeedRadio={true}
+              isNeedRadio
               isSelected={selectedIdolId === idol.id}
               onRadioChange={() => handleIdolRadioClick(idol.id)}
             />

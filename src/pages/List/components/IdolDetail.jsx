@@ -11,7 +11,7 @@ function IdolDetail({
   const { id, profilePicture, rank, group, name, totalVotes } = idolData;
 
   return (
-    <div className={`idol-container ${isSelected ? "selected" : ""}`}>
+    <div className={`idol-container ${isSelected ? 'selected' : ''}`}>
       <div className="idol-info">
         <div className="idol-image">
           {isSelected ? (

@@ -1,9 +1,8 @@
 import React from 'react';
+import './AddIdolListButton.css';
+import AddIdolListItem from '../AddIdolListItem/AddIdolListItem';
 
-import './AddIdolListItemButton.css';
-import AddIdolListItem from './AddIdolListItem';
-
-function AddIdolListItemButton({ idolChunk, onClick, isSelected }) {
+function AddIdolListButton({ idolChunk, onClick, isSelected }) {
   return (
     <div className="add-favorite-idol-list">
       {idolChunk.map((idol) => {
@@ -22,4 +21,4 @@ function AddIdolListItemButton({ idolChunk, onClick, isSelected }) {
   );
 }
 
-export default AddIdolListItemButton;
+export default AddIdolListButton;

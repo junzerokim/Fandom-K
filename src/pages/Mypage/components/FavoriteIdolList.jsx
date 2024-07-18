@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 import './FavoriteIdolList.css';
 
-import MyFavoriteIdolList from './MyFavoriteIdolList';
-import AddFavoriteIdolList from './AddFavoriteIdolList';
+import MyFavoriteIdolList from './MyFavoriteIdolList/MyFavoriteIdolList';
+import AddFavoriteIdolList from './AddFavoriteIdolList/AddFavoriteIdolList';
 
 function FavoriteIdolList() {
   const localStorageData =

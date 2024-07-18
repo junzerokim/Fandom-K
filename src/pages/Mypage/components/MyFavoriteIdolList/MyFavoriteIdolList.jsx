@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import './MyFavoriteIdolList.css';
-import MyIdolListItem from './MyIdolListItem';
+import MyIdolListItem from './MyIdolListItem/MyIdolListItem';
 
 function MyFavoriteIdolList({ myFavoriteIdolList, setMyFavoriteIdolList }) {
   const handleDeleteIdolButtonClick = (deleteIdolId) => {

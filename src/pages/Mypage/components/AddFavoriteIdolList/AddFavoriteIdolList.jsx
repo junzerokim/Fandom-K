@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import Slider from 'react-slick';
 
-import plusIcon from '../assets/images/ic_plus.svg';
+import plusIcon from '../../assets/images/ic_plus.svg';
 import './AddFavoriteIdolList.css';
 
-import useIdolData from '../hooks/useIdolData';
-import useIdolChunks from '../hooks/useIdolChunks';
-import useShowArrow from '../hooks/useShowArrow';
+import useIdolData from '../../hooks/useIdolData';
+import useIdolChunks from '../../hooks/useIdolChunks';
+import useShowArrow from '../../hooks/useShowArrow';
 
-import LoadingBar from '../../../components/Loadingbar';
-import AddIdolListItemButton from './AddIdolListItemButton';
+import LoadingBar from '../../../../components/Loadingbar';
+import AddIdolListButton from './AddIdolListButton/AddIdolListButton';
 
 function AddFavoriteIdolList({ myFavoriteIdolList, setMyFavoriteIdolList }) {
   const { idolData, isLoading = true } = useIdolData();
@@ -83,7 +83,7 @@ function AddFavoriteIdolList({ myFavoriteIdolList, setMyFavoriteIdolList }) {
           {idolChunks.map((idolChunk, idolChunkIndex) => {
             const key = `${idolChunkIndex}-${new Date().getTime()}`;
             return (
-              <AddIdolListItemButton
+              <AddIdolListButton
                 key={key}
                 idolChunk={idolChunk}
                 onClick={handleSelectIdolButtonClick}

@@ -38,15 +38,16 @@ function ThisMonthsChart() {
   const openGenderVoteModal = () => {
     setIsModalOpen(true);
   };
-
+  const updateIdolRank = () => {
+    fetchData(true);
+  };
   const closeModal = () => {
     setIsModalOpen(false);
   };
 
   const tab = (gender) => {
     setActiveTab(gender);
-    setDisplayCount(pageSize); // 탭 변경 시 초기 표시 수로 리셋
-    fetchData(gender, pageSize); // 새로운 데이터 가져오기
+    setDisplayCount(pageSize);
   };
 
   const loadMore = () => {
@@ -83,13 +84,14 @@ function ThisMonthsChart() {
           이달의 남자 아이돌
         </button>
       </div>
+
+      {loading && (
+        <div className="chart-wrap">
+          <Loadingbar />
+        </div>
+      )}
+      {fetchError && <div>Error loading data</div>}
       <ul className="ranking-list">
-        {loading && (
-          <div>
-            <Loadingbar />
-          </div>
-        )}
-        {fetchError && <div>Error loading data</div>}
         {!loading &&
           !fetchError &&
           idolRank
@@ -111,6 +113,7 @@ function ThisMonthsChart() {
           closeModal={closeModal}
           idolRank={idolRank}
           gender={activeTab}
+          updateIdolRank={updateIdolRank}
         />
       )}
     </div>

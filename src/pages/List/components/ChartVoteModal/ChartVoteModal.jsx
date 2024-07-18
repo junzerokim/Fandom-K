@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./ChartVoteModal.css";
 import IdolDetail from "../IdolDetail";
 
-function ChartVoteModal({ closeModal, idolRank, gender }) {
+function ChartVoteModal({ closeModal, idolRank, gender, updateIdolRank }) {
   const [selectedIdolId, setSelectedIdolId] = useState(null);
 
   useEffect(() => {
@@ -17,16 +17,24 @@ function ChartVoteModal({ closeModal, idolRank, gender }) {
 
   const handleVoteButtonClick = async () => {
     if (selectedIdolId) {
-      console.log(`Voted for idol with id: ${selectedIdolId}`);
-      // Handle vote logic here
+      try {
+        await handleVote(selectedIdolId); // Call handleVote with selected idolId
+        console.log(`Successfully voted for idol with id: ${selectedIdolId}`);
+        updateIdolRank(); // 차트 데이터 실시간 업데이트
+      } catch (error) {
+        console.error("Failed to vote:", error);
+        // Handle error (e.g., show an error message to the user)
+      } finally {
+        closeModal();
+      }
     }
-    console.log("Voted!");
   };
 
   return (
     <div className="modal-overlay">
       <div className="chart-modal">
         <div className="modal-header">
+          <h2>이달의 {gender === "female" ? "여자" : "남자"} 아이돌</h2>
           <h2>이달의 {gender === "female" ? "여자" : "남자"} 아이돌</h2>
           <button
             className="close-btn"

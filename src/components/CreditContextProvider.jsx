@@ -1,10 +1,10 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo } from "react";
 
 export const CreditContext = React.createContext();
 
 function CreditContextProvider({ children }) {
   const initialCredit = () => {
-    const storedCredit = JSON.parse(localStorage.getItem('myCredit'));
+    const storedCredit = JSON.parse(localStorage.getItem("myCredit"));
     return storedCredit || 0;
   };
 
@@ -13,41 +13,38 @@ function CreditContextProvider({ children }) {
   const [localReceivedDonations, setLocalReceivedDonations] = useState();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const sendPostRequest = (updatedSelectedDonation) => {
-    fetch('https://fandom-k-api.vercel.app/8-3/donations', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        // 필요한 경우 인증 토큰 등의 헤더도 추가할 수 있습니다.
-      },
-      body: JSON.stringify(updatedSelectedDonation),
-    })
+  const sendPostRequest = (selectedDonation) => {
+    const selectedId = selectedDonation.id;
+    fetch(
+      `https://fandom-k-api.vercel.app/8-3/donations/${selectedId}/contribute`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          // 필요한 경우 인증 토큰 등의 헤더도 추가할 수 있습니다.
+        },
+        body: JSON.stringify({ amount: `${localReceivedDonations}` }),
+      }
+    )
       .then((response) => response.json())
       .then((data) => {
-        console.log('서버 응답:', data);
+        console.log("서버 응답:", data);
         // 성공적으로 업데이트되었음을 사용자에게 알릴 수 있습니다.
       })
       .catch((error) => {
-        console.error('POST 요청 에러:', error);
+        console.error("PUT 요청 에러:", error);
         // 오류 처리
       });
   };
 
   const handleCreditUpdate = (newCredit) => {
     setLocalCredit(newCredit);
-    localStorage.setItem('myCredit', newCredit.toString());
+    localStorage.setItem("myCredit", newCredit.toString());
   };
 
   const handleReceivedDonationsUpdate = (newReceivedDonations) => {
     setLocalReceivedDonations(newReceivedDonations);
-    // 객체의 속성 업데이트
-    const updatedSelectedDonation = {
-      ...selectedDonation,
-      receivedDonations: newReceivedDonations,
-    };
-    setSelectedDonation(updatedSelectedDonation);
-    sendPostRequest(updatedSelectedDonation);
-    console.log(JSON.stringify(updatedSelectedDonation));
+    sendPostRequest(selectedDonation);
   };
 
   const handleRecharge = (amount) => {

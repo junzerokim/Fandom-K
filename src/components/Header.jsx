@@ -8,7 +8,7 @@ function Header() {
   const navigate = useNavigate();
 
   const handleLogoClick = () => {
-    window.location.reload(); // 페이지 새로고침
+    navigate('/list'); // 페이지 새로고침
   };
 
   const handleProfileClick = () => {

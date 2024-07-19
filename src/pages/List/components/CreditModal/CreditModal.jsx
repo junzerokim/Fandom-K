@@ -18,7 +18,7 @@ function CreditModal({ onClose }) {
         <div className="modal-header">
           <h2>크레딧 충전하기</h2>
           <button className="close-btn" onClick={onClose}>
-            X
+            <i className="button-close" aria-label="삭제 이미지" />
           </button>
         </div>
         <div className="modal-content">

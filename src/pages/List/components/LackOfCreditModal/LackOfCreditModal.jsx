@@ -1,5 +1,5 @@
 import React from 'react';
-import credit from '../../../../assets/images/credit.svg';
+import credit from '../../../../assets/images/ico_credit_gradation.png';
 import CloseButton from '../DonationsModal/CloseButton';
 import './LackOfCreditModal.css';
 import useEscapeModal from '../../../../hooks/useEscapeModal';

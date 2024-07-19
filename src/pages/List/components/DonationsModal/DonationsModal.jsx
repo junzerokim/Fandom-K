@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import donationCredit from "../../../../assets/images/donationCredit.png";
+import donationCredit from "../../../../assets/images/ico_credit_non_gradation.png";
 import CloseButton from "./CloseButton";
 import "./DonationsModal.css";
 import useEscapeModal from "../../../../hooks/useEscapeModal";

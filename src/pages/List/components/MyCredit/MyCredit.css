@@ -24,6 +24,7 @@
 
 .credit-balance {
   display: flex;
+  align-items: center;
   font-size: 24px;
   font-weight: 700;
   gap: 4px;
@@ -37,6 +38,11 @@
   color: #F96D69;
   font-size: 16px;
   font-weight: 700;
+}
+
+.credit-balance img{
+  width: 30px;
+  height: 30px;
 }
 
 @media (max-width: 1199px) {

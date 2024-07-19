@@ -1,7 +1,5 @@
-/* ==== variables ==== */
-
 :root {
-  --main-font: 'Pretendard';
+  --main-font: "Pretendard";
 
   /* Brand Colors */
   --brand-orange: #f96d69;
@@ -17,6 +15,9 @@
   --gray-200: #a3a5a8;
   --gray-100: #f7f7f8;
   --white: #fff;
+
+  /* error */
+  --error: #ff2626;
 
   /* 폰트를 부드럽게 렌더링하기 위한 속성  */
   font-synthesis: none;

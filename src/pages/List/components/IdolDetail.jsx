@@ -29,8 +29,8 @@ function IdolDetail({
           )}
         </div>
         <div className="idol-rate">{rank}</div>
-        <h3 className="idol-group">{group}</h3>
-        <h3 className="idol-name">{name}</h3>
+        <h4 className="idol-group">{group}</h4>
+        <h4 className="idol-name">{name}</h4>
         <p className="idol-vote-rate">{totalVotes}표</p>
       </div>
       {isNeedRadio && (

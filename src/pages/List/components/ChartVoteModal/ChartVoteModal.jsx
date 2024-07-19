@@ -41,16 +41,18 @@ function ChartVoteModal({ closeModal, idolRank, gender, updateIdolRank }) {
 
   return (
     <div className="modal-overlay">
-      <div className="chart-modal">
+      <div className="modal modal-chart">
         <div className="modal-header">
-          <h2>이달의 {gender === "female" ? "여자" : "남자"} 아이돌</h2>
-          <h2>이달의 {gender === "female" ? "여자" : "남자"} 아이돌</h2>
+          <h4 className="title">
+            이달의 {gender === "female" ? "여자" : "남자"} 아이돌
+          </h4>
           <button
-            className="close-btn"
+            type="button"
+            className="btn-close"
             onClick={closeModal}
             aria-label="모달 닫기 버튼"
           >
-            <i className="icon-btn-close" />
+            <i className="btn-md icon-btn-close" />
           </button>
         </div>
         <div className="modal-content">
@@ -65,11 +67,16 @@ function ChartVoteModal({ closeModal, idolRank, gender, updateIdolRank }) {
           ))}
         </div>
         <div className="modal-footer">
-          <button className="modal-vote-btn" onClick={handleVoteButtonClick}>
+          <button
+            type="button"
+            className="btn-primary"
+            onClick={handleVoteButtonClick}
+            aria-label="투표하기 버튼"
+          >
             투표하기
           </button>
           <p>
-            투표하는 데 <b>1000 크레딧</b>이 소모됩니다.
+            투표하는 데 <span>1000 크레딧</span>이 소모됩니다.
           </p>
         </div>
       </div>

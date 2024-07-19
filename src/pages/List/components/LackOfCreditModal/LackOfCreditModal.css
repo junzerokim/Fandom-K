@@ -1,69 +1,28 @@
-.lack-of-credit-modal-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.lack-of-credit-modal {
-  width: 339px;
-  height: 331px;
-  padding: 24px 20px 32px;
-  border-radius: 12px;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #181d26;
-}
-
-.lack-of-credit-modal .icon-btn-close {
-  width: 24px;
-  height: 24px;
-  background: url(../../../../assets/images/btn_close.png) no-repeat center center;
-  background-size: cover;
-  position: relative;
-  left: 271px;
-  display: block;
-}
-
-.lack-of-credit-modal .credit {
-  width: 80%;
-  height: 80%;
-  position: relative;
-  bottom: 40px;
-  left: 27px;
-}
-
-.lack-of-credit-modal-title {
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 26px;
-  color: var(--white);
-  text-align: center;
-  position: relative;
-  bottom: 70px;
-}
-
-.lack-of-credit-modal-title span {
-  color: #f96d69;
-}
-
-.lack-of-credit-modal .button {
-  width: 295px;
-  height: 42px;
-  padding: 8px;
-  border-radius: 3px;
-  color: var(--white);
-  position: relative;
-  bottom: 40px;
-}
-
-.button_active {
-  background: linear-gradient(90deg, #f86f65 0%, #fe5493 100%);
+.modal-lack-of-credit {
+  .modal-header {
+    padding-bottom: 0;
+    .btn-close {
+      margin-left: auto;
+    }
+  }
+  .modal-content {
+    .icon-credit {
+      width: 150px;
+      height: 150px;
+      margin: 0 auto;
+    }
+    .title {
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 26px;
+      color: var(--white);
+      text-align: center;
+      span {
+        color: var(--brand-orange);
+      }
+    }
+  }
+  .modal-footer {
+    margin-top: 20px;
+  }
 }

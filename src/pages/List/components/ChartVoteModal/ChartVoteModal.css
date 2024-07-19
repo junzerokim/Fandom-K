@@ -1,41 +1,20 @@
-.chart-modal {
-  background-color: #181d26;
-  width: 525px;
-  border-radius: 8px;
+.modal-chart {
   position: relative;
+  width: 525px;
   @media (max-width: 767px) {
     width: 100%;
     height: 100%;
   }
   .modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    padding: 20px 20px 0;
-  }
-
-  .modal-header {
-    @media (max-width: 767px) {
-      justify-content: center;
-    }
-    h2 {
-      color: white;
-      margin: 0;
-      font-size: 18px;
+    padding-bottom: 12px;
+    h4.title {
       @media (max-width: 767px) {
-        font-size: 14px;
-        text-align: center;
+        margin: 0 auto;
       }
     }
   }
-
-  .close-btn {
+  .btn-close {
     background: none;
-    border: none;
-    color: white;
-    font-size: 20px;
-    cursor: pointer;
     @media (max-width: 767px) {
       position: absolute;
       left: 20px;
@@ -43,51 +22,39 @@
     }
     .icon-btn-close {
       @media (max-width: 767px) {
-        width: 24px;
-        height: 24px;
         background: url(../../../../assets/images/icon_arrow_left.svg) no-repeat
           center center !important;
-        background-size: cover;
-        display: block;
       }
     }
   }
 
   .modal-content {
-    display: flex;
-    flex-direction: column;
     gap: 0;
-    color: white;
     overflow-y: auto;
     max-height: 500px;
-    padding: 0 20px;
-    /* 스크롤 바 숨기기 */
-    -ms-overflow-style: none; /*IE, Edge*/
-    scrollbar-width: none; /*Firefox*/
+    -ms-overflow-style: none;
+    scrollbar-width: none;
     ::-webkit-scrollbar {
-      display: none; /*Chrome, Safari, Opera*/
+      display: none;
       width: 0px;
     }
     @media (max-width: 767px) {
-      max-height: calc(100% - 150px);
-      padding: 0 24px;
+      max-height: calc(100% - 110px);
+      padding: 0 12px;
+    }
+    label {
+      display: flex;
+      align-items: center;
     }
   }
 
-  .modal-content label {
-    display: flex;
-    align-items: center;
-  }
-
   .modal-footer {
-    width: 100%;
-    padding: 0 20px 20px;
-    margin: 0;
+    padding-top: 0;
     p {
       padding-top: 20px;
       text-align: center;
       font-size: 12px;
-      b {
+      span {
         color: var(--brand-orange);
       }
     }
@@ -153,14 +120,14 @@
 }
 .idol-container.selected {
   input[type="radio"] {
-    border-color: #f96d69;
+    border-color: var(--brand-orange);
     &:before {
+      position: absolute;
       content: "";
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background-color: #f96d69;
-      position: absolute;
+      background-color: var(--brand-orange);
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);

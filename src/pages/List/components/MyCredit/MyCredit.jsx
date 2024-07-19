@@ -1,7 +1,6 @@
 import React, { useEffect, useContext } from "react";
 
 import "./MyCredit.css";
-import CreditIcon from "../../../../assets/images/donationCredit.png";
 import { CreditContext } from "../../../../components/CreditContextProvider";
 import CreditModal from "../CreditModal/CreditModal";
 
@@ -14,26 +13,25 @@ function MyCredit() {
   }, [localCredit]);
 
   return (
-    <div className="credit-container">
-      <div className="credit-wrapper">
-        <div className="credit-balance-wrapper">
+    <seciton className="section credit">
+      <div className="credit-wrap">
+        <div className="credit-balance-group">
           <p className="credit-title">내 크레딧</p>
           <div className="credit-balance">
-            <img src={CreditIcon} alt="크레딧 아이콘" />
-            <p>{localCredit.toLocaleString()}</p>
+            <i className="icon-md icon-credit" />
+            {localCredit.toLocaleString()}
           </div>
         </div>
-        <div className="credit-recharge-btn-container">
-          <button
-            className="credit-recharge-btn"
-            onClick={() => setIsModalOpen(true)}
-          >
-            충전하기
-          </button>
-        </div>
+        <button
+          type="button"
+          className="btn-credit-recharge"
+          onClick={() => setIsModalOpen(true)}
+        >
+          충전하기
+        </button>
       </div>
       {isModalOpen && <CreditModal onClose={() => setIsModalOpen(false)} />}
-    </div>
+    </seciton>
   );
 }
 

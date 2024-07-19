@@ -1,0 +1,28 @@
+.icon-md {
+  width: 25px;
+  height: 25px;
+}
+.icon-sm {
+  width: 14px;
+  height: 14px;
+}
+.icon-credit {
+  background: url(../assets/images/ico_credit_gradation.png) no-repeat center
+    center;
+  background-size: cover;
+}
+.icon-credit-white {
+  background: url(../assets/images/ico_credit_white.svg) no-repeat center center;
+  background-size: cover;
+}
+.icon-chart {
+  background: url(../assets/images/icon_chart.svg) no-repeat center center;
+  background-size: cover;
+}
+.icon-btn-close {
+  width: 24px;
+  height: 24px;
+  background: url(../assets/images/btn_close.png) no-repeat center center;
+  background-size: cover;
+  display: block;
+}

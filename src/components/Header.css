@@ -1,67 +1,78 @@
-.header-container {
+.header {
+  position: sticky;
+  width: 100%;
   height: 80px;
   background: var(--gray-900);
-  position: sticky;
-  top: 0px;
-  right: 0px;
-  left: 0px;
-  z-index: 1000;
-}
-
-.header-wrapper {
-  max-width: 1200px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: auto;
-  height: 100%;
-  position: relative;
-}
-
-.header-logo-container {
-  background: none;
-  border: none;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 1;
-}
-
-.header-profile-container {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  position: absolute;
-  right: 0;
-}
-
-.header-logo {
-  width: 167.92px;
-  height: auto;
-}
-
-.header-profile {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-}
-
-@media (max-width: 1199px) {
-  .header-container {
-    padding: 0 24px;
+  inset: 0;
+  z-index: 9;
+  transition: all 0.3s ease-in-out;
+  padding: 0 24px;
+  &.hidden {
+    transform: translateY(-100%);
+    @media (max-width: 1199px) {
+      transform: translateY(0);
+    }
   }
-  .header-logo {
-    width: 120px;
+  &.visible {
+    transform: translateY(0);
   }
-}
+  @media (max-width: 1199px) {
+    height: 60px;
+  }
+  .header-wrap {
+    position: relative;
+    max-width: 1200px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
 
-@media (max-width: 767px) {
-  .header-container {
-    height: 40px;
-  }
-  .header-logo {
-    width: 108px;
+    .header-logo {
+      background: none;
+      border: none;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .header-profile {
+      position: absolute;
+      right: 0;
+      width: 32px;
+      height: 32px;
+      overflow: hidden;
+      border-radius: 50%;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    .header-logo {
+      width: 167.92px;
+      height: auto;
+    }
+    @media (max-width: 1199px) {
+      .header-container {
+        padding: 0 24px;
+      }
+      .header-logo {
+        width: 120px;
+      }
+    }
+    @media (max-width: 767px) {
+      .header-container {
+        height: 40px;
+      }
+      .header-logo {
+        width: 108px;
+      }
+    }
   }
 }

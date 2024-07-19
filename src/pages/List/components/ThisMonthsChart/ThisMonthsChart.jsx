@@ -67,16 +67,16 @@ function ThisMonthsChart() {
   };
 
   return (
-    <div className="chart">
-      <div className="chart-header">
-        <h3>이달의 차트</h3>
+    <section className="section chart">
+      <div className="section-header">
+        <h3 className="title">이달의 차트</h3>
         <button
           type="button"
           aria-label="차트 투표하기"
           className="btn-modal-open"
           onClick={openModal}
         >
-          <i className="icon-chart" />
+          <i className="icon-md icon-chart" />
           차트 투표하기
         </button>
       </div>
@@ -134,7 +134,7 @@ function ThisMonthsChart() {
       )}
 
       {showLackOfCreditModal && <LackOfCreditModal closeModal={closeModal} />}
-    </div>
+    </section>
   );
 }
 

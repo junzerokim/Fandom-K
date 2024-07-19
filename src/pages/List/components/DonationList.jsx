@@ -91,23 +91,27 @@ function DonationsList() {
         },
       ],
     }),
-    [],
+    []
   );
 
   if (loading) {
     return (
-      <div className="donation">
-        <h3>후원을 기다리는 조공</h3>
+      <seciton className="section donation">
+        <div className="donation-header">
+          <h3 className="title">후원을 기다리는 조공</h3>
+        </div>
         <div className="donation-wrap">
           <LoadingBar />
         </div>
-      </div>
+      </seciton>
     );
   }
 
   return (
-    <div className="donation">
-      <h3>후원을 기다리는 조공</h3>
+    <seciton className="section donation">
+      <div className="section-header">
+        <h3 className="title">후원을 기다리는 조공</h3>
+      </div>
       <div className="donation-wrap slider-container">
         <Slider
           slidesToShow={sliderSettings.slidesToShow}
@@ -122,6 +126,8 @@ function DonationsList() {
                 <img src={donation.idol.profilePicture} alt={donation.title} />
                 <button
                   type="button"
+                  className="btn-primary"
+                  aria-label="후원하기 버튼"
                   onClick={() => {
                     openModal(donation);
                   }}
@@ -137,8 +143,8 @@ function DonationsList() {
                 <h4 className="title">{donation.title}</h4>
                 <div className="progress">
                   <div className="progress-info">
-                    <div className="credit">
-                      <i className="icon icon-credit" />
+                    <div className="target-credit">
+                      <i className="icon-sm icon-credit" />
                       {formatNumber(donation.targetDonation)}
                     </div>
                     <div className="deadline">
@@ -170,7 +176,7 @@ function DonationsList() {
         )}
         {showLackOfCreditModal && <LackOfCreditModal closeModal={closeModal} />}
       </div>
-    </div>
+    </seciton>
   );
 }
 

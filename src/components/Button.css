@@ -1,0 +1,85 @@
+.btn-main {
+  width: 100%;
+  max-width: 477px;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 1em;
+  border-radius: 3px;
+  color: var(--white);
+  background: var(--brand-gradation);
+  &:hover {
+    opacity: 0.9;
+  }
+  &.show {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.6s;
+  }
+  @media (max-width: 1199px) {
+    max-width: 477px;
+  }
+  @media (max-width: 767px) {
+    max-width: 230px;
+  }
+}
+
+.btn-primary {
+  width: 100%;
+  background: var(--brand-gradation);
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.3;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  font-weight: 700;
+  &:disabled {
+    background: var(--gray-400);
+  }
+}
+
+.btn-close {
+  width: 24px;
+  height: 24px;
+  background: url(../assets/images/btn_close.png) no-repeat center center;
+  background-size: cover;
+  display: block;
+}
+.btn-modal-open {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 3px;
+  gap: 5px;
+  color: var(--white);
+  background: var(--brand-gradation);
+  font-weight: 600;
+}
+.btn-more {
+  text-align: center;
+  width: 326px;
+  padding: 0.725em 1.3em;
+  border: 1px solid rgba(241, 238, 249, 0.8);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+  border-radius: 3px;
+  font-size: 14px;
+  margin: 51px auto 0;
+}
+
+.btn-credit-recharge {
+  color: var(--brand-orange);
+  font-size: 16px;
+  font-weight: 700;
+  &:hover {
+    text-decoration: underline;
+  }
+  @media (max-width: 767px) {
+    font-size: 13px;
+  }
+}

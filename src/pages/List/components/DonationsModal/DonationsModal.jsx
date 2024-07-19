@@ -26,11 +26,10 @@ function DonationsModal({
     selectedDonation,
   } = useContext(CreditContext);
   const [value, setValue] = useState("");
-  const [buttonType, setbuttonType] = useState("inactive");
   const [errorMessage, setErrorMessage] = useState("");
   const [myCredit, setMyCredit] = useState(localCredit);
   const [receivedDonations, setReceivedDonations] = useState(
-    localReceivedDonations,
+    localReceivedDonations
   );
   const [isDonationValid, setIsDonationValid] = useState(false);
 
@@ -47,7 +46,6 @@ function DonationsModal({
     setValue(inputValue);
 
     if (inputValue === "") {
-      setbuttonType("inactive");
       setErrorMessage("");
       setIsDonationValid(false);
     } else {
@@ -55,12 +53,10 @@ function DonationsModal({
 
       if (isNaN(numericValue)) {
         // 숫자가 아닌 경우
-        setbuttonType("inactive");
         setErrorMessage("유효한 숫자를 입력하세요");
         setIsDonationValid(false);
       } else if (numericValue > myCredit) {
         // 후원 금액이 보유 크레딧을 초과하는 경우
-        setbuttonType("inactive");
         setErrorMessage("갖고 있는 크레딧보다 더 많이 후원할 수 없어요");
         setIsDonationValid(false);
       } else if (
@@ -68,12 +64,10 @@ function DonationsModal({
         selectedDonation.targetDonation
       ) {
         // 후원 금액이 목표 금액을 초과하는 경우
-        setbuttonType("inactive");
         setErrorMessage("후원 금액이 목표 금액을 초과합니다");
         setIsDonationValid(false);
       } else {
         // 유효한 입력값인 경우
-        setbuttonType("active");
         setErrorMessage("");
         setIsDonationValid(true);
       }
@@ -117,42 +111,47 @@ function DonationsModal({
   if (!isOpen) return null;
 
   return (
-    <div className="donation-background" onClick={handleBackgroundClick}>
-      <div
-        className="donation-modal"
-        style={{ height: errorMessage ? "529px" : "509px" }}
-      >
-        <div className="donation-header">
-          <h2>후원하기</h2>
+    <div className="modal-overlay" onClick={handleBackgroundClick}>
+      <div className="modal modal-donation">
+        <div className="modal-header">
+          <h4 className="title">후원하기</h4>
           <CloseButton onClick={closeModal} />
         </div>
-        <img
-          className="profile-picture"
-          src={profilePicture}
-          alt="아이돌 이미지"
-        />
-        <div className="subtitle">{subtitle}</div>
-        <div className="title">{title}</div>
-        <div className="input-wrapper">
-          <input
-            name="credit"
-            type="number"
-            value={value}
-            placeholder="크레딧 입력"
-            onChange={handleInputChange}
-            style={{ borderColor: errorMessage ? "red" : "" }}
-          />
-          <img src={donationCredit} alt="크레딧 이미지" />
+        <div className="modal-content">
+          <div className="idol-info">
+            <img
+              className="profile-picture"
+              src={profilePicture}
+              alt="아이돌 이미지"
+            />
+            <div className="subtitle">{subtitle}</div>
+            <div className="title">{title}</div>
+          </div>
+          <div className="input-wrapper">
+            <input
+              name="credit"
+              type="number"
+              value={value}
+              placeholder="크레딧 입력"
+              onChange={handleInputChange}
+              style={{ borderColor: errorMessage ? "red" : "" }}
+            />
+            <img src={donationCredit} alt="크레딧 이미지" />
+          </div>
+          {errorMessage && (
+            <p className="donation-input-error">{errorMessage}</p>
+          )}
         </div>
-        {errorMessage && <p className="donation-input-error">{errorMessage}</p>}
-        <button
-          className={`button button_${buttonType}`}
-          onClick={onClickDonations}
-          disabled={!isDonationValid}
-          aria-label="후원하기 버튼"
-        >
-          후원하기
-        </button>
+        <div className="modal-footer">
+          <button
+            className="btn-primary"
+            onClick={onClickDonations}
+            disabled={!isDonationValid}
+            aria-label="후원하기 버튼"
+          >
+            후원하기
+          </button>
+        </div>
       </div>
     </div>
   );

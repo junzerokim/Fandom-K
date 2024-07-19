@@ -1,80 +1,51 @@
-.credit-container {
-  margin-top:50px;
+.credit {
+  margin-top: 50px;
   width: 100%;
-}
-
-.credit-wrapper {
-  border: 1px solid rgba(241, 238, 249, 0.8);
-  border-radius: 8px;
-  color: var(--white);
-  max-width: 1200px;
-  height: 131px;
-  margin: auto;
-  display: flex;
-  padding: 0 78px;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.credit-title {
-  font-size:16px;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.6);
-}
-
-.credit-balance {
-  display: flex;
-  align-items: center;
-  font-size: 24px;
-  font-weight: 700;
-  gap: 4px;
-}
-
-.credit-balance-wrapper {
-  gap: 14.13px;
-}
-
-.credit-recharge-btn-container button{
-  color: #F96D69;
-  font-size: 16px;
-  font-weight: 700;
-}
-
-.credit-balance img{
-  width: 30px;
-  height: 30px;
-}
-
-@media (max-width: 1199px) {
-  .credit-container {
+  @media (max-width: 1199px) {
+    margin-top: 0;
     padding: 0 24px;
-   }
-
-   .credit-wrapper {
-    padding: 0 64px;
   }
-
-}
-
-@media (max-width: 767px) {
-  .credit-container {
-    margin-top:16px;
-  }
-
-  .credit-wrapper {
-    height: 87px;
-    padding: 0 20px;
+  .credit-wrap {
+    border: 1px solid rgba(241, 238, 249, 0.8);
+    border-radius: 8px;
+    color: var(--white);
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    padding: 30px 78px;
+    align-items: center;
+    justify-content: space-between;
+    @media (max-width: 1199px) {
+      padding: 32px 64px;
+    }
+    @media (max-width: 767px) {
+      padding: 20px;
+    }
   }
 
   .credit-title {
-    font-size:12px;
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 2;
+    @media (max-width: 767px) {
+      font-size: 12px;
+    }
   }
 
   .credit-balance {
-    font-size: 20px;
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 700;
+    gap: 5px;
+    @media (max-width: 767px) {
+      font-size: 20px;
+    }
   }
 
-  .credit-recharge-btn-conainer button{
-    font-size: 13px;
+  .icon-md {
+    width: 12px;
+    height: 30px;
   }
 }

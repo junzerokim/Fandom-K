@@ -10,9 +10,11 @@ function List() {
     <>
       <Header />
       <CreditContextProvider>
-        <MyCredit />
-        <DonationsList />
-        <ThisMonthsChart />
+        <main>
+          <MyCredit />
+          <DonationsList />
+          <ThisMonthsChart />
+        </main>
       </CreditContextProvider>
     </>
   );

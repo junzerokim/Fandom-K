@@ -4,27 +4,18 @@
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1.5rem 0;
+  padding: 50px 0 80px;
   @media (max-width: 1199px) {
-    padding: 1.5rem 0;
+    padding: 60px 0;
   }
   @media (max-width: 767px) {
-    padding: 1.5rem 0;
-  }
-  h3 {
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 24px;
-    @media (max-width: 1199px) {
-      padding: 0 24px;
-      font-size: 20px;
-    }
-    @media (max-width: 767px) {
-      font-size: 16px;
-    }
+    padding: 40px 0;
   }
   .donation-wrap {
     position: relative;
+    @media (max-width: 1199px) {
+      overflow: hidden;
+    }
   }
   .donation-list {
     margin: 0 -12px;
@@ -62,10 +53,6 @@
           width: 80%;
           font-size: 13px;
           font-weight: 600;
-          padding: 0.725em;
-          border-radius: 3px;
-          color: var(--white);
-          background: var(--brand-gradation);
           bottom: 1rem;
           left: 50%;
           transform: translate(-50%, 0);
@@ -92,7 +79,7 @@
             font-size: 14px;
           }
         }
-        .credit {
+        .target-credit {
           display: flex;
           align-items: center;
           font-size: 12px;
@@ -121,11 +108,4 @@
       }
     }
   }
-}
-
-.icon-credit {
-  width: 14px;
-  height: 14px;
-  background: url(../../../assets/images/ico_credit_gradation.png) no-repeat center center;
-  background-size: cover;
 }

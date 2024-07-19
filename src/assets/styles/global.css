@@ -1,5 +1,8 @@
-@import './fonts.css';
-@import './variables.css';
-@import './tailwind.css';
-@import './reset.css';
-
+@import "./fonts.css";
+@import "./variables.css";
+@import "./reset.css";
+@import "./typography.css";
+/* 추후 컴포넌트 분리하면 해당 jsx 내부에 넣기 */
+@import "./../../components/Modal.css";
+@import "./../../components/Button.css";
+@import "./../../components/Icon.css";

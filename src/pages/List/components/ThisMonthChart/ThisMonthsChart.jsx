@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./ThisMonthsChart.css";
 import IdolDetail from "../IdolDetail";
 import ChartVoteModal from "../ChartVoteModal/ChartVoteModal";
 import useIdolChart from "../../../../hooks/useIdolChart";
+import Loadingbar from "../../../../components/Loadingbar";
+import { CreditContext } from "../../../../components/CreditContextProvider";
+import LackOfCreditModal from "../LackOfCreditModal/LackOfCreditModal";
 
 const getPageSize = () => {
   const width = window.innerWidth;
@@ -13,6 +16,8 @@ const getPageSize = () => {
 };
 
 function ThisMonthsChart() {
+  const { localCredit } = useContext(CreditContext);
+
   const [activeTab, setActiveTab] = useState("female");
   const [pageSize, setPageSize] = useState(getPageSize());
   const { idolRank, loading, fetchError, fetchData } = useIdolChart(
@@ -21,6 +26,7 @@ function ThisMonthsChart() {
   );
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [displayCount, setDisplayCount] = useState(pageSize);
+  const [showLackOfCreditModal, setShowLackOfCreditModal] = useState(false); // 추가된 부분
 
   useEffect(() => {
     const handleResize = () => {
@@ -35,14 +41,21 @@ function ThisMonthsChart() {
     };
   }, []);
 
-  const openGenderVoteModal = () => {
-    setIsModalOpen(true);
+  const openModal = () => {
+    if (localCredit < 1000) {
+      setShowLackOfCreditModal(true);
+    } else {
+      setIsModalOpen(true);
+    }
   };
+
   const updateIdolRank = () => {
     fetchData(true);
   };
+
   const closeModal = () => {
     setIsModalOpen(false);
+    setShowLackOfCreditModal(false);
   };
 
   const tab = (gender) => {
@@ -62,7 +75,7 @@ function ThisMonthsChart() {
           type="button"
           aria-label="차트 투표하기"
           className="btn-modal-open"
-          onClick={openGenderVoteModal}
+          onClick={openModal}
         >
           <i className="icon-chart" />
           차트 투표하기
@@ -116,6 +129,7 @@ function ThisMonthsChart() {
           updateIdolRank={updateIdolRank}
         />
       )}
+      {showLackOfCreditModal && <LackOfCreditModal closeModal={closeModal} />}
     </div>
   );
 }

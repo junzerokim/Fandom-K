@@ -12,8 +12,10 @@ const useDonationList = () => {
       setDonations(response.list);
       setLoading(false);
     } catch (error) {
+      console.error("후원 목록 불러오기 중 오류 발생:", error);
       setFetchError(error);
       setLoading(false);
+      throw error;
     }
   };
 

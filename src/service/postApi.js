@@ -14,10 +14,10 @@ async function postVotes(selectedIdolId) {
       }),
     });
     if (!response.ok) {
-      throw new Error("투표 업데이트에 실패했습니다");
+      throw new Error("차트 투표하기에 실패했습니다");
     }
   } catch (error) {
-    console.error("투표 업데이트 중 오류 발생:", error);
+    console.error("차트 투표하기 중 오류 발생:", error);
     throw error;
   }
 }

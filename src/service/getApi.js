@@ -7,17 +7,16 @@ async function getIdols() {
   try {
     const response = await fetch(url);
 
-    if (!response || !response.ok) {
-      console.error("Fetch failed:", response.status, response.statusText);
-      return [];
+    if (!response.ok) {
+      throw new Error("아이돌 목록 불러오기에 실패했습니다");
     }
 
     const result = await response.json();
     const data = result.list;
     return data;
   } catch (error) {
-    console.error("Error fetching data:", error);
-    return [];
+    console.error("아이돌 목록 불러오기 중 오류 발생:", error);
+    throw error;
   }
 }
 
@@ -28,14 +27,14 @@ async function getDonations(params = {}) {
   try {
     const response = await fetch(url);
 
-    if (!response || !response.ok) {
-      throw new Error(`HTTP error: ${response.status}`);
+    if (!response.ok) {
+      throw new Error("후원 목록 불러오기에 실패했습니다");
     }
 
     const result = await response.json();
     return result;
   } catch (error) {
-    console.error("Failed to fetch donations:", error);
+    console.error("후원 목록 불러오기 중 오류 발생:", error);
     throw error;
   }
 }
@@ -46,15 +45,16 @@ async function getCharts(gender = "female") {
   try {
     const response = await fetch(url);
 
-    if (!response || !response.ok) {
-      return [];
+    if (!response.ok) {
+      throw new Error("순위 목록 불러오기에 실패했습니다");
     }
 
     const result = await response.json();
     const data = result.idols;
     return data;
   } catch (error) {
-    return [];
+    console.error("순위 목록 불러오기 중 오류 발생:", error);
+    throw error;
   }
 }
 

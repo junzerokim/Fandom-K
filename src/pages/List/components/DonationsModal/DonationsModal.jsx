@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import donationCredit from "../../../../assets/images/donationCredit.png";
 import "./DonationsModal.css";
 import useEscapeModal from "../../../../hooks/useEscapeModal";
-import sendPutRequest from "../../../../service/receivedDonationApi";
+import putDonations from "../../../../service/putApi";
 
 import { CreditContext } from "../../../../components/CreditContextProvider";
 import CloseButton from "./CloseButton";
@@ -81,7 +81,7 @@ function DonationsModal({
 
         const newReceivedDonations = receivedDonations + value;
         await handleReceivedDonationsUpdate(newReceivedDonations);
-        sendPutRequest(selectedDonation, value);
+        putDonations(selectedDonation, value);
         setReceivedDonations(newReceivedDonations);
       } catch (error) {
         console.error("Failed to donate:", error);

@@ -18,8 +18,9 @@ const useIdolData = (gender = null) => {
       setFetchError(null);
       setIsLoading(false);
     } catch (error) {
-      console.error("Error fetching idol chart:", error);
+      console.error("데이터 불러오기 중 오류 발생:", error);
       setFetchError(error);
+      throw error;
     } finally {
       setIsLoading(false);
     }

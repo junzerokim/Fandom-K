@@ -1,32 +1,17 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import "./MyFavoriteIdolList.css";
+import useHorizontalScroll from "../../hooks/useHorizontalScroll";
 import MyIdolListItem from "./MyIdolListItem/MyIdolListItem";
 
 function MyFavoriteIdolList({ myFavoriteIdolList, setMyFavoriteIdolList }) {
+  const listWrapperRef = useHorizontalScroll();
+
   const handleDeleteIdolButtonClick = (deleteIdolId) => {
     const updatedIdolList = myFavoriteIdolList.filter(
       (idol) => idol.id !== deleteIdolId
     );
     setMyFavoriteIdolList(updatedIdolList);
   };
-
-  const listWrapperRef = useRef(null);
-
-  useEffect(() => {
-    const container = listWrapperRef.current;
-
-    const handleWheel = (e) => {
-      const delta = e.deltaY || e.detail || e.wheelDelta;
-      container.scrollLeft += delta;
-      e.preventDefault();
-    };
-
-    container.addEventListener("wheel", handleWheel, { passive: true });
-
-    return () => {
-      container.removeEventListener("wheel", handleWheel);
-    };
-  }, []);
 
   return (
     <div className="my-favorite-idol-list-wrapper" ref={listWrapperRef}>

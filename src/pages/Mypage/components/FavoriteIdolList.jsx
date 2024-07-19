@@ -1,22 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React from "react";
 
-import './FavoriteIdolList.css';
+import "./FavoriteIdolList.css";
+import useSaveMyIdol from "../hooks/useSaveMyIdol";
 
-import MyFavoriteIdolList from './MyFavoriteIdolList/MyFavoriteIdolList';
-import AddFavoriteIdolList from './AddFavoriteIdolList/AddFavoriteIdolList';
+import MyFavoriteIdolList from "./MyFavoriteIdolList/MyFavoriteIdolList";
+import AddFavoriteIdolList from "./AddFavoriteIdolList/AddFavoriteIdolList";
 
 function FavoriteIdolList() {
-  const localStorageData =
-    JSON.parse(localStorage.getItem('my-favorite-idol')) || [];
-  const [myFavoriteIdolList, setMyFavoriteIdolList] =
-    useState(localStorageData);
-
-  useEffect(() => {
-    localStorage.setItem(
-      'my-favorite-idol',
-      JSON.stringify(myFavoriteIdolList),
-    );
-  }, [myFavoriteIdolList]);
+  const { myFavoriteIdolList, setMyFavoriteIdolList } = useSaveMyIdol();
 
   return (
     <div>

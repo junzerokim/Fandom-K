@@ -1,9 +1,9 @@
-import React from 'react';
-import './Mypage.css';
-import FavoriteIdolList from './components/FavoriteIdolList';
-import Header from '../../components/Header';
+import React from "react";
+import "./MyPage.css";
+import FavoriteIdolList from "./components/FavoriteIdolList";
+import Header from "../../components/Header";
 
-function Mypage() {
+function MyPage() {
   return (
     <>
       <Header />
@@ -14,4 +14,4 @@ function Mypage() {
   );
 }
 
-export default Mypage;
+export default MyPage;

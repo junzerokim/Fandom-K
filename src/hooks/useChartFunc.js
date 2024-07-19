@@ -1,13 +1,14 @@
 import { useState } from "react";
 import useIdolData from "./useIdolData";
+import usePageResize from "./usePageResize";
 
-const useChartFunc = (localCredit, getPageSize) => {
+const useChartFunc = (localCredit) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showLackOfCreditModal, setShowLackOfCreditModal] = useState(false);
   const [activeTab, setActiveTab] = useState("female");
-  const [pageSize, setPageSize] = useState(getPageSize());
-  const [displayCount, setDisplayCount] = useState(pageSize);
+
   const { fetchIdolsData } = useIdolData(activeTab);
+  const { pageSize, displayCount, setDisplayCount } = usePageResize();
 
   const tab = (gender) => {
     setActiveTab(gender);
@@ -37,8 +38,6 @@ const useChartFunc = (localCredit, getPageSize) => {
     showLackOfCreditModal,
     activeTab,
     displayCount,
-    setPageSize,
-    setDisplayCount,
     tab,
     openModal,
     closeModal,

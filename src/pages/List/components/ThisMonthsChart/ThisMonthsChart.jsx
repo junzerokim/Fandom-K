@@ -1,11 +1,10 @@
-import React, { useEffect, useContext } from "react";
+import React, { useContext } from "react";
 
 import "./ThisMonthsChart.css";
 
 import { CreditContext } from "../../../../components/CreditContextProvider";
 import useIdolData from "../../../../hooks/useIdolData";
 import useChartFunc from "../../../../hooks/useChartFunc";
-import getPageSize from "../../../../utils/getPageSize";
 
 import IdolDetail from "../IdolDetail";
 import ChartVoteModal from "../ChartVoteModal/ChartVoteModal";
@@ -19,28 +18,13 @@ function ThisMonthsChart() {
     showLackOfCreditModal,
     activeTab,
     displayCount,
-    setPageSize,
-    setDisplayCount,
     tab,
     openModal,
     closeModal,
     updateIdolRank,
     loadMore,
-  } = useChartFunc(localCredit, getPageSize);
+  } = useChartFunc(localCredit);
   const { idolData, isLoading, fetchError } = useIdolData(activeTab);
-
-  useEffect(() => {
-    const handleResize = () => {
-      const newPageSize = getPageSize();
-      setPageSize(newPageSize);
-      setDisplayCount(newPageSize);
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   return (
     <section className="section chart">

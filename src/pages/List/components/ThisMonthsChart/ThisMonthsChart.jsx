@@ -1,19 +1,15 @@
 import React, { useState, useEffect, useContext } from "react";
+
 import "./ThisMonthsChart.css";
+
+import useIdolData from "../../../../hooks/useIdolData";
+import { CreditContext } from "../../../../components/CreditContextProvider";
+import getPageSize from "../../../../utils/getPageSize";
+
 import IdolDetail from "../IdolDetail";
 import ChartVoteModal from "../ChartVoteModal/ChartVoteModal";
-import useIdolData from "../../../../hooks/useIdolData";
 import LoadingBar from "../../../../components/Loadingbar";
-import { CreditContext } from "../../../../components/CreditContextProvider";
 import LackOfCreditModal from "../LackOfCreditModal/LackOfCreditModal";
-
-const getPageSize = () => {
-  const width = window.innerWidth;
-  if (width < 1200) {
-    return 5;
-  }
-  return 10;
-};
 
 function ThisMonthsChart() {
   const { localCredit } = useContext(CreditContext);

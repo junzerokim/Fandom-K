@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 
 import "./ThisMonthsChart.css";
 
-import useIdolData from "../../../../hooks/useIdolData";
 import { CreditContext } from "../../../../components/CreditContextProvider";
+import useIdolData from "../../../../hooks/useIdolData";
+import useChartFunc from "../../../../hooks/useChartFunc";
 import getPageSize from "../../../../utils/getPageSize";
 
 import IdolDetail from "../IdolDetail";
@@ -13,15 +14,20 @@ import LackOfCreditModal from "../LackOfCreditModal/LackOfCreditModal";
 
 function ThisMonthsChart() {
   const { localCredit } = useContext(CreditContext);
-
-  const [activeTab, setActiveTab] = useState("female");
-  const [pageSize, setPageSize] = useState(getPageSize());
-  const { idolData, isLoading, fetchError, fetchIdolsData } =
-    useIdolData(activeTab);
-
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [displayCount, setDisplayCount] = useState(pageSize);
-  const [showLackOfCreditModal, setShowLackOfCreditModal] = useState(false); // 추가된 부분
+  const {
+    isModalOpen,
+    showLackOfCreditModal,
+    activeTab,
+    displayCount,
+    setPageSize,
+    setDisplayCount,
+    tab,
+    openModal,
+    closeModal,
+    updateIdolRank,
+    loadMore,
+  } = useChartFunc(localCredit, getPageSize);
+  const { idolData, isLoading, fetchError } = useIdolData(activeTab);
 
   useEffect(() => {
     const handleResize = () => {
@@ -35,32 +41,6 @@ function ThisMonthsChart() {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-
-  const openModal = () => {
-    if (localCredit < 1000) {
-      setShowLackOfCreditModal(true);
-    } else {
-      setIsModalOpen(true);
-    }
-  };
-
-  const updateIdolRank = () => {
-    fetchIdolsData(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setShowLackOfCreditModal(false);
-  };
-
-  const tab = (gender) => {
-    setActiveTab(gender);
-    setDisplayCount(pageSize);
-  };
-
-  const loadMore = () => {
-    setDisplayCount((prevCount) => prevCount + pageSize);
-  };
 
   return (
     <section className="section chart">

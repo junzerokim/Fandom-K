@@ -26,7 +26,7 @@ function AddFavoriteIdolList({ myFavoriteIdolList, setMyFavoriteIdolList }) {
       infinite: false,
       arrows: showArrow,
     }),
-    []
+    [],
   );
 
   if (isLoading) {

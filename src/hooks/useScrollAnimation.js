@@ -12,7 +12,7 @@ const useScrollAnimation = (className, threshold = 0.5) => {
       },
       {
         threshold,
-      }
+      },
     );
 
     const elements = document.querySelectorAll(`.${className}`);

@@ -3,7 +3,7 @@ import { useState } from "react";
 const useManageIdols = (
   idolData,
   myFavoriteIdolList,
-  setMyFavoriteIdolList
+  setMyFavoriteIdolList,
 ) => {
   const [isSelected, setIsSelected] = useState({});
   const [selectedIdolList, setSelectedIdolList] = useState([]);
@@ -29,8 +29,8 @@ const useManageIdols = (
     const filteredSelectedIdolList = selectedIdolList.filter(
       (idol) =>
         !existingLocalStorageData.some(
-          (existingIdol) => existingIdol.id === idol.id
-        )
+          (existingIdol) => existingIdol.id === idol.id,
+        ),
     );
 
     const updatedLocalStorageData = [

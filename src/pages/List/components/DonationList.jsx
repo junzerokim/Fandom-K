@@ -82,7 +82,7 @@ function DonationsList() {
         },
       ],
     }),
-    []
+    [],
   );
 
   if (loading) {

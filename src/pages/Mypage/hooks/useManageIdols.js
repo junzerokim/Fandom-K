@@ -24,13 +24,15 @@ const useManageIdols = (
   };
 
   const handleAddIdolButtonClick = () => {
-    const existingLocalStorageData = myFavoriteIdolList || [];
+    const existingLocalStorageData = myFavoriteIdolList ?? [];
+
     const filteredSelectedIdolList = selectedIdolList.filter(
       (idol) =>
         !existingLocalStorageData.some(
           (existingIdol) => existingIdol.id === idol.id
         )
     );
+
     const updatedLocalStorageData = [
       ...existingLocalStorageData,
       ...filteredSelectedIdolList,

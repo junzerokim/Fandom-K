@@ -1,44 +1,23 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 
 import "./ChartVoteModal.css";
-import postVotes from "../../../../service/postApi";
-import { CreditContext } from "../../../../components/CreditContextProvider";
+import useChartVoteHandler from "../../../../hooks/useChartVoteHandler";
+import useEscapeModal from "../../../../hooks/useEscapeModal";
 
+import { CreditContext } from "../../../../components/CreditContextProvider";
 import IdolDetail from "../IdolDetail";
 
 function ChartVoteModal({ closeModal, idolRank, gender, updateIdolRank }) {
   const { handleCreditUpdate, localCredit } = useContext(CreditContext);
-  const [selectedIdolId, setSelectedIdolId] = useState(null);
-  const [myCredit, setMyCredit] = useState(localCredit);
-
-  useEffect(() => {
-    setMyCredit(localCredit);
-
-    if (idolRank.length > 0) {
-      setSelectedIdolId(idolRank[0].id);
-    }
-  }, [idolRank, gender]);
-
-  const handleIdolRadioClick = (idolId) => {
-    setSelectedIdolId(idolId);
-  };
-
-  const handleVoteButtonClick = async () => {
-    if (selectedIdolId) {
-      try {
-        await postVotes(selectedIdolId);
-        updateIdolRank();
-
-        const newCredit = myCredit - 1000;
-        handleCreditUpdate(newCredit);
-        setMyCredit(newCredit);
-      } catch (error) {
-        console.error("차트 투표하기 중 오류 발생:", error);
-      } finally {
-        closeModal();
-      }
-    }
-  };
+  const { selectedIdolId, handleIdolRadioClick, handleVoteButtonClick } =
+    useChartVoteHandler(
+      closeModal,
+      idolRank,
+      updateIdolRank,
+      handleCreditUpdate,
+      localCredit
+    );
+  useEscapeModal(closeModal);
 
   return (
     <div className="modal-overlay">

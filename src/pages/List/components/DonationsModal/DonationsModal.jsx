@@ -46,7 +46,7 @@ function DonationsModal({
     closeModal
   );
 
-  useEscapeModal();
+  useEscapeModal(closeModal);
 
   if (!isOpen) return null;
 

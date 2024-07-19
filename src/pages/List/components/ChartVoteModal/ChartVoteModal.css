@@ -32,9 +32,11 @@
     gap: 0;
     overflow-y: auto;
     max-height: 500px;
+    padding: 0 20px;
     -ms-overflow-style: none;
     scrollbar-width: none;
     ::-webkit-scrollbar {
+      display: none;
       display: none;
       width: 0px;
     }

@@ -1,5 +1,6 @@
 @import "slick-carousel/slick/slick.css";
 @import "slick-carousel/slick/slick-theme.css";
+
 .donation {
   .slick-list {
     @media (max-width: 1199px) {
@@ -7,6 +8,7 @@
     }
   }
 }
+
 .slick-arrow {
   position: absolute;
   width: 40px;

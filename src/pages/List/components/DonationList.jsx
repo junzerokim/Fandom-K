@@ -17,7 +17,6 @@ function DonationsList() {
     selectedDonation,
     setSelectedDonation,
     localCredit,
-    localReceivedDonations,
     setLocalReceivedDonations,
   } = useContext(CreditContext);
   const { donations, loading, fetchData } = useDonationList();
@@ -37,7 +36,7 @@ function DonationsList() {
       setLocalReceivedDonations(selectedDonation.receivedDonations);
       console.log(selectedDonation);
     }
-  }, [selectedDonation.id]); // selectedDonation이 있으면 바꿔줌 selectedDonation이 바뀔때마다
+  }, [selectedDonation.id]);
 
   const openModal = (donation) => {
     if (localCredit <= 0) {

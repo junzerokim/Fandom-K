@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
-import "./Landing.css";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
+
 import logo from "../../assets/images/logo_pandom_k.svg";
 import mobile1 from "../../assets/images/img_sec01_mobile.png";
 import mobile2 from "../../assets/images/img_sec02_mobile.png";
 import mobile3 from "../../assets/images/img_sec03_mobile.png";
+import "./Landing.css";
 
 function Landing() {
   useEffect(() => {

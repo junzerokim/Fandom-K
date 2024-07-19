@@ -1,4 +1,3 @@
-// 아이돌 데이터를 n개씩 그룹화하는 함수
 const getIdolChunks = (array, chunkSize) => {
   const chunks = [];
 

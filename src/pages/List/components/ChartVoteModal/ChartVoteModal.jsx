@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useContext } from "react";
+
 import "./ChartVoteModal.css";
-import IdolDetail from "../IdolDetail";
 import postVotes from "../../../../service/postApi";
 import { CreditContext } from "../../../../components/CreditContextProvider";
+
+import IdolDetail from "../IdolDetail";
 
 function ChartVoteModal({ closeModal, idolRank, gender, updateIdolRank }) {
   const { handleCreditUpdate, localCredit } = useContext(CreditContext);
@@ -24,7 +26,7 @@ function ChartVoteModal({ closeModal, idolRank, gender, updateIdolRank }) {
   const handleVoteButtonClick = async () => {
     if (selectedIdolId) {
       try {
-        await postVotes(selectedIdolId); // Call handleVote with selected idolId
+        await postVotes(selectedIdolId);
         console.log(`Successfully voted for idol with id: ${selectedIdolId}`);
         updateIdolRank();
 

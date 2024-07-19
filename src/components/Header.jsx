@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-import logo from "../assets/images/logo_pandom_k.svg"; // 로고 이미지 경로
-import profile from "../assets/images/img_header_profile.png"; // 프로필 이미지 경로
+import logo from "../assets/images/logo_pandom_k.svg";
+import profile from "../assets/images/img_header_profile.png";
 import "./Header.css";
 
 function Header() {

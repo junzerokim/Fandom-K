@@ -3,7 +3,7 @@ import "./ThisMonthsChart.css";
 import IdolDetail from "../IdolDetail";
 import ChartVoteModal from "../ChartVoteModal/ChartVoteModal";
 import useIdolChart from "../../../../hooks/useIdolChart";
-import Loadingbar from "../../../../components/Loadingbar";
+import LoadingBar from "../../../../components/LoadingBar";
 import { CreditContext } from "../../../../components/CreditContextProvider";
 import LackOfCreditModal from "../LackOfCreditModal/LackOfCreditModal";
 
@@ -100,7 +100,7 @@ function ThisMonthsChart() {
 
       {loading && (
         <div className="chart-wrap">
-          <Loadingbar />
+          <LoadingBar />
         </div>
       )}
       {fetchError && <div>Error loading data</div>}

@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import Slider from 'react-slick';
+import React, { useState } from "react";
+import Slider from "react-slick";
 
-import plusIcon from '../../assets/images/ic_plus.svg';
-import './AddFavoriteIdolList.css';
+import plusIcon from "../../assets/images/ic_plus.svg";
+import "./AddFavoriteIdolList.css";
 
-import useIdolData from '../../hooks/useIdolData';
-import useIdolChunks from '../../hooks/useIdolChunks';
-import useShowArrow from '../../hooks/useShowArrow';
+import useIdolData from "../../hooks/useIdolData";
+import useIdolChunks from "../../hooks/useIdolChunks";
+import useShowArrow from "../../hooks/useShowArrow";
 
-import LoadingBar from '../../../../components/Loadingbar';
-import AddIdolListButton from './AddIdolListButton/AddIdolListButton';
+import LoadingBar from "../../../../components/LoadingBar";
+import AddIdolListButton from "./AddIdolListButton/AddIdolListButton";
 
 function AddFavoriteIdolList({ myFavoriteIdolList, setMyFavoriteIdolList }) {
   const { idolData, isLoading = true } = useIdolData();
@@ -49,8 +49,8 @@ function AddFavoriteIdolList({ myFavoriteIdolList, setMyFavoriteIdolList }) {
     const filteredSelectedIdolList = selectedIdolList.filter(
       (idol) =>
         !existingLocalStorageData.some(
-          (existingIdol) => existingIdol.id === idol.id,
-        ),
+          (existingIdol) => existingIdol.id === idol.id
+        )
     );
     const updatedLocalStorageData = [
       ...existingLocalStorageData,

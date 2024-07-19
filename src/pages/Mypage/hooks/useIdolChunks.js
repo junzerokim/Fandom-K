@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import getIdolChunks from '../utils/getIdolChucks';
+import { useEffect, useState } from "react";
+import getIdolChunks from "../../../utils/getIdolChucks";
 
 const useIdolChunks = (idolData) => {
   const [idolChunks, setIdolChunks] = useState([]);
@@ -15,10 +15,10 @@ const useIdolChunks = (idolData) => {
     };
 
     updateNumOfIdol();
-    window.addEventListener('resize', updateNumOfIdol);
+    window.addEventListener("resize", updateNumOfIdol);
 
     return () => {
-      window.removeEventListener('resize', updateNumOfIdol);
+      window.removeEventListener("resize", updateNumOfIdol);
     };
   }, []);
 

@@ -1,9 +1,9 @@
 import React, { useState, useMemo, useEffect, useContext } from "react";
 import Slider from "react-slick";
 
-import calculateTime from "../../../utils/deadline";
+import calculateTime from "../../../utils/calculateTime";
 import formatNumber from "../../../utils/formatNumber";
-import Loadingbar from "../../../components/Loadingbar";
+import LoadingBar from "../../../components/LoadingBar";
 
 import "./DonationList.css";
 
@@ -92,81 +92,74 @@ function DonationsList() {
       <div className="donation">
         <h3>후원을 기다리는 조공</h3>
         <div className="donation-wrap">
-          <Loadingbar />
+          <LoadingBar />
         </div>
       </div>
     );
   }
 
   return (
-    <>
-      <div className="donation">
-        <h3>후원을 기다리는 조공</h3>
-        <div className="donation-wrap slider-container">
-          <Slider
-            slidesToShow={sliderSettings.slidesToShow}
-            slidesToScroll={sliderSettings.slidesToScroll}
-            infinite={sliderSettings.infinite}
-            responsive={sliderSettings.responsive}
-            className="donation-list"
-          >
-            {donations.map((donation) => (
-              <div className="donation-card" key={donation.id}>
-                <div className="img-wrap">
-                  <img
-                    src={donation.idol.profilePicture}
-                    alt={donation.title}
-                  />
-                  <button
-                    type="button"
-                    onClick={() => {
-                      openModal(donation);
-                    }}
-                  >
-                    후원하기
-                  </button>
-                </div>
-                <div className="info">
-                  <span className="place">{donation.subtitle}</span>
-                  <h4 className="title">{donation.title}</h4>
-                  <div className="progress">
-                    <div className="progress-info">
-                      <div className="credit">
-                        <i className="icon icon-credit" />
-                        {formatNumber(donation.targetDonation)}
-                      </div>
-                      <div className="deadline">
-                        {calculateTime(donation.deadline)}
-                      </div>
+    <div className="donation">
+      <h3>후원을 기다리는 조공</h3>
+      <div className="donation-wrap slider-container">
+        <Slider
+          slidesToShow={sliderSettings.slidesToShow}
+          slidesToScroll={sliderSettings.slidesToScroll}
+          infinite={sliderSettings.infinite}
+          responsive={sliderSettings.responsive}
+          className="donation-list"
+        >
+          {donations.map((donation) => (
+            <div className="donation-card" key={donation.id}>
+              <div className="img-wrap">
+                <img src={donation.idol.profilePicture} alt={donation.title} />
+                <button
+                  type="button"
+                  onClick={() => {
+                    openModal(donation);
+                  }}
+                >
+                  후원하기
+                </button>
+              </div>
+              <div className="info">
+                <span className="place">{donation.subtitle}</span>
+                <h4 className="title">{donation.title}</h4>
+                <div className="progress">
+                  <div className="progress-info">
+                    <div className="credit">
+                      <i className="icon icon-credit" />
+                      {formatNumber(donation.targetDonation)}
                     </div>
-                    <div className="progress-bar">
-                      <div
-                        className="percent"
-                        style={{
-                          width: `${(donation.receivedDonations / donation.targetDonation) * 100}%`,
-                        }}
-                      />
+                    <div className="deadline">
+                      {calculateTime(donation.deadline)}
                     </div>
+                  </div>
+                  <div className="progress-bar">
+                    <div
+                      className="percent"
+                      style={{
+                        width: `${(donation.receivedDonations / donation.targetDonation) * 100}%`,
+                      }}
+                    />
                   </div>
                 </div>
               </div>
-            ))}
-          </Slider>
-          {showDonationsModal && (
-            <DonationsModal
-              profilePicture={selectedDonation.idol.profilePicture}
-              subtitle={selectedDonation.subtitle}
-              title={selectedDonation.title}
-              closeModal={closeModal}
-              isOpen={showDonationsModal}
-            />
-          )}
-          {showLackOfCreditModal && (
-            <LackOfCreditModal closeModal={closeModal} />
-          )}
-        </div>
+            </div>
+          ))}
+        </Slider>
+        {showDonationsModal && (
+          <DonationsModal
+            profilePicture={selectedDonation.idol.profilePicture}
+            subtitle={selectedDonation.subtitle}
+            title={selectedDonation.title}
+            closeModal={closeModal}
+            isOpen={showDonationsModal}
+          />
+        )}
+        {showLackOfCreditModal && <LackOfCreditModal closeModal={closeModal} />}
       </div>
-    </>
+    </div>
   );
 }
 

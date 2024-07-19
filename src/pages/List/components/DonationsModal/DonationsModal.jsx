@@ -29,7 +29,7 @@ function DonationsModal({
   const [errorMessage, setErrorMessage] = useState("");
   const [myCredit, setMyCredit] = useState(localCredit);
   const [receivedDonations, setReceivedDonations] = useState(
-    localReceivedDonations
+    localReceivedDonations,
   );
   const [isDonationValid, setIsDonationValid] = useState(false);
 

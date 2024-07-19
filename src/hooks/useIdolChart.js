@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import getIdolChart from "../service/idolApi";
+import { getCharts } from "../service/getApi";
 
 const useIdolChart = () => {
   const [idolLank, setIdolLank] = useState([]);
@@ -9,7 +9,7 @@ const useIdolChart = () => {
   const fetchData = async () => {
     setLoading(true); // Set loading to true before fetching data
     try {
-      const response = await getIdolChart(gender);
+      const response = await getCharts(gender);
       setIdolRank(response);
       setFetchError(null); // Reset fetchError if fetching succeeds
     } catch (error) {

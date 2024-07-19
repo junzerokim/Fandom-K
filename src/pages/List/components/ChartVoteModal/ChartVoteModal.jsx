@@ -1,15 +1,17 @@
 import React, { useState, useEffect, useContext } from "react";
 import "./ChartVoteModal.css";
 import IdolDetail from "../IdolDetail";
-import handleVote from "../../../../service/voteApi";
+import postVotes from "../../../../service/postApi";
 import { CreditContext } from "../../../../components/CreditContextProvider";
 
 function ChartVoteModal({ closeModal, idolRank, gender, updateIdolRank }) {
   const { handleCreditUpdate, localCredit } = useContext(CreditContext);
   const [selectedIdolId, setSelectedIdolId] = useState(null);
   const [myCredit, setMyCredit] = useState(localCredit);
+
   useEffect(() => {
     setMyCredit(localCredit);
+
     if (idolRank.length > 0) {
       setSelectedIdolId(idolRank[0].id);
     }
@@ -22,9 +24,10 @@ function ChartVoteModal({ closeModal, idolRank, gender, updateIdolRank }) {
   const handleVoteButtonClick = async () => {
     if (selectedIdolId) {
       try {
-        await handleVote(selectedIdolId); // Call handleVote with selected idolId
+        await postVotes(selectedIdolId); // Call handleVote with selected idolId
         console.log(`Successfully voted for idol with id: ${selectedIdolId}`);
         updateIdolRank();
+
         const newCredit = myCredit - 1000;
         handleCreditUpdate(newCredit);
         setMyCredit(newCredit);

@@ -34,6 +34,7 @@ function CreditModal({ onClose }) {
               </div>
               <input
                 type="radio"
+                id={`credit-${credit}`}
                 value={credit}
                 checked={selectedCredit === credit}
                 onChange={(e) => setSelectedCredit(Number(e.target.value))}

@@ -4,7 +4,6 @@ import "./DonationsModal.css";
 import CloseButton from "./CloseButton";
 import useEscapeModal from "../../../../hooks/useEscapeModal";
 import { CreditContext } from "../../../../components/CreditContextProvider";
-import sendPutRequest from "../../../../service/receivedDonationApi";
 
 function DonationsModal({
   localCredit,

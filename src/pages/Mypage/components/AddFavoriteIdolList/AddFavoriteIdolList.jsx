@@ -4,7 +4,7 @@ import Slider from "react-slick";
 import plusIcon from "../../assets/images/ic_plus.svg";
 import "./AddFavoriteIdolList.css";
 
-import useIdolData from "../../hooks/useIdolData";
+import useIdolData from "../../../../hooks/useIdolData";
 import useIdolChunks from "../../hooks/useIdolChunks";
 import useShowArrow from "../../hooks/useShowArrow";
 

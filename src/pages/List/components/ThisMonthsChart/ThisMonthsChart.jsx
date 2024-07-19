@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import "./ThisMonthsChart.css";
 import IdolDetail from "../IdolDetail";
 import ChartVoteModal from "../ChartVoteModal/ChartVoteModal";
-import useIdolChart from "../../../../hooks/useIdolChart";
+import useIdolData from "../../../../hooks/useIdolData";
 import LoadingBar from "../../../../components/Loadingbar";
 import { CreditContext } from "../../../../components/CreditContextProvider";
 import LackOfCreditModal from "../LackOfCreditModal/LackOfCreditModal";
@@ -20,10 +20,9 @@ function ThisMonthsChart() {
 
   const [activeTab, setActiveTab] = useState("female");
   const [pageSize, setPageSize] = useState(getPageSize());
-  const { idolRank, loading, fetchError, fetchData } = useIdolChart(
-    activeTab,
-    pageSize
-  );
+  const { idolData, isLoading, fetchError, fetchIdolsData } =
+    useIdolData(activeTab);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [displayCount, setDisplayCount] = useState(pageSize);
   const [showLackOfCreditModal, setShowLackOfCreditModal] = useState(false); // 추가된 부분
@@ -50,7 +49,7 @@ function ThisMonthsChart() {
   };
 
   const updateIdolRank = () => {
-    fetchData(true);
+    fetchIdolsData(true);
   };
 
   const closeModal = () => {
@@ -98,20 +97,23 @@ function ThisMonthsChart() {
         </button>
       </div>
 
-      {loading && (
+      {isLoading && (
         <div className="chart-wrap">
           <LoadingBar />
         </div>
       )}
+
       {fetchError && <div>Error loading data</div>}
+
       <ul className="ranking-list">
-        {!loading &&
+        {!isLoading &&
           !fetchError &&
-          idolRank
+          idolData
             .slice(0, displayCount)
             .map((idol) => <IdolDetail key={idol.id} idolData={idol} />)}
       </ul>
-      {displayCount < idolRank.length && (
+
+      {displayCount < idolData.length && (
         <button
           className="btn-more"
           type="button"
@@ -121,14 +123,16 @@ function ThisMonthsChart() {
           더 보기
         </button>
       )}
+
       {isModalOpen && (
         <ChartVoteModal
           closeModal={closeModal}
-          idolRank={idolRank}
+          idolRank={idolData}
           gender={activeTab}
           updateIdolRank={updateIdolRank}
         />
       )}
+
       {showLackOfCreditModal && <LackOfCreditModal closeModal={closeModal} />}
     </div>
   );

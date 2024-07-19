@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 
@@ -8,28 +8,10 @@ import mobile2 from "../../assets/images/img_sec02_mobile.png";
 import mobile3 from "../../assets/images/img_sec03_mobile.png";
 import "./Landing.css";
 
+import useScrollAnimation from "../../hooks/useScrollAnimation";
+
 function Landing() {
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-          }
-        });
-      },
-      {
-        threshold: 0.5,
-      }
-    );
-
-    const elements = document.querySelectorAll(".animate");
-    elements.forEach((el) => observer.observe(el));
-
-    return () => {
-      elements.forEach((el) => observer.unobserve(el));
-    };
-  }, []);
+  useScrollAnimation("animate", 0.5);
 
   const clearLocalStorage = () => {
     localStorage.clear();

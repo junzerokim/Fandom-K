@@ -7,7 +7,6 @@ import { CreditContext } from "../../../../components/CreditContextProvider";
 
 function CreditModal({ onClose }) {
   const { handleRecharge } = useContext(CreditContext);
-
   const [selectedCredit, setSelectedCredit] = useState(100);
 
   const creditOptions = [100, 500, 1000];
@@ -25,7 +24,7 @@ function CreditModal({ onClose }) {
           {creditOptions.map((credit) => (
             <label
               key={credit}
-              className="radio-label"
+              className={`radio-label ${selectedCredit === credit ? "selected" : ""}`} // 선택된 라디오 버튼에 클래스 추가
               htmlFor={`credit-${credit}`}
             >
               <div className="radio-credit-wrapper">

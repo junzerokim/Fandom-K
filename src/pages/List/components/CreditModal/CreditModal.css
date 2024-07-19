@@ -51,26 +51,58 @@
 .modal-content label {
   display: flex;
   align-items: center;
+  cursor: pointer;
+  background-color: #02000E;
+  border: 1px solid #F7F7F8;
+  border-radius: 8px;
+  height: 62px;
+  padding: 0 20px;
+  justify-content: space-between;
+  font-size: 20px;
+  font-weight: 700;
+  transition: border-color 0.3s ease; /* 애니메이션 효과 추가 */
+}
+
+.modal-content label.selected {
+  border: 1px solid #F96D69; /* 선택된 상태의 테두리 색상 */
+}
+
+.modal-content label.selected input {
+  border: 2.5px solid #F96D69; /* 선택된 상태의 테두리 색상 */
+}
+.radio-credit-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.radio-credit-wrapper img {
+  height: 30px;
 }
 
 .modal-content input[type="radio"] {
   appearance: none;
   background-color: #F7F7F8;
-  border: 3px solid #8C92AB;
+  border: 2.5px solid #8C92AB;
   border-radius: 50%;
-  width: 5px;
-  height: 5px;
-  padding: 8px;
+  width: 20px;
+  height: 20px;
   position: relative;
+  margin-right: 10px; /* 라디오 버튼과 텍스트 사이의 간격 */
 }
 
-.modal-content input[type="radio"]:checked {
-  border-color: #F96D69;
+.modal-content input[type="radio"]:checked::before {
+  content: ''; 
+  width: 8px; 
+  height: 8px;
+  border-radius: 50%; 
+  background-color: #F96D69; 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .modal-footer {
-
-  
   margin-top: 20px;
 }
 
@@ -93,44 +125,6 @@
 
 .modal-footer button:hover {
   background-color: #45a049;
-}
-
-.radio-label {
-  background-color: #02000E;
-  border: 1px solid #F7F7F8;
-  border-radius: 8px;
-  height: 62px;
-  display: flex;
-  padding: 0 20px;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 20px;
-  font-weight: 700;
-}
-
-.modal-content input[type="radio"]:checked + .radio-label {
-  border: 1px solid black; 
-}
-
-.radio-label img {
-  height: 16px;
-}
-
-.radio-credit-wrapper {
-  display: flex;
-  align-items: center;
-}
-
-.modal-content input[type="radio"]:checked::before {
-  content: ''; 
-  width: 8px; 
-  height: 8px;
-  border-radius: 50%; 
-  background-color: #F96D69; 
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 .button-close {

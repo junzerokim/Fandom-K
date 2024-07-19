@@ -3,7 +3,7 @@ import "./ThisMonthsChart.css";
 import IdolDetail from "../IdolDetail";
 import ChartVoteModal from "../ChartVoteModal/ChartVoteModal";
 import useIdolChart from "../../../../hooks/useIdolChart";
-import LoadingBar from "../../../../components/LoadingBar";
+import LoadingBar from "../../../../components/Loadingbar";
 import { CreditContext } from "../../../../components/CreditContextProvider";
 import LackOfCreditModal from "../LackOfCreditModal/LackOfCreditModal";
 

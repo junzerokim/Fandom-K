@@ -1,6 +1,6 @@
 import React from "react";
 import "./IdolDetail.css";
-import checkIcon from "../../MyPage/assets/images/ic_check.svg";
+import checkIcon from "../../Mypage/assets/images/ic_check.svg";
 
 function IdolDetail({
   idolData,

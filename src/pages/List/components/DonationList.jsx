@@ -3,7 +3,7 @@ import Slider from "react-slick";
 
 import calculateTime from "../../../utils/calculateTime";
 import formatNumber from "../../../utils/formatNumber";
-import LoadingBar from "../../../components/LoadingBar";
+import LoadingBar from "../../../components/Loadingbar";
 
 import "./DonationList.css";
 

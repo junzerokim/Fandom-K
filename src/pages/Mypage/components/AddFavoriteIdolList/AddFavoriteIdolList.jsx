@@ -8,7 +8,7 @@ import useIdolData from "../../hooks/useIdolData";
 import useIdolChunks from "../../hooks/useIdolChunks";
 import useShowArrow from "../../hooks/useShowArrow";
 
-import LoadingBar from "../../../../components/LoadingBar";
+import LoadingBar from "../../../../components/Loadingbar";
 import AddIdolListButton from "./AddIdolListButton/AddIdolListButton";
 
 function AddFavoriteIdolList({ myFavoriteIdolList, setMyFavoriteIdolList }) {

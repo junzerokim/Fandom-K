@@ -86,7 +86,7 @@ function DonationsModal({
         putDonations(selectedDonation, value);
         setReceivedDonations(newReceivedDonations);
       } catch (error) {
-        console.error("Failed to donate:", error);
+        console.error("후원하기 중 오류 발생:", error);
       } finally {
         closeModal();
       }

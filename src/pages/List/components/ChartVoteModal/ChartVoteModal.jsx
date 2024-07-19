@@ -27,14 +27,13 @@ function ChartVoteModal({ closeModal, idolRank, gender, updateIdolRank }) {
     if (selectedIdolId) {
       try {
         await postVotes(selectedIdolId);
-        console.log(`Successfully voted for idol with id: ${selectedIdolId}`);
         updateIdolRank();
 
         const newCredit = myCredit - 1000;
         handleCreditUpdate(newCredit);
         setMyCredit(newCredit);
       } catch (error) {
-        console.error("Failed to vote:", error);
+        console.error("차트 투표하기 중 오류 발생:", error);
       } finally {
         closeModal();
       }

@@ -6,22 +6,22 @@ const useDonationList = () => {
   const [loading, setLoading] = useState(true);
   const [fetchError, setFetchError] = useState(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await getDonations();
-        setDonations(response.list);
-        setLoading(false);
-      } catch (error) {
-        setFetchError(error);
-        setLoading(false);
-      }
-    };
+  const fetchData = async () => {
+    try {
+      const response = await getDonations();
+      setDonations(response.list);
+      setLoading(false);
+    } catch (error) {
+      setFetchError(error);
+      setLoading(false);
+    }
+  };
 
+  useEffect(() => {
     fetchData();
   }, []);
 
-  return { donations, loading, fetchError };
+  return { donations, loading, fetchError, fetchData };
 };
 
 export default useDonationList;

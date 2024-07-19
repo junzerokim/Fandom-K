@@ -16,6 +16,7 @@ function DonationsModal({
   title,
   closeModal,
   isOpen,
+  updateProgressbar,
 }) {
   const {
     handleCreditUpdate,
@@ -29,7 +30,7 @@ function DonationsModal({
   const [errorMessage, setErrorMessage] = useState("");
   const [myCredit, setMyCredit] = useState(localCredit);
   const [receivedDonations, setReceivedDonations] = useState(
-    localReceivedDonations,
+    localReceivedDonations
   );
   const [isDonationValid, setIsDonationValid] = useState(false);
 
@@ -61,13 +62,15 @@ function DonationsModal({
     console.log(receivedDonations); // localReceivedDonations 값
   };
 
-  // 클릭하면 조공완료, localstorage 크레딧 줄어든다.//receiveDonation 충전된다.
+  //클릭하면 조공완료, localstorage 크레딧 줄어든다.//receiveDonation 충전된다.
   const onClickDonations = async () => {
     if (selectedDonation) {
       try {
         const newCredit = myCredit - value;
         handleCreditUpdate(newCredit);
         setMyCredit(newCredit);
+
+        updateProgressbar();
 
         const newReceivedDonations = receivedDonations + value;
 
@@ -83,9 +86,19 @@ function DonationsModal({
     }
   };
 
-  // setTimeout(() => {
-  //   handleReceivedDonationsUpdate(newReceivedDonations);
-  // }, 500);
+  // const onClickDonations = () => {
+  //   const newCredit = myCredit - value;
+  //   setMyCredit(newCredit);
+  //   handleCreditUpdate(newCredit);
+
+  //   const newReceivedDonations = receivedDonations + value;
+
+  //   setReceivedDonations(newReceivedDonations);
+  //   console.log(receivedDonations);
+
+  //   setTimeout(() => {
+  //     handleReceivedDonationsUpdate(newReceivedDonations);
+  //   }, 500);
 
   //   console.log(`${receivedDonations} + ${value}`);
 

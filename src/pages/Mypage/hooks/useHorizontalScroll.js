@@ -12,7 +12,7 @@ const useHorizontalScroll = () => {
       e.preventDefault();
     };
 
-    container.addEventListener("wheel", handleWheel, { passive: true });
+    container.addEventListener("wheel", handleWheel);
 
     return () => {
       container.removeEventListener("wheel", handleWheel);

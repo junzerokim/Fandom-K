@@ -1,11 +1,11 @@
-import React, { useEffect, useRef } from 'react';
-import './MyFavoriteIdolList.css';
-import MyIdolListItem from './MyIdolListItem/MyIdolListItem';
+import React, { useEffect, useRef } from "react";
+import "./MyFavoriteIdolList.css";
+import MyIdolListItem from "./MyIdolListItem/MyIdolListItem";
 
 function MyFavoriteIdolList({ myFavoriteIdolList, setMyFavoriteIdolList }) {
   const handleDeleteIdolButtonClick = (deleteIdolId) => {
     const updatedIdolList = myFavoriteIdolList.filter(
-      (idol) => idol.id !== deleteIdolId,
+      (idol) => idol.id !== deleteIdolId
     );
     setMyFavoriteIdolList(updatedIdolList);
   };
@@ -21,10 +21,10 @@ function MyFavoriteIdolList({ myFavoriteIdolList, setMyFavoriteIdolList }) {
       e.preventDefault();
     };
 
-    container.addEventListener('wheel', handleWheel);
+    container.addEventListener("wheel", handleWheel, { passive: true });
 
     return () => {
-      container.removeEventListener('wheel', handleWheel);
+      container.removeEventListener("wheel", handleWheel);
     };
   }, []);
 

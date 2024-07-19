@@ -37,6 +37,7 @@
     color: rgba(255, 255, 255, 0.6);
   }
 }
+
 .idol-info {
   display: flex;
   align-items: center;
@@ -77,15 +78,5 @@
     @media (max-width: 1199px) {
       font-size: 14px;
     }
-  }
-}
-@media (max-width: 767px) {
-  .icon-btn-close {
-    width: 24px;
-    height: 24px;
-    background: url(./../../../assets/images/icon_arrow_left.svg) no-repeat
-      center center;
-    background-size: cover;
-    display: block;
   }
 }

@@ -41,6 +41,16 @@
       left: 20px;
       top: 18px;
     }
+    .icon-btn-close {
+      @media (max-width: 767px) {
+        width: 24px;
+        height: 24px;
+        background: url(../../../../assets/images/icon_arrow_left.svg) no-repeat
+          center center !important;
+        background-size: cover;
+        display: block;
+      }
+    }
   }
 
   .modal-content {

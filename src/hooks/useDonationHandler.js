@@ -1,12 +1,20 @@
 import { useEffect, useState } from "react";
+import putDonations from "../service/putApi";
 
-const useDonationHandler = () => {
+const useDonationHandler = (
+  handleCreditUpdate,
+  handleReceivedDonationsUpdate,
+  localReceivedDonations,
+  localCredit,
+  selectedDonation,
+  updateProgressbar,
+  closeModal
+) => {
   const [value, setValue] = useState("");
-  const [buttonType, setButtonType] = useState("inactive");
   const [errorMessage, setErrorMessage] = useState("");
   const [myCredit, setMyCredit] = useState(localCredit);
   const [receivedDonations, setReceivedDonations] = useState(
-    localReceivedDonations,
+    localReceivedDonations
   );
   const [isDonationValid, setIsDonationValid] = useState(false);
 
@@ -20,24 +28,22 @@ const useDonationHandler = () => {
     setValue(inputValue);
 
     if (inputValue === "") {
-      setButtonType("inactive");
       setErrorMessage("");
       setIsDonationValid(false);
     } else {
       const numericValue = parseInt(inputValue, 10);
       const isValueExceedsCredit = numericValue > myCredit;
-      const isDonationExceedsGoal = selectedDonation.receivedDonations + numericValue > selectedDonation.targetDonation;
+      const isDonationExceedsGoal =
+        selectedDonation.receivedDonations + numericValue >
+        selectedDonation.targetDonation;
 
       if (isValueExceedsCredit) {
-        setButtonType("inactive");
         setErrorMessage("갖고 있는 크레딧보다 더 많이 후원할 수 없어요");
         setIsDonationValid(false);
       } else if (isDonationExceedsGoal) {
-        setButtonType("inactive");
         setErrorMessage("후원 금액이 목표 금액을 초과합니다");
         setIsDonationValid(false);
       } else {
-        setButtonType("active");
         setErrorMessage("");
         setIsDonationValid(true);
       }
@@ -66,7 +72,13 @@ const useDonationHandler = () => {
     }
   };
 
-  return { pageSize, displayCount, setPageSize, setDisplayCount };
+  return {
+    value,
+    errorMessage,
+    isDonationValid,
+    handleInputChange,
+    onClickDonations,
+  };
 };
 
 export default useDonationHandler;

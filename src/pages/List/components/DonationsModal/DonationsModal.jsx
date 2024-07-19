@@ -4,6 +4,7 @@ import "./DonationsModal.css";
 import CloseButton from "./CloseButton";
 import useEscapeModal from "../../../../hooks/useEscapeModal";
 import { CreditContext } from "../../../../components/CreditContextProvider";
+import sendPutRequest from "../../../../service/receivedDonationApi";
 
 function DonationsModal({
   localCredit,
@@ -40,24 +41,44 @@ function DonationsModal({
     console.log("업데이트 된 localReceived 받은 값:", receivedDonations);
   }, [localCredit, localReceivedDonations]);
 
-  // 내 크레딧 값보다 적으면 활성화된다.
   // input 값에 따라 업로드
   const handleInputChange = (e) => {
-    const inputValue = parseInt(e.target.value, 10);
+    const inputValue = e.target.value.trim();
     setValue(inputValue);
 
-    const ValidDonation = myCredit >= inputValue;
-    if (ValidDonation) {
-      setbuttonType("active");
-      setErrorMessage("");
-      setbuttonType("active");
-      setErrorMessage("");
-      setIsDonationValid(true);
-    } else {
+    if (inputValue === "") {
       setbuttonType("inactive");
-      setErrorMessage("갖고 있는 크레딧보다 더 많이 후원할 수 없어요");
+      setErrorMessage("");
       setIsDonationValid(false);
+    } else {
+      const numericValue = parseInt(inputValue, 10);
+
+      if (isNaN(numericValue)) {
+        // 숫자가 아닌 경우
+        setbuttonType("inactive");
+        setErrorMessage("유효한 숫자를 입력하세요");
+        setIsDonationValid(false);
+      } else if (numericValue > myCredit) {
+        // 후원 금액이 보유 크레딧을 초과하는 경우
+        setbuttonType("inactive");
+        setErrorMessage("갖고 있는 크레딧보다 더 많이 후원할 수 없어요");
+        setIsDonationValid(false);
+      } else if (
+        selectedDonation.receivedDonations + numericValue >
+        selectedDonation.targetDonation
+      ) {
+        // 후원 금액이 목표 금액을 초과하는 경우
+        setbuttonType("inactive");
+        setErrorMessage("후원 금액이 목표 금액을 초과합니다");
+        setIsDonationValid(false);
+      } else {
+        // 유효한 입력값인 경우
+        setbuttonType("active");
+        setErrorMessage("");
+        setIsDonationValid(true);
+      }
     }
+
     console.log(receivedDonations); // localReceivedDonations 값
   };
 
@@ -84,25 +105,6 @@ function DonationsModal({
       }
     }
   };
-
-  // const onClickDonations = () => {
-  //   const newCredit = myCredit - value;
-  //   setMyCredit(newCredit);
-  //   handleCreditUpdate(newCredit);
-
-  //   const newReceivedDonations = receivedDonations + value;
-
-  //   setReceivedDonations(newReceivedDonations);
-  //   console.log(receivedDonations);
-
-  //   setTimeout(() => {
-  //     handleReceivedDonationsUpdate(newReceivedDonations);
-  //   }, 500);
-
-  //   console.log(`${receivedDonations} + ${value}`);
-
-  //   closeModal();
-  // };
 
   const handleBackgroundClick = (e) => {
     if (e.target === e.currentTarget) {

@@ -1,28 +1,3 @@
-// import { useContext } from "react";
-// import { CreditContext } from "../components/CreditContextProvider";
-
-// export default async function sendPutRequest(selectedDonation, value) {
-//   // const { localReceivedDonations } = useContext(CreditContext);
-//   const selectedId = selectedDonation.id;
-//   const apiUrl = `https://fandom-k-api.vercel.app/8-3/donations/${selectedId}/contribute`;
-
-//   try {
-//     const response = await fetch(apiUrl, {
-//       method: "PUT",
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify({ amount: value }),
-//     });
-//     if (!response.ok) {
-//       throw new Error("크레딧 업데이트에 실패했습니다");
-//     }
-//   } catch (error) {
-//     console.error("크레딧 업데이트 중 오류 발생:", error);
-//     throw error; // 오류를 호출한 컴포넌트나 함수에서 처리할 수 있도록 다시 throw합니다
-//   }
-// }
-
 export default async function sendPutRequest(selectedDonation, value) {
   const selectedId = selectedDonation.id;
   await fetch(

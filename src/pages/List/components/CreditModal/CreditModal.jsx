@@ -1,5 +1,4 @@
 import React, { useState, useContext } from "react";
-
 import "./CreditModal.css";
 import CreditIcon from "../../../../assets/images/ico_credit.png";
 import CreditWhiteIcon from "../../../../assets/images/ico_credit.svg";
@@ -24,6 +23,7 @@ function CreditModal({ onClose }) {
           {creditOptions.map((credit) => (
             <label
               key={credit}
+              className={`radio-label ${selectedCredit === credit ? "selected" : ""}`} // 선택된 라디오 버튼에 클래스 추가
               className={`radio-label ${selectedCredit === credit ? "selected" : ""}`} // 선택된 라디오 버튼에 클래스 추가
               htmlFor={`credit-${credit}`}
             >

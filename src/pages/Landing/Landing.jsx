@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
-import './Landing.css';
-import { Helmet } from 'react-helmet';
-import { Link } from 'react-router-dom';
-import logo from '../../assets/images/logo_pandom_k.svg';
-import mobile1 from '../../assets/images/img_sec01_mobile.png';
-import mobile2 from '../../assets/images/img_sec02_mobile.png';
-import mobile3 from '../../assets/images/img_sec03_mobile.png';
+import React, { useEffect } from "react";
+import "./Landing.css";
+import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
+import logo from "../../assets/images/logo_pandom_k.svg";
+import mobile1 from "../../assets/images/img_sec01_mobile.png";
+import mobile2 from "../../assets/images/img_sec02_mobile.png";
+import mobile3 from "../../assets/images/img_sec03_mobile.png";
 
 function Landing() {
   useEffect(() => {
@@ -13,7 +13,7 @@ function Landing() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('show');
+            entry.target.classList.add("show");
           }
         });
       },
@@ -22,7 +22,7 @@ function Landing() {
       },
     );
 
-    const elements = document.querySelectorAll('.animate');
+    const elements = document.querySelectorAll(".animate");
     elements.forEach((el) => observer.observe(el));
 
     return () => {
@@ -32,7 +32,7 @@ function Landing() {
 
   const clearLocalStorage = () => {
     localStorage.clear();
-    console.log('localStorage가 초기화되었습니다.');
+    console.log("localStorage가 초기화되었습니다.");
   };
 
   return (

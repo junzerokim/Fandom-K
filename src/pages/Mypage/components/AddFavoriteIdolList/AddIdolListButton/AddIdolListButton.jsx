@@ -1,6 +1,6 @@
-import React from 'react';
-import './AddIdolListButton.css';
-import AddIdolListItem from '../AddIdolListItem/AddIdolListItem';
+import React from "react";
+import "./AddIdolListButton.css";
+import AddIdolListItem from "../AddIdolListItem/AddIdolListItem";
 
 function AddIdolListButton({ idolChunk, onClick, isSelected }) {
   return (

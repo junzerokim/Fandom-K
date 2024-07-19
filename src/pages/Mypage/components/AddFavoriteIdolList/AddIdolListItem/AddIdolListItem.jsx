@@ -1,6 +1,6 @@
-import React from 'react';
-import './AddIdolListItem.css';
-import checkIcon from '../../../assets/images/ic_check.svg';
+import React from "react";
+import "./AddIdolListItem.css";
+import checkIcon from "../../../assets/images/ic_check.svg";
 
 function AddIdolListItem({ isSelected, idolData }) {
   const { name, group, profilePicture } = idolData;

@@ -9,7 +9,7 @@ export default async function sendPutRequest(selectedDonation, value) {
         // 필요한 경우 인증 토큰 등의 헤더도 추가할 수 있습니다.
       },
       body: JSON.stringify({ amount: value }),
-    }
+    },
   )
     .then((response) => response.json())
     .then((data) => {

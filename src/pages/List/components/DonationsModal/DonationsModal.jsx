@@ -30,7 +30,7 @@ function DonationsModal({
   const [errorMessage, setErrorMessage] = useState("");
   const [myCredit, setMyCredit] = useState(localCredit);
   const [receivedDonations, setReceivedDonations] = useState(
-    localReceivedDonations
+    localReceivedDonations,
   );
   const [isDonationValid, setIsDonationValid] = useState(false);
 
@@ -82,7 +82,7 @@ function DonationsModal({
     console.log(receivedDonations); // localReceivedDonations 값
   };
 
-  //클릭하면 조공완료, localstorage 크레딧 줄어든다.//receiveDonation 충전된다.
+  // 클릭하면 조공완료, localstorage 크레딧 줄어든다.//receiveDonation 충전된다.
   const onClickDonations = async () => {
     if (selectedDonation) {
       try {
@@ -94,8 +94,8 @@ function DonationsModal({
 
         const newReceivedDonations = receivedDonations + value;
 
-        await handleReceivedDonationsUpdate(newReceivedDonations); //localReceivedDonations를 newReceivedDonations로 업데이트
-        sendPutRequest(selectedDonation, value); //서버에 put 요청
+        await handleReceivedDonationsUpdate(newReceivedDonations); // localReceivedDonations를 newReceivedDonations로 업데이트
+        sendPutRequest(selectedDonation, value); // 서버에 put 요청
 
         setReceivedDonations(newReceivedDonations);
       } catch (error) {

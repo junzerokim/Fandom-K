@@ -9,7 +9,7 @@ const useSaveMyIdol = () => {
   useEffect(() => {
     localStorage.setItem(
       "my-favorite-idol",
-      JSON.stringify(myFavoriteIdolList)
+      JSON.stringify(myFavoriteIdolList),
     );
   }, [myFavoriteIdolList]);
 

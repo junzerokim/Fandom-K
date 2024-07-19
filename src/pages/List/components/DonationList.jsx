@@ -91,7 +91,7 @@ function DonationsList() {
         },
       ],
     }),
-    []
+    [],
   );
 
   if (loading) {

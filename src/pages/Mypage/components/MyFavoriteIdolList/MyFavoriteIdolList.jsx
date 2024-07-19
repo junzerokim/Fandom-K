@@ -8,7 +8,7 @@ function MyFavoriteIdolList({ myFavoriteIdolList, setMyFavoriteIdolList }) {
 
   const handleDeleteIdolButtonClick = (deleteIdolId) => {
     const updatedIdolList = myFavoriteIdolList.filter(
-      (idol) => idol.id !== deleteIdolId
+      (idol) => idol.id !== deleteIdolId,
     );
     setMyFavoriteIdolList(updatedIdolList);
   };

@@ -3,7 +3,7 @@ import { useState } from "react";
 const useManageIdols = (
   idolData,
   myFavoriteIdolList,
-  setMyFavoriteIdolList
+  setMyFavoriteIdolList,
 ) => {
   // 특정 아이돌이 선택되었는지 여부를 { 아이디 : 선택 여부 }로 이루어진 객체로 저장
   const [isSelected, setIsSelected] = useState({});
@@ -31,8 +31,8 @@ const useManageIdols = (
     const filteredSelectedIdolList = selectedIdolList.filter(
       (idol) =>
         !existingLocalStorageData.some(
-          (existingIdol) => existingIdol.id === idol.id
-        )
+          (existingIdol) => existingIdol.id === idol.id,
+        ),
     );
     const updatedLocalStorageData = [
       ...existingLocalStorageData,

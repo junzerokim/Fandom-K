@@ -6,7 +6,7 @@ const useChartVoteHandler = (
   idolRank,
   updateIdolRank,
   handleCreditUpdate,
-  localCredit
+  localCredit,
 ) => {
   const [selectedIdolId, setSelectedIdolId] = useState(null);
   const [myCredit, setMyCredit] = useState(localCredit);

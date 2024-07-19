@@ -8,13 +8,13 @@ const useDonationHandler = (
   localCredit,
   selectedDonation,
   updateProgressbar,
-  closeModal
+  closeModal,
 ) => {
   const [value, setValue] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [myCredit, setMyCredit] = useState(localCredit);
   const [receivedDonations, setReceivedDonations] = useState(
-    localReceivedDonations
+    localReceivedDonations,
   );
   const [isDonationValid, setIsDonationValid] = useState(false);
 

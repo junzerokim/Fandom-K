@@ -43,7 +43,7 @@ function DonationsModal({
     localCredit,
     selectedDonation,
     updateProgressbar,
-    closeModal
+    closeModal,
   );
 
   useEscapeModal(closeModal);

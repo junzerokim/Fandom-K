@@ -15,7 +15,7 @@ function ChartVoteModal({ closeModal, idolRank, gender, updateIdolRank }) {
       idolRank,
       updateIdolRank,
       handleCreditUpdate,
-      localCredit
+      localCredit,
     );
   useEscapeModal(closeModal);
 

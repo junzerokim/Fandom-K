@@ -125,11 +125,6 @@ function DonationsList() {
                   disabled={
                     donation.receivedDonations >= donation.targetDonation
                   }
-                  className={
-                    donation.receivedDonations >= donation.targetDonation
-                      ? "button_inactive"
-                      : "button_active"
-                  }
                 >
                   후원하기
                 </button>

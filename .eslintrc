@@ -1,11 +1,11 @@
-{
-  "extends": ["react-app", "airbnb", "plugin:prettier/recommended"],
-  "plugins": ["prettier"],
-  "rules": {
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
-    "react/prop-types": "off",
-    "react/button-has-type": "off",
-    "comma-dangle": "off",
-  },
-}
+// {
+//   "extends": ["react-app", "airbnb", "plugin:prettier/recommended"],
+//   "plugins": ["prettier"],
+//   "rules": {
+//     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+//     "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+//     "react/prop-types": "off",
+//     "react/button-has-type": "off",
+//     "comma-dangle": "off",
+//   },
+// }

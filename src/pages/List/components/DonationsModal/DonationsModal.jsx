@@ -43,7 +43,7 @@ function DonationsModal({
     localCredit,
     selectedDonation,
     updateProgressbar,
-    closeModal,
+    closeModal
   );
 
   useEscapeModal(closeModal);
@@ -52,15 +52,12 @@ function DonationsModal({
 
   return (
     <div
-      className="donation-background"
+      className="modal-overlay"
       onClick={(e) => handleBackgroundClick(e, closeModal)}
     >
-      <div
-        className="donation-modal"
-        style={{ height: errorMessage ? "529px" : "509px" }}
-      >
-        <div className="donation-header">
-          <h2>후원하기</h2>
+      <div className="modal modal-donation">
+        <div className="modal-header">
+          <h4 className="title">후원하기</h4>
           <CloseButton onClick={closeModal} />
         </div>
         <div className="modal-content">

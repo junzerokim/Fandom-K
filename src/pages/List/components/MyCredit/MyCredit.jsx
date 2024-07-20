@@ -13,7 +13,7 @@ function MyCredit() {
   }, [localCredit]);
 
   return (
-    <seciton className="section credit">
+    <section className="section credit">
       <div className="credit-wrap">
         <div className="credit-balance-group">
           <p className="credit-title">내 크레딧</p>
@@ -31,7 +31,7 @@ function MyCredit() {
         </button>
       </div>
       {isModalOpen && <CreditModal onClose={() => setIsModalOpen(false)} />}
-    </seciton>
+    </section>
   );
 }
 

@@ -2,11 +2,12 @@ import { useState, useEffect } from "react";
 import postVotes from "../service/postApi";
 
 const useChartVoteHandler = (
+  gender,
   closeModal,
   idolRank,
   updateIdolRank,
   handleCreditUpdate,
-  localCredit,
+  localCredit
 ) => {
   const [selectedIdolId, setSelectedIdolId] = useState(null);
   const [myCredit, setMyCredit] = useState(localCredit);
@@ -17,7 +18,7 @@ const useChartVoteHandler = (
     if (idolRank.length > 0) {
       setSelectedIdolId(idolRank[0].id);
     }
-  }, [idolRank, localCredit]);
+  }, [idolRank, gender]);
 
   const handleIdolRadioClick = (idolId) => {
     setSelectedIdolId(idolId);

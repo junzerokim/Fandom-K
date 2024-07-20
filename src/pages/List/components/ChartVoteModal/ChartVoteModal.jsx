@@ -11,11 +11,12 @@ function ChartVoteModal({ closeModal, idolRank, gender, updateIdolRank }) {
   const { handleCreditUpdate, localCredit } = useContext(CreditContext);
   const { selectedIdolId, handleIdolRadioClick, handleVoteButtonClick } =
     useChartVoteHandler(
+      gender,
       closeModal,
       idolRank,
       updateIdolRank,
       handleCreditUpdate,
-      localCredit,
+      localCredit
     );
   useEscapeModal(closeModal);
 

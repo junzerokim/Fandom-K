@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
-import logo from "../assets/images/logo_pandom_k.svg";
-import profile from "../assets/images/img_header_profile.png";
-import "./Header.css";
+import logo from '../assets/images/logo_pandom_k.svg';
+import profile from '../assets/images/img_header_profile.png';
+import './Header.css';
 
 function Header() {
   const [showHeader, setShowHeader] = useState(true);
@@ -21,14 +21,14 @@ function Header() {
       setLastScrollY(window.scrollY);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, [lastScrollY]);
   return (
-    <header className={`header ${showHeader ? "visible" : "hidden"}`}>
+    <header className={`header ${showHeader ? 'visible' : 'hidden'}`}>
       <div className="header-wrap">
         <Link to="/list" className="header-logo">
           <img src={logo} alt="Fandom-k logo" />

@@ -74,7 +74,7 @@ function DonationsList() {
     setSelectedDonation,
     localCredit,
     setLocalReceivedDonations,
-    fetchData
+    fetchData,
   );
 
   const sliderSettings = useMemo(
@@ -99,7 +99,7 @@ function DonationsList() {
         },
       ],
     }),
-    []
+    [],
   );
 
   if (loading) {

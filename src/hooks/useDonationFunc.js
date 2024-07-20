@@ -5,7 +5,7 @@ const useDonationFunc = (
   setSelectedDonation,
   localCredit,
   setLocalReceivedDonations,
-  fetchData
+  fetchData,
 ) => {
   const [showDonationsModal, setShowDonationsModal] = useState(false);
   const [showLackOfCreditModal, setShowLackOfCreditModal] = useState(false);

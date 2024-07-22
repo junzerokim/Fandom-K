@@ -11,13 +11,13 @@ function DonationsModal({
   closeModal,
   isOpen,
   updateProgressbar,
-  localReceivedDonations,
+  myReceivedDonations,
 }) {
   const { handleCreditUpdate, localCredit, selectedDonation } = useContext(CreditContext);
 
   const { value, errorMessage, isDonationValid, handleInputChange, onClickDonations } = useDonationHandler(
     handleCreditUpdate,
-    localReceivedDonations,
+    myReceivedDonations,
     localCredit,
     selectedDonation,
     updateProgressbar,

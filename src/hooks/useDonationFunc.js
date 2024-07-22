@@ -3,7 +3,7 @@ import { useState, useEffect, useCallback, useMemo } from 'react';
 const useDonationFunc = (selectedDonation, setSelectedDonation, localCredit) => {
   const [showDonationsModal, setShowDonationsModal] = useState(false);
   const [showLackOfCreditModal, setShowLackOfCreditModal] = useState(false);
-  const [localReceivedDonations, setLocalReceivedDonations] = useState();
+  const [myReceivedDonations, setMyReceivedDonations] = useState();
 
   const openLackOfCreditModal = useCallback(() => {
     setShowLackOfCreditModal(true);
@@ -19,8 +19,8 @@ const useDonationFunc = (selectedDonation, setSelectedDonation, localCredit) => 
 
   useEffect(() => {
     if (!selectedDonation) return;
-    setLocalReceivedDonations(selectedDonation.receivedDonations);
-  }, [selectedDonation, setLocalReceivedDonations]);
+    setMyReceivedDonations(selectedDonation.receivedDonations);
+  }, [selectedDonation, setMyReceivedDonations]);
 
   const openModal = useCallback(
     (donation) => {
@@ -41,9 +41,9 @@ const useDonationFunc = (selectedDonation, setSelectedDonation, localCredit) => 
       showLackOfCreditModal,
       openModal,
       closeModal,
-      localReceivedDonations,
+      myReceivedDonations,
     }),
-    [showDonationsModal, showLackOfCreditModal, localReceivedDonations, openModal, closeModal],
+    [showDonationsModal, showLackOfCreditModal, myReceivedDonations, openModal, closeModal],
   );
 
   return memoizedValues;

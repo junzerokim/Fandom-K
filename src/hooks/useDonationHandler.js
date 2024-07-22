@@ -3,7 +3,7 @@ import putDonations from '../api/putApi';
 
 const useDonationHandler = (
   handleCreditUpdate,
-  localReceivedDonations,
+  myReceivedDonations,
   localCredit,
   selectedDonation,
   updateProgressbar,
@@ -12,13 +12,13 @@ const useDonationHandler = (
   const [value, setValue] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [myCredit, setMyCredit] = useState(localCredit);
-  const [receivedDonations, setReceivedDonations] = useState(localReceivedDonations);
+  const [receivedDonations, setReceivedDonations] = useState(myReceivedDonations);
   const [isDonationValid, setIsDonationValid] = useState(false);
 
   useEffect(() => {
     setMyCredit(localCredit);
-    setReceivedDonations(localReceivedDonations);
-  }, [localCredit, localReceivedDonations]);
+    setReceivedDonations(myReceivedDonations);
+  }, [localCredit, myReceivedDonations]);
 
   const validateDonation = useCallback(({ isValueExceedsCredit, isDonationExceedsGoal }) => {
     if (!isValueExceedsCredit && !isDonationExceedsGoal) {

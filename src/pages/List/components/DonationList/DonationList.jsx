@@ -18,7 +18,7 @@ function DonationsList() {
 
   const { donations, loading, fetchData } = useDonationList();
 
-  const { showDonationsModal, showLackOfCreditModal, openModal, closeModal, localReceivedDonations } = useDonationFunc(
+  const { showDonationsModal, showLackOfCreditModal, openModal, closeModal, myReceivedDonations } = useDonationFunc(
     selectedDonation,
     setSelectedDonation,
     localCredit,
@@ -127,7 +127,7 @@ function DonationsList() {
             closeModal={closeModal}
             isOpen={showDonationsModal}
             updateProgressbar={updateProgressbar}
-            localReceivedDonations={localReceivedDonations}
+            myReceivedDonations={myReceivedDonations}
           />
         )}
         {showLackOfCreditModal && <LackOfCreditModal closeModal={closeModal} />}

@@ -1,8 +1,9 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
 
-const useDonationFunc = (selectedDonation, setSelectedDonation, localCredit, setLocalReceivedDonations) => {
+const useDonationFunc = (selectedDonation, setSelectedDonation, localCredit) => {
   const [showDonationsModal, setShowDonationsModal] = useState(false);
   const [showLackOfCreditModal, setShowLackOfCreditModal] = useState(false);
+  const [localReceivedDonations, setLocalReceivedDonations] = useState();
 
   const openLackOfCreditModal = useCallback(() => {
     setShowLackOfCreditModal(true);
@@ -40,8 +41,9 @@ const useDonationFunc = (selectedDonation, setSelectedDonation, localCredit, set
       showLackOfCreditModal,
       openModal,
       closeModal,
+      localReceivedDonations,
     }),
-    [showDonationsModal, showLackOfCreditModal, openModal, closeModal],
+    [showDonationsModal, showLackOfCreditModal, localReceivedDonations, openModal, closeModal],
   );
 
   return memoizedValues;

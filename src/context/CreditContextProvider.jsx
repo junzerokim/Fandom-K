@@ -10,7 +10,6 @@ function CreditContextProvider({ children }) {
 
   const [selectedDonation, setSelectedDonation] = useState({});
   const [localCredit, setLocalCredit] = useState(initialCredit());
-  const [localReceivedDonations, setLocalReceivedDonations] = useState();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleCreditUpdate = (newCredit) => {
@@ -29,8 +28,6 @@ function CreditContextProvider({ children }) {
   const contextValue = useMemo(() => {
     return {
       localCredit,
-      localReceivedDonations,
-      setLocalReceivedDonations,
       handleCreditUpdate,
       handleRecharge,
       selectedDonation,
@@ -38,7 +35,7 @@ function CreditContextProvider({ children }) {
       isModalOpen,
       setIsModalOpen,
     };
-  }, [localCredit, localReceivedDonations, selectedDonation, isModalOpen, handleRecharge]);
+  }, [localCredit, selectedDonation, isModalOpen, handleRecharge]);
 
   return <CreditContext.Provider value={contextValue}>{children}</CreditContext.Provider>;
 }

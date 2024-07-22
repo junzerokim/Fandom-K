@@ -3,7 +3,6 @@ import putDonations from '../api/putApi';
 
 const useDonationHandler = (
   handleCreditUpdate,
-  handleReceivedDonationsUpdate,
   localReceivedDonations,
   localCredit,
   selectedDonation,
@@ -64,7 +63,6 @@ const useDonationHandler = (
 
         const newReceivedDonations = receivedDonations + value;
         await putDonations(selectedDonation, value);
-        handleReceivedDonationsUpdate(newReceivedDonations);
         setReceivedDonations(newReceivedDonations);
         updateProgressbar();
       } catch (error) {
@@ -73,16 +71,7 @@ const useDonationHandler = (
         closeModal();
       }
     }
-  }, [
-    myCredit,
-    value,
-    receivedDonations,
-    selectedDonation,
-    handleCreditUpdate,
-    updateProgressbar,
-    handleReceivedDonationsUpdate,
-    closeModal,
-  ]);
+  }, [myCredit, value, receivedDonations, selectedDonation, handleCreditUpdate, updateProgressbar, closeModal]);
 
   return useMemo(
     () => ({

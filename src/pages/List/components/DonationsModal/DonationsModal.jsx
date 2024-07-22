@@ -5,12 +5,10 @@ import Modal from '../../../../components/Modal';
 import './DonationsModal.css';
 
 function DonationsModal({ profilePicture, subtitle, title, closeModal, isOpen, updateProgressbar }) {
-  const { handleCreditUpdate, handleReceivedDonationsUpdate, localReceivedDonations, localCredit, selectedDonation } =
-    useContext(CreditContext);
+  const { handleCreditUpdate, localReceivedDonations, localCredit, selectedDonation } = useContext(CreditContext);
 
   const { value, errorMessage, isDonationValid, handleInputChange, onClickDonations } = useDonationHandler(
     handleCreditUpdate,
-    handleReceivedDonationsUpdate,
     localReceivedDonations,
     localCredit,
     selectedDonation,

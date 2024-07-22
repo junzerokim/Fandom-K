@@ -18,10 +18,6 @@ function CreditContextProvider({ children }) {
     localStorage.setItem('myCredit', newCredit.toString());
   };
 
-  const handleReceivedDonationsUpdate = (newReceivedDonations) => {
-    setLocalReceivedDonations(newReceivedDonations);
-  };
-
   const handleRecharge = useCallback(
     (amount) => {
       setLocalCredit(localCredit + amount);
@@ -36,7 +32,6 @@ function CreditContextProvider({ children }) {
       localReceivedDonations,
       setLocalReceivedDonations,
       handleCreditUpdate,
-      handleReceivedDonationsUpdate,
       handleRecharge,
       selectedDonation,
       setSelectedDonation,

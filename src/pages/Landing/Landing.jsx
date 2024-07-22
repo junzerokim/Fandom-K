@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import logo from '../../assets/images/logo_pandom_k.svg';
+import logo from '../../assets/images/logo_fandom_k.svg';
 import mobile1 from '../../assets/images/img_sec01_mobile.png';
 import mobile2 from '../../assets/images/img_sec02_mobile.png';
 import mobile3 from '../../assets/images/img_sec03_mobile.png';

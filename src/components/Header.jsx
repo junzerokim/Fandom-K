@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import logo from '../assets/images/logo_pandom_k.svg';
+import logo from '../assets/images/logo_fandom_k.svg';
 import profile from '../assets/images/img_header_profile.png';
 import './Header.css';
 
@@ -12,10 +12,8 @@ function Header() {
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > lastScrollY) {
-        // 스크롤을 내릴 때
         setShowHeader(false);
       } else {
-        // 스크롤을 올릴 때
         setShowHeader(true);
       }
       setLastScrollY(window.scrollY);
@@ -27,6 +25,7 @@ function Header() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, [lastScrollY]);
+
   return (
     <header className={`header ${showHeader ? 'visible' : 'hidden'}`}>
       <div className="header-wrap">

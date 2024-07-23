@@ -14,15 +14,14 @@ import DonationsModal from '../DonationsModal/DonationsModal';
 import LackOfCreditModal from '../LackOfCreditModal/LackOfCreditModal';
 
 function DonationsList() {
-  const { selectedDonation, setSelectedDonation, localCredit, setLocalReceivedDonations } = useContext(CreditContext);
+  const { selectedDonation, setSelectedDonation, localCredit } = useContext(CreditContext);
 
   const { donations, loading, fetchData } = useDonationList();
 
-  const { showDonationsModal, showLackOfCreditModal, openModal, closeModal } = useDonationFunc(
+  const { showDonationsModal, showLackOfCreditModal, openModal, closeModal, myReceivedDonations } = useDonationFunc(
     selectedDonation,
     setSelectedDonation,
     localCredit,
-    setLocalReceivedDonations,
   );
 
   const updateProgressbar = () => {
@@ -128,6 +127,7 @@ function DonationsList() {
             closeModal={closeModal}
             isOpen={showDonationsModal}
             updateProgressbar={updateProgressbar}
+            myReceivedDonations={myReceivedDonations}
           />
         )}
         {showLackOfCreditModal && <LackOfCreditModal closeModal={closeModal} />}

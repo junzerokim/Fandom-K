@@ -4,14 +4,20 @@ import { CreditContext } from '../../../../context/CreditContextProvider';
 import Modal from '../../../../components/Modal';
 import './DonationsModal.css';
 
-function DonationsModal({ profilePicture, subtitle, title, closeModal, isOpen, updateProgressbar }) {
-  const { handleCreditUpdate, handleReceivedDonationsUpdate, localReceivedDonations, localCredit, selectedDonation } =
-    useContext(CreditContext);
+function DonationsModal({
+  profilePicture,
+  subtitle,
+  title,
+  closeModal,
+  isOpen,
+  updateProgressbar,
+  myReceivedDonations,
+}) {
+  const { handleCreditUpdate, localCredit, selectedDonation } = useContext(CreditContext);
 
   const { value, errorMessage, isDonationValid, handleInputChange, onClickDonations } = useDonationHandler(
     handleCreditUpdate,
-    handleReceivedDonationsUpdate,
-    localReceivedDonations,
+    myReceivedDonations,
     localCredit,
     selectedDonation,
     updateProgressbar,
